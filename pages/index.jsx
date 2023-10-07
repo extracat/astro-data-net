@@ -1,8 +1,5 @@
 const api = new (require('../controllers/api'))();
 
-
-// TODO: Need to fetch `posts` (by calling some API endpoint)
-//       before this page can be pre-rendered.
 export default function Index({ telegrams }) {
   return (
     <ul>
@@ -13,7 +10,9 @@ export default function Index({ telegrams }) {
   )
 }
  
-// This function gets called at build time
+// This function gets called at build time on server-side.
+// It may be called again, on a serverless function, if
+// revalidation is enabled and a new request comes in
 export async function getStaticProps() {
   
   const telegrams = await api.getTelegrams();
@@ -24,5 +23,9 @@ export async function getStaticProps() {
     props: {
       telegrams,
     },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 10, // In seconds
   }
 }

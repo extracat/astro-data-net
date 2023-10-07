@@ -1,8 +1,5 @@
 const api = new (require('../../controllers/api'))();
 
-
-// TODO: Need to fetch `posts` (by calling some API endpoint)
-//       before this page can be pre-rendered.
 export default function Telegram({ telegram }) {
   return (
     <>
