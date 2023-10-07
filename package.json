@@ -1,0 +1,8 @@
+{
+  "name": "astro-data-net",
+  "version": "1.0.0",
+  "description": "Astro Data Network next.js client",
+  "author": "Anton Basistov",
+  "license": "MIT",
+  "main": "index.js"
+}
