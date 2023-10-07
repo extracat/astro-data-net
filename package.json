@@ -4,5 +4,10 @@
   "description": "Astro Data Network next.js client",
   "author": "Anton Basistov",
   "license": "MIT",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
 }
