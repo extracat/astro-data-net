@@ -1,3 +1,6 @@
+const api = new (require('../controllers/api'))();
+
+
 // TODO: Need to fetch `posts` (by calling some API endpoint)
 //       before this page can be pre-rendered.
 export default function Index({ telegrams }) {
@@ -12,12 +15,11 @@ export default function Index({ telegrams }) {
  
 // This function gets called at build time
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://astro-data-api.vercel.app/api/v1/telegrams')
-  const telegrams = await res.json()
+  
+  const telegrams = await api.getTelegrams();
  
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
+  // By returning { props: { telegrams } }, the Index component
+  // will receive `telegrams` as a prop at build time
   return {
     props: {
       telegrams,
