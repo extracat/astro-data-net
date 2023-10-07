@@ -3,7 +3,7 @@ const api = new (require('../../controllers/api'))();
 export default function Telegram({ telegram }) {
   return (
     <>
-      <p>{telegram.title}</p>
+      <h1>{telegram.title}</h1>
       <p>{telegram.body}</p>
     </>
   )

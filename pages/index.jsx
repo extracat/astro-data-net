@@ -1,12 +1,20 @@
 const api = new (require('../controllers/api'))();
+import Link from 'next/link'
 
 export default function Index({ telegrams }) {
   return (
-    <ul>
-      {telegrams.map((telegram) => (
-        <li key={telegram._id}>{telegram.title}</li>
-      ))}
-    </ul>
+    <>
+      <h1>Telegrams List</h1>
+      <ul>
+        {telegrams.map((telegram) => (
+          <li key={telegram._id}>
+            <Link href={`/telegrams/[id]`} as={`/telegrams/${telegram._id}`} >
+              {telegram.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
  
