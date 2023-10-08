@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     params: { id: telegram._id.toString() }, 
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 
