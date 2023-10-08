@@ -1,12 +1,21 @@
+import useSWR from 'swr';
 const api = new (require('../controllers/api'))();
 import Link from 'next/link'
 
 export default function Index({ telegrams }) {
+  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams`, api.fetch, {fallbackData: telegrams});
+
+  if (swrError) {
+    console.error(swrError);
+    return <div>SWR: Failed to load data</div>;
+  }
+  const data = swrData || telegrams;
+
   return (
     <>
       <h1>Telegrams List</h1>
       <ul>
-        {telegrams.map((telegram) => (
+        {data.map((telegram) => (
           <li key={telegram._id}>
             <Link href={`/telegrams/[id]`} as={`/telegrams/${telegram._id}`} >
               {telegram.title}
@@ -23,7 +32,7 @@ export default function Index({ telegrams }) {
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
   
-  const telegrams = await api.getTelegrams();
+  const telegrams = await api.fetch('/v1/telegrams');
  
   // By returning { props: { telegrams } }, the Index component
   // will receive `telegrams` as a prop at build time
@@ -31,6 +40,7 @@ export async function getStaticProps() {
     props: {
       telegrams,
     },
+    
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds

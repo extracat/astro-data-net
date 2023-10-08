@@ -1,24 +1,18 @@
-const uri = process.env.API_URI;
+const url = process.env.NEXT_PUBLIC_API_URL;
 
 class Api {
 
   constructor() {
-    this.apiUrl = uri;
+    this.apiUrl = url;
+    this.fetch = this.fetch.bind(this);
   }
 
   async fetch(query) {
     const res = await fetch(this.apiUrl + query);
-    return await res.json();
-  }
-
-  async getTelegrams(id) {
-    let query = '/telegrams';
-    if (id) {
-      query = query + '/' + id;
+    const data = await res.json();
+    if (res.status !== 200) {
+      throw new Error(data.message);
     }
-
-    const data = await this.fetch(query);
-    
     return data;
   }
 

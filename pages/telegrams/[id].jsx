@@ -1,10 +1,19 @@
+import useSWR from 'swr';
 const api = new (require('../../controllers/api'))();
 
-export default function Telegram({ telegram }) {
+export default function Page({ telegram }) {
+  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram._id}`, api.fetch, {fallbackData: telegram});
+
+  if (swrError) {
+    console.error(swrError);
+    return <div>SWR: Failed to load data</div>;
+  }
+  const data = swrData || telegram;
+
   return (
     <>
-      <h1>{telegram.title}</h1>
-      <p>{telegram.body}</p>
+      <h1>{data.title}</h1>
+      <p>{data.body}</p>
     </>
   )
 }
@@ -13,7 +22,7 @@ export default function Telegram({ telegram }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const telegrams = await api.getTelegrams();
+  const telegrams = await api.fetch('/v1/telegrams');
   const paths = telegrams.map(telegram => ({
     params: { id: telegram._id.toString() }, 
   }));
@@ -27,7 +36,7 @@ export async function getStaticPaths() {
 // revalidation is enabled and a new request comes in
 export async function getStaticProps({ params }) {
   
-  const telegram = await api.getTelegrams(params.id);
+  const telegram = await api.fetch(`/v1/telegrams/${params.id}`);
  
   // By returning { props: { telegram } }, the Telegram component
   // will receive `telegram` as a prop at build time
@@ -35,6 +44,7 @@ export async function getStaticProps({ params }) {
     props: {
       telegram,
     },
+
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds
