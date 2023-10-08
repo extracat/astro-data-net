@@ -3,7 +3,7 @@ const api = new (require('../controllers/api'))();
 import Link from 'next/link'
 
 export default function Index({ telegrams }) {
-  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams`, api.fetch, {fallbackData: telegrams});
+  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams`, api.get, {fallbackData: telegrams});
 
   if (swrError) {
     console.error(swrError);
@@ -13,7 +13,9 @@ export default function Index({ telegrams }) {
 
   return (
     <>
-      <h1>Telegrams List</h1>
+      <h1>Astro Data Network</h1>
+      <Link href="/telegrams/post">Post new telegram</Link>
+      <h2>Telegrams List</h2>
       <ul>
         {data.map((telegram) => (
           <li key={telegram._id}>
@@ -22,7 +24,7 @@ export default function Index({ telegrams }) {
             </Link>
           </li>
         ))}
-      </ul>
+      </ul>      
     </>
   )
 }
@@ -32,7 +34,7 @@ export default function Index({ telegrams }) {
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
   
-  const telegrams = await api.fetch('/v1/telegrams');
+  const telegrams = await api.get('/v1/telegrams');
  
   // By returning { props: { telegrams } }, the Index component
   // will receive `telegrams` as a prop at build time

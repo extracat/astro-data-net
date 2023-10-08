@@ -2,7 +2,7 @@ import useSWR from 'swr';
 const api = new (require('../../controllers/api'))();
 
 export default function Page({ telegram }) {
-  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram._id}`, api.fetch, {fallbackData: telegram});
+  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram._id}`, api.get, {fallbackData: telegram});
 
   if (swrError) {
     console.error(swrError);
@@ -22,7 +22,7 @@ export default function Page({ telegram }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const telegrams = await api.fetch('/v1/telegrams');
+  const telegrams = await api.get('/v1/telegrams');
   const paths = telegrams.map(telegram => ({
     params: { id: telegram._id.toString() }, 
   }));
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 // revalidation is enabled and a new request comes in
 export async function getStaticProps({ params }) {
   
-  const telegram = await api.fetch(`/v1/telegrams/${params.id}`);
+  const telegram = await api.get(`/v1/telegrams/${params.id}`);
  
   // By returning { props: { telegram } }, the Telegram component
   // will receive `telegram` as a prop at build time
