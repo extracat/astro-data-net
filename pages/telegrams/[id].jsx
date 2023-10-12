@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 const api = new (require('../../controllers/api'))();
+import { Telegram } from '../../components/Telegram';
 
 export default function Page({ telegram }) {
   const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram._id}`, api.get, {fallbackData: telegram});
