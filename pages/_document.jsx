@@ -4,8 +4,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body>
-        <Main />
+      <body className="px-8 antialiased bg-white dark:bg-black">
+        <article className="prose lg:prose-xl dark:prose-invert">
+          <Main />
+        </article>
         <NextScript />
       </body>
     </Html>

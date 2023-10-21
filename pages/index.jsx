@@ -24,7 +24,7 @@ export default function Index({ telegrams }) {
             </Link>
           </li>
         ))}
-      </ul>      
+      </ul>   
     </>
   )
 }

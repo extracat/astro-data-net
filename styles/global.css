@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-input, 
+  .form-select, 
+  .form-textarea,
+  .form-checkbox,
+  .form-radio
+  {
+    @apply rounded;
+  }
+}
