@@ -2,11 +2,58 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import useSWR, { mutate } from 'swr';
 const api = new (require('../../controllers/api'))();
+import { TelegramForm } from '../../components/TelegramForm';
 
-export default function TelegramForm() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [error, setError] = useState(''); // new state to handle errors
+export default function TelegramFormPage() {
+  const [formData, setFormData] = useState({
+    _id: "",
+    id: "",
+    user_id: "",
+    timestamp: "",
+    external_id: "",
+    title: "",
+    body: "",
+    event_datetime: new Date().toISOString(),
+    band: "visible",
+    coordinates: {
+      ra: {
+        value: "",
+        error: "",
+        error_units: "arcsec"
+      },
+      dec: {
+        value: "",
+        error: "",
+        error_units: "arcsec"
+      }
+    },
+    light_curve: [{
+      datetime: new Date().toISOString(),
+      magnitude: "",
+      upper_limit: "",
+      exptime: "",
+      filter: ""
+    }],
+    authors: [{
+      name: "",
+      email: "",
+      org: ""
+    }],
+    observatories: [{
+      name: "",
+      instrument: "",
+      observation_mode: ""
+    }],
+    categories: [""],
+    references: [""],
+    error: ""
+  });
+
+  function getPostData(data) {
+    const { _id, id, user_id, timestamp, error, ...postData } = data;
+    return postData;
+  }
+
   const [isLoading, setIsLoading] = useState(false); // state to handle loading indicator
 
   const router = useRouter(); // initialize router
@@ -14,10 +61,13 @@ export default function TelegramForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // activate loading indicator
-    setError(''); // clear error state
+    setFormData(prev => ({ ...prev, error: '' })); // clear error state
+
+    const dataToSend = getPostData(formData);
+
 
     try {
-      const res = await api.post('/v1/telegrams', { title, body })
+      const res = await api.post('/v1/telegrams', dataToSend)
 
       if (!res.ok) {
         let errorData;
@@ -36,42 +86,45 @@ export default function TelegramForm() {
       const data = await res.json(); // consider adding checking here as well
       // Handle successful response if needed
 
-      setTitle('');
-      setBody('');
-
       mutate('/api/telegram');
       router.push('/'); // redirect the user to the homepage after successful submission
     } catch (error) {
-      setError(error.toString()); // set the error to show it to the user
+      setFormData(prev => ({ ...prev, error: error.toString() })); // set the error to show it to the user
     } finally {
       setIsLoading(false); // deactivate loading indicator regardless of the outcome
     }
   };
 
+  const handleChange = (e, property = null, index = null, nestedProperty = null) => {
+    const { name, value } = e.target;
+
+    if (property) {
+      let updatedProperty = Array.isArray(formData[property]) ? [...formData[property]] : { ...formData[property] };
+      
+      if (Array.isArray(formData[property])) {
+        if (typeof updatedProperty[index] === 'object' && updatedProperty[index] !== null) {
+            // if it's an object
+            updatedProperty[index][name] = value;
+        } else {
+            // if it's a string
+            updatedProperty[index] = value;
+        }
+      } else if (nestedProperty) {
+        updatedProperty[nestedProperty][name] = value;
+      } else {
+        updatedProperty[name] = value;
+      }
+      setFormData(prev => ({ ...prev, [property]: updatedProperty })); 
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value })); 
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title: </label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="body">Body: </label>
-        <textarea
-          id="body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </div>
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Sending...' : 'Submit'}
-      </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>} {/* display error */}
-    </form>
+    <div>
+      <h2>Post new telegram</h2>
+      <TelegramForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} isLoading={isLoading}/>
+    </div>
   );
 }
 

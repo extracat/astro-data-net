@@ -1,11 +1,25 @@
-export function Telegram({data }) {  
+import ReactMarkdown from 'react-markdown';
+
+
+export function Telegram({ data }) {
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleString();
+  };
+
   return (
     <div>
       {data.title && <h1>{data.title}</h1>}
-      {data.index && <p>Index: {data.index}</p>}
-      {data.timestamp && <p>Timestamp: {data.timestamp}</p>}
-      
-      {data.body && <div>{data.body.split(/\r\n|\n|\r/).map((line, index) => (<p key={index}>{line}</p>))}</div>}
+      {data.id && <p>ID: {data.id}</p>}
+
+      {data.body && <ReactMarkdown>{data.body}</ReactMarkdown>}
+
+
+      {data.event_datetime && <p>Event Date: {formatDate(data.event_datetime)}</p>}
+      {data.external_id && <p>External ID: {data.external_id}</p>}
+
+      {data.timestamp && <p>Published: {formatDate(data.timestamp)}</p>}
+
+      {data.band && <p>Band: {data.band}</p>}
 
       {data.coordinates && (
         <div>
@@ -14,52 +28,51 @@ export function Telegram({data }) {
           {data.coordinates.dec && <p>Declination: {data.coordinates.dec.value} (±{data.coordinates.dec.error} {data.coordinates.dec.error_units})</p>}
         </div>
       )}
-      
-      {data.event_datetime && <p>event_datetime: {data.event_datetime}</p>}
-      
-      {data.magnitude && <p>Magnitude: {data.magnitude}</p>}
-      {data.limiting_magnitude && <p>Limiting Magnitude: {data.limiting_magnitude}</p>}
-      {data.filter && <p>Filter: {data.filter}</p>}
-      
-      {data.reporters && data.reporters.length > 0 && (
-        <div>
-          <h2>Reporters</h2>
-          {data.reporters.map((reporter, index, array) => (
-            <span key={reporter.organization}>
-              
-              {reporter.authors && (
-                <span>
-                  {reporter.authors.map((author, index, array) => (
-                    <span key={author.name}>
-                      <a href={`mailto:${author.email}`}>{author.name}</a>
-                      {index !== array.length - 1 ? ', ' : ' '}
-                    </span>
-                  ))}
-                </span>
-              )}
-              ({reporter.organization})
-              {index !== array.length - 1 ? ', ' : ''}
 
+      {data.light_curve && data.light_curve.length > 0 && (
+        <div>
+          <h2>Light Curve</h2>
+          {data.light_curve.map((item, index) => (
+            <ul key={index}>
+              <li>Date & Time: {formatDate(item.datetime)}</li>
+              <ul>
+                <li>Magnitude: {item.magnitude}</li>
+                <li>Upper Limit: {item.upper_limit}</li>
+                <li>Exposition: {item.exptime} seconds</li>
+                <li>Filter: {item.filter}</li>
+              </ul>
+            </ul>
+          ))}
+        </div>
+      )}
+
+      {data.authors && data.authors.length > 0 && (
+        <div>
+          <h2>Authors</h2>
+          {data.authors.map((author, index, array) => (
+            <span key={author.email}>
+              {author.name}
+              {index !== array.length - 1 ? ', ' : ''}
             </span>
           ))}
         </div>
       )}
-      
+
       {data.observatories && data.observatories.length > 0 && (
         <div>
           <h2>Observatories</h2>
           {data.observatories.map(observatory => (
-            <div key={observatory.name}>
-              {observatory.name && <b>{observatory.name}</b>}
+            <ul key={observatory.name}>
+              {observatory.name && <li>{observatory.name}</li>}
               <ul>
                 {observatory.instrument && <li>Instrument: {observatory.instrument}</li>}
                 {observatory.observation_mode && <li>Observation Mode: {observatory.observation_mode}</li>}
               </ul>
-            </div>
+            </ul>
           ))}
         </div>
       )}
-      
+
       {data.categories && data.categories.length > 0 && (
         <div>
           <h2>Categories</h2>
@@ -70,7 +83,7 @@ export function Telegram({data }) {
           </ul>
         </div>
       )}
-      
+
       {data.references && data.references.length > 0 && (
         <div>
           <h2>References</h2>
@@ -84,5 +97,3 @@ export function Telegram({data }) {
     </div>
   );
 }
-
-export default Telegram;
