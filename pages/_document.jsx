@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body className="px-8 antialiased bg-white dark:bg-black">
-        <article className="prose lg:prose-xl dark:prose-invert">
+        <article className="prose dark:prose-invert">
           <Main />
         </article>
         <NextScript />
