@@ -122,7 +122,7 @@ export default function TelegramFormPage() {
 
   return (
     <div>
-      <h2>Post new telegram</h2>
+      <h1>Post new telegram</h1>
       <TelegramForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} isLoading={isLoading}/>
     </div>
   );

@@ -7,136 +7,225 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
 
   return (
     <form onSubmit={handleSubmit}>
-        <label>External ID:</label>
-        <input type="text" name="external_id" value={formData.external_id} onChange={handleChange} />
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">
+            External ID:
+          </span>
+        </label>
+        <input className="input input-bordered w-full max-w-xs" type="text" name="external_id" value={formData.external_id} onChange={handleChange} />
+      </div>
         
-        <label>Title:</label>
-        <input type="text" name="title" value={formData.title} onChange={handleChange} />
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">
+            Title:
+          </span>
+        </label>
+        <input className="input input-bordered w-full" type="text" name="title" value={formData.title} onChange={handleChange} />
+      </div>        
           
-        <div>
-          <label>Body:</label>
-          <div>
-            <textarea name="body" value={formData.body} onChange={handleChange} />
-          </div>
-        </div>
-
-        <label>
-          Band:
-          <select name="band" value={formData.band} onChange={handleChange}>
-            <option value="radio">Radio</option>
-            <option value="ir">IR</option>
-            <option value="visible">Visible</option>
-            <option value="uv">UV</option>
-            <option value="x-ray">X-ray</option>
-            <option value="gamma">Gamma</option>
-          </select>
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">Telegram post text</span>
+          <span className="label-text-alt">Use markdown</span>
         </label>
 
-        {/* Coordinates */}
-        <fieldset>
-          <legend>Coordinates</legend>
-          <div>
-            <label>
+        <textarea className="textarea textarea-bordered w-full" name="body" value={formData.body} onChange={handleChange} placeholder="Describe your observations"/>
+
+      </div>
+          
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">
+            Band:
+          </span>
+        </label>
+        <select className="select select-bordered w-full max-w-xs" name="band" value={formData.band} onChange={handleChange}>
+          <option value="radio">Radio</option>
+          <option value="ir">IR</option>
+          <option value="visible">Visible</option>
+          <option value="uv">UV</option>
+          <option value="x-ray">X-ray</option>
+          <option value="gamma">Gamma</option>
+        </select>
+      </div>
+
+      {/* Coordinates */}
+      <fieldset className="my-4">
+        <legend><b>Coordinates</b></legend>
+        <div className="form-control my-2">
+          <label className="label">
+            <span className="label-text">
               RA:
-              <input type="text" name="value" value={formData.coordinates.ra.value} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
+            </span>
+          </label>
+          <input className="input input-bordered w-full max-w-xs" type="text" name="value" value={formData.coordinates.ra.value} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
+        </div>
+        <div className="form-control my-2">
+          <label className="label">
+            <span className="label-text">
+                RA error:</span>
+          </label>
+          <input className="input input-bordered w-full max-w-xs" type="text" name="error" value={formData.coordinates.ra.error} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
+        </div>
+        <div className="form-control my-2">
+          <label className="label">
+            <span className="label-text">
+                Dec.: </span>
+          </label>
+          <input className="input input-bordered w-full max-w-xs" type="text" name="value" value={formData.coordinates.dec.value} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+        </div>
+        <div className="form-control my-2">         
+          <label className="label">
+            <span className="label-text">
+            Dec. error:
+            </span>
+          </label>
+          <input className="input input-bordered w-full max-w-xs" type="text" name="error" value={formData.coordinates.dec.error} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+        </div>
+      </fieldset>
+
+      {/* Light Curve */}
+      {formData.light_curve.map((curve, idx) => (
+        <fieldset className="my-4" key={idx}>
+          <legend><b>Light Curve {idx + 1}</b></legend>
+          
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Datetime:          
+              </span>
             </label>
-            <label>
-              RA error:
-              <input type="text" name="error" value={formData.coordinates.ra.error} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
-            </label>
+            <input className="input input-bordered w-full max-w-xs" type="datetime-local" name="datetime" value={curve.datetime} onChange={(e) => handleChange(e, 'light_curve', idx)} />
           </div>
-          <div>
-            <label>
-              Dec.:
-              <input type="text" name="value" value={formData.coordinates.dec.value} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+
+          <div className="form-control my-2"> 
+            <label className="label">
+              <span className="label-text">
+                Magnitude:          
+              </span>
             </label>
-            <label>
-              Dec. error:
-              <input type="text" name="error" value={formData.coordinates.dec.error} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+            <input className="input input-bordered w-full max-w-xs" type="number" name="magnitude" value={curve.magnitude} onChange={(e) => handleChange(e, 'light_curve', idx)} />
+          </div>
+
+          {/* Add other fields for light_curve... */}
+        </fieldset>
+      ))}
+
+      {/* Authors */}
+      {formData.authors.map((author, idx) => (
+        <fieldset className="my-4" key={idx}>
+          <legend><b>Author {idx + 1}</b></legend>
+
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Name:
+              </span>
             </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="name" value={author.name} onChange={(e) => handleChange(e, 'authors', idx)} />
+          </div>
+          
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Email:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="email" name="email" value={author.email} onChange={(e) => handleChange(e, 'authors', idx)} />
+          </div>
+          
+          
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Organization:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="org" value={author.org} onChange={(e) => handleChange(e, 'authors', idx)} />
+          </div>
+         
+        </fieldset>
+      ))}
+
+      {/* Observatories */}
+      {formData.observatories.map((observatory, idx) => (
+        <fieldset className="my-4" key={idx}>
+          <legend><b>Observatory {idx + 1}</b></legend>
+
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Name:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="name" value={observatory.name} onChange={(e) => handleChange(e, 'observatories', idx)} />
+          </div>
+          
+         
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Instrument:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="instrument" value={observatory.instrument} onChange={(e) => handleChange(e, 'observatories', idx)} />
+          </div>
+          
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Observation Mode:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="observation_mode" value={observatory.observation_mode} onChange={(e) => handleChange(e, 'observatories', idx)} />
+          </div>
+          
+          
+        </fieldset>
+      ))}
+
+      {/* Categories */}
+      {formData.categories.map((category, idx) => (
+        <fieldset className="my-4" key={idx}>
+          <legend><b>Category {idx + 1}</b></legend>
+          <div className="form-control my-2">
+            <label className="label">
+              <span className="label-text">
+                Category name:
+              </span>
+            </label>
+            <input className="input input-bordered w-full max-w-xs" type="text" name="category" value={category} onChange={(e) => handleChange(e, 'categories', idx)} />
           </div>
         </fieldset>
+      ))}
 
-        {/* Light Curve */}
-        {formData.light_curve.map((curve, idx) => (
-          <fieldset key={idx}>
-            <legend>Light Curve {idx + 1}</legend>
-            <label>
-                Datetime:
-                <input type="datetime-local" name="datetime" value={curve.datetime} onChange={(e) => handleChange(e, 'light_curve', idx)} />
+      {/* References */}
+      {formData.references.map((reference, idx) => (
+        <fieldset className="my-4" key={idx}>
+          <legend><b>Reference {idx + 1}</b></legend>
+          <div className="form-control my-2"> 
+            <label className="label">
+              <span className="label-text">
+                ADN ID:
+              </span>
             </label>
-            <label>
-                Magnitude:
-                <input type="number" name="magnitude" value={curve.magnitude} onChange={(e) => handleChange(e, 'light_curve', idx)} />
-            </label>
-            {/* Add other fields for light_curve... */}
-          </fieldset>
-        ))}
+            <input className="input input-bordered w-full max-w-xs" type="text" name="reference" value={reference} onChange={(e) => handleChange(e, 'references', idx)} />
+          </div>
+        </fieldset>
+      ))}
 
-        {/* Authors */}
-        {formData.authors.map((author, idx) => (
-          <fieldset key={idx}>
-            <legend>Author {idx + 1}</legend>
-            <label>
-              Name:
-              <input type="text" name="name" value={author.name} onChange={(e) => handleChange(e, 'authors', idx)} />
-            </label>
-            <label>
-              Email:
-              <input type="email" name="email" value={author.email} onChange={(e) => handleChange(e, 'authors', idx)} />
-            </label>
-            <label>
-              Organization:
-              <input type="text" name="org" value={author.org} onChange={(e) => handleChange(e, 'authors', idx)} />
-            </label>
-          </fieldset>
-        ))}
-
-        {/* Observatories */}
-        {formData.observatories.map((observatory, idx) => (
-          <fieldset key={idx}>
-            <legend>Observatory {idx + 1}</legend>
-            <label>
-                Name:
-                <input type="text" name="name" value={observatory.name} onChange={(e) => handleChange(e, 'observatories', idx)} />
-            </label>
-            <label>
-                Instrument:
-                <input type="text" name="instrument" value={observatory.instrument} onChange={(e) => handleChange(e, 'observatories', idx)} />
-            </label>
-            <label>
-                Observation Mode:
-                <input type="text" name="observation_mode" value={observatory.observation_mode} onChange={(e) => handleChange(e, 'observatories', idx)} />
-            </label>
-          </fieldset>
-        ))}
-
-        {/* Categories */}
-        {formData.categories.map((category, idx) => (
-          <fieldset key={idx}>
-            <legend>Category {idx + 1}</legend>
-            <label>
-                Name:
-                <input type="text" name="category" value={category} onChange={(e) => handleChange(e, 'categories', idx)} />
-            </label>
-          </fieldset>
-        ))}
-
-        {/* References */}
-        {formData.references.map((reference, idx) => (
-          <fieldset key={idx}>
-            <legend>Reference {idx + 1}</legend>
-            <label>
-                URL:
-                <input type="text" name="reference" value={reference} onChange={(e) => handleChange(e, 'references', idx)} />
-                
-            </label>
-          </fieldset>
-        ))}
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Sending...' : 'Submit'}
+      <button className="btn btn-primary"
+        type="submit" disabled={isLoading}>
+        {isLoading ? 'Sending...' : 'Create Telegram'}
       </button>
-      {formData.error && <p style={{ color: 'red' }}>{formData.error}</p>} {/* display error */}
+
+      {/* display error */}
+      {formData.error && <div className="alert alert-error my-4">
+        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span>{formData.error}</span>
+      </div>} 
     </form>
   );
 }
