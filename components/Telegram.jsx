@@ -1,5 +1,4 @@
-import ReactMarkdown from 'react-markdown';
-
+import Markdown from "./Markdown";
 
 export function Telegram({ data }) {
   const formatDate = (dateString) => {
@@ -11,7 +10,7 @@ export function Telegram({ data }) {
       {data.title && <h1>{data.title}</h1>}
       {data.id && <p>ID: {data.id}</p>}
 
-      {data.body && <ReactMarkdown>{data.body}</ReactMarkdown>}
+      {data.body && <Markdown>{data.body}</Markdown>}
 
 
       {data.event_datetime && <p>Event Date: {formatDate(data.event_datetime)}</p>}
