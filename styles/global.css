@@ -12,3 +12,19 @@
     @apply rounded;
   }
 }
+
+button {
+  @apply btn;
+}
+
+input {
+  @apply input input-bordered;
+}
+
+textarea {
+  @apply textarea textarea-bordered;
+}
+
+select {
+  @apply select select-bordered;
+}
