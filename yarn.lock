@@ -396,7 +396,6 @@ __metadata:
     prop-types: ^15.8.1
     react: latest
     react-dom: latest
-    react-katex: ^3.0.1
     react-markdown: ^9.0.0
     rehype-katex: ^7.0.0
     rehype-raw: ^7.0.0
@@ -2597,18 +2596,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-katex@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "react-katex@npm:3.0.1"
-  dependencies:
-    katex: ^0.16.0
-  peerDependencies:
-    prop-types: ^15.8.1
-    react: ">=15.3.2 <=18"
-  checksum: 85055cf3b4ced1ebc86d274d4f1241f49cf0503b54e8d92015abfb822615d997b013a358c58b06f13ded4092458b032bbc7510141a8ab80877383337d369e6a8
   languageName: node
   linkType: hard
 
