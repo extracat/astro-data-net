@@ -3,7 +3,7 @@ const api = new (require('../../controllers/api'))();
 import { Telegram } from '../../components/Telegram';
 
 export default function Page({ telegram }) {
-  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram._id}`, api.get, {fallbackData: telegram});
+  const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram.id}`, api.get, {fallbackData: telegram});
 
   if (swrError) {
     console.error(swrError);
@@ -24,7 +24,7 @@ export default function Page({ telegram }) {
 export async function getStaticPaths() {
   const telegrams = await api.get('/v1/telegrams');
   const paths = telegrams.map(telegram => ({
-    params: { id: telegram._id.toString() }, 
+    params: { id: telegram.id.toString() }, 
   }));
 
   return { paths, fallback: 'blocking' };

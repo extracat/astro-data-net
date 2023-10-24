@@ -83,7 +83,7 @@ export default function TelegramFormPage() {
       }
 
       // Assuming here successful response will be JSON
-      const data = await res.json(); // consider adding checking here as well
+      //const data = await res.json(); // consider adding checking here as well
       // Handle successful response if needed
 
       mutate('/api/telegram');
