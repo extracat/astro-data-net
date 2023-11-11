@@ -7,7 +7,7 @@ import { TelegramForm } from '../../components/TelegramForm';
 export default function TelegramFormPage() {
   const [formData, setFormData] = useState({
     _id: "",
-    id: "",
+    adn_id: "",
     user_id: "",
     timestamp: "",
     external_id: "",
@@ -50,7 +50,7 @@ export default function TelegramFormPage() {
   });
 
   function getPostData(data) {
-    const { _id, id, user_id, timestamp, error, ...postData } = data;
+    const { _id, adn_id, user_id, timestamp, error, ...postData } = data;
     return postData;
   }
 

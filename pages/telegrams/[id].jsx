@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 // revalidation is enabled and a new request comes in
 export async function getStaticProps({ params }) {
   
-  const telegram = await api.get(`/v1/telegrams/${params.adn_id}`);
+  const telegram = await api.get(`/v1/telegrams/${params.id}`);
  
   // By returning { props: { telegram } }, the Telegram component
   // will receive `telegram` as a prop at build time
