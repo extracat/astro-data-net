@@ -8,7 +8,7 @@ export function Telegram({ data }) {
   return (
     <div>
       {data.title && <h1>{data.title}</h1>}
-      {data.id && <p>ID: {data.id}</p>}
+      {data.adn_id && <p>ID: {data.adn_id}</p>}
 
       {data.body && <Markdown>{data.body}</Markdown>}
 

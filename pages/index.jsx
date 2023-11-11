@@ -18,8 +18,8 @@ export default function Index({ telegrams }) {
       <h2>Telegrams List</h2>
       <ul>
         {data.map((telegram) => (
-          <li key={telegram.id}>
-            <Link href={`/telegrams/[id]`} as={`/telegrams/${telegram.id}`} >
+          <li key={telegram.adn_id}>
+            <Link href={`/telegrams/[id]`} as={`/telegrams/${telegram.adn_id}`} >
               {telegram.title}
             </Link>
           </li>
