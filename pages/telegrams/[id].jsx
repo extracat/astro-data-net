@@ -24,7 +24,7 @@ export default function Page({ telegram }) {
 export async function getStaticPaths() {
   const telegrams = await api.get('/v1/telegrams');
   const paths = telegrams.map(telegram => ({
-    params: { adn_id: telegram.adn_id.toString() }, 
+    params: { id: telegram.adn_id.toString() }, 
   }));
 
   return { paths, fallback: 'blocking' };
