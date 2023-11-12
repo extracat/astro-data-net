@@ -10,6 +10,7 @@ export default function Page({ telegram }) {
     return <div>SWR: Failed to load data</div>;
   }
   const data = swrData || telegram;
+  if (data.error) return <div>API: {data.error}</div>;
 
   return (
     <>
@@ -23,11 +24,18 @@ export default function Page({ telegram }) {
 // This function gets called at build time
 export async function getStaticPaths() {
   const telegrams = await api.get('/v1/telegrams');
-  const paths = telegrams.map(telegram => ({
-    params: { id: telegram.adn_id.toString() }, 
-  }));
 
-  return { paths, fallback: 'blocking' };
+  try {
+    const paths = telegrams.map(telegram => ({
+      params: { id: telegram.adn_id.toString() }, 
+    }));
+    return { paths, fallback: 'blocking' };
+
+  } catch (error) {
+    console.error('getStaticPaths error: ', error.message);
+    return { paths: [], fallback: 'blocking' };
+  }
+
 }
 
 
@@ -35,9 +43,8 @@ export async function getStaticPaths() {
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
 export async function getStaticProps({ params }) {
-  
   const telegram = await api.get(`/v1/telegrams/${params.id}`);
- 
+
   // By returning { props: { telegram } }, the Telegram component
   // will receive `telegram` as a prop at build time
   return {

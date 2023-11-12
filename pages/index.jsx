@@ -9,7 +9,10 @@ export default function Index({ telegrams }) {
     console.error(swrError);
     return <div>SWR: Failed to load data</div>;
   }
+
   const data = swrData || telegrams;
+  if (data.error) return <div>API: {data.error}</div>;
+
 
   return (
     <>
