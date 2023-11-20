@@ -1,24 +1,28 @@
 import useSWR from 'swr';
 const api = new (require('../controllers/api'))();
 import Link from 'next/link'
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 export default function TextPage() {
 
   return (
     <>
+      <Header />
+
       <h1>Lorem Ipsum</h1>
 
       <blockquote>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..." — Theophrastus Bombast von Hohenheim.</blockquote>
       
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin rutrum interdum. Nullam sollicitudin eros et risus porttitor, vel viverra eros tempus. In ac sem venenatis, pellentesque massa eget, pellentesque neque. Fusce et ligula quis turpis facilisis dapibus fringilla luctus ante. Curabitur scelerisque ipsum non faucibus consequat. Donec fringilla ex fringilla felis rhoncus eleifend.</p>
 
-<section>
+      <section>
 
 
 
 
 
-</section>
+      </section>
       
       <h2>In augue ex dictum</h2>
 
@@ -49,7 +53,7 @@ export default function TextPage() {
       <p>Nullam lorem nibh, porttitor a malesuada eu, molestie ac mauris. Proin quis molestie nulla. Nullam finibus sit amet enim sit amet rhoncus. Nam faucibus pharetra suscipit. Interdum et malesuada fames ac ante ipsum primis in faucibus. In augue ex, dictum dignissim nulla in, eleifend bibendum dolor. Nulla volutpat, elit nec porta semper, massa nunc facilisis dui, ac mollis nunc lectus lobortis tortor. Donec maximus libero et bibendum posuere. Integer at velit mi.</p>
 
 
-
+      <Footer/>
     </>
   )
 }

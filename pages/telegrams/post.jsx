@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import useSWR, { mutate } from 'swr';
 const api = new (require('../../controllers/api'))();
 import { TelegramForm } from '../../components/TelegramForm';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 
 export default function TelegramFormPage() {
   const [formData, setFormData] = useState({
@@ -121,10 +123,12 @@ export default function TelegramFormPage() {
   };
 
   return (
-    <div>
+    <>
+      <Header />
       <h1>Post new telegram</h1>
       <TelegramForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} isLoading={isLoading}/>
-    </div>
+      <Footer />
+    </>
   );
 }
 

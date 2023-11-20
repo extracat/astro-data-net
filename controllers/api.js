@@ -1,4 +1,5 @@
 const url = process.env.NEXT_PUBLIC_API_URL;
+const Cookies = require('js-cookie');
 
 class Api {
 
@@ -8,12 +9,25 @@ class Api {
   }
 
   async get(query) {
-    try {
-      const res = await fetch(this.apiUrl + query);
-      const data = await res.json();
-      if (res.status !== 200) {
-        throw new Error(data.message);
+    try {    
+      // Retrieve the JWT token from cookies
+      const token = Cookies.get('token');
+      // Set up the headers with the Authorization token
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+
+      const res = await fetch(this.apiUrl + query, { headers });
+
+      // Check for 401 Unauthorized error
+      if (res.status === 401) {
+        throw new Error('Unauthorized');
       }
+
+      const data = await res.json();
+
+      if (res.status !== 200) {
+        throw new Error(data.message || 'Error fetching data');
+      }
+
       return data;
     } catch (error) {
       // If API server is offline

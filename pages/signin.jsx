@@ -1,7 +1,9 @@
+const api = new (require('../controllers/api'))();
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-const api = new (require('../controllers/api'))();
 import { SigninForm } from '../components/SigninForm';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 export default function SigninFormPage() {
 
@@ -91,8 +93,10 @@ export default function SigninFormPage() {
 
   return (
     <div>
+      <Header />
       <h1>Sign In</h1>
       <SigninForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} isLoading={isLoading}/>
+      <Footer />
     </div>
   );
 }
