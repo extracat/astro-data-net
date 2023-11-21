@@ -99,7 +99,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
               </span>
             </label>
 
-            <input class="w-full max-w-xs"
+            <input className="w-full max-w-xs"
             datepicker type="datetime-local" name="datetime" value={curve.datetime} onChange={(e) => handleChange(e, 'light_curve', idx)} placeholder="Select date and time" />
             
           </div>

@@ -8,11 +8,17 @@ class Api {
     this.get = this.get.bind(this);
   }
 
+  getToken() {
+      const token = Cookies.get('token'); // Retrieve the JWT token from cookies
+      return token;
+  }
+
+
   async get(query) {
     try {    
-      // Retrieve the JWT token from cookies
-      const token = Cookies.get('token');
+
       // Set up the headers with the Authorization token
+      const token = this.getToken();
       const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
 
       const res = await fetch(this.apiUrl + query, { headers });
@@ -43,10 +49,16 @@ class Api {
   
 
   async post(query, data) {
+
+    // Set up the headers with the Authorization token
+    const token = this.getToken();
+    const headerAuth = token ? `Bearer ${token}` : '';
+
     const res = await fetch(this.apiUrl + query, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': headerAuth,
       },
       body: JSON.stringify(data),
     });
