@@ -54,7 +54,10 @@ export default function SigninFormPage() {
 
       const data = await res.json();
 
-      document.cookie = `token=${data.token}; path=/;`;
+
+      document.cookie = `token=${data.token}; path=/; max-age=86400;`;
+      //document.cookie = `token=${data.token}; path=/;`;
+
       console.log('User logged in and token saved in cookies');
       router.push('/'); // redirect the user to the homepage after successful submission
 
