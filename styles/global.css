@@ -17,6 +17,11 @@ button {
   @apply btn;
 }
 
+button.primary {
+  @apply btn btn-primary;
+}
+
+
 input {
   @apply input input-bordered;
 }

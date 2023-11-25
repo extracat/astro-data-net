@@ -37,7 +37,7 @@ export function SigninForm ({ formData, handleChange, handleSubmit, isLoading })
         />
       </div> 
       
-      <button className="btn-primary"
+      <button className="primary"
         type="submit" disabled={isLoading}>
         {isLoading ? 'Loading...' : 'Signin'}
       </button>

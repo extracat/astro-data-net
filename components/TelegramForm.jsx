@@ -222,7 +222,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
         </fieldset>
       ))}
 
-      <button className="btn-primary"
+      <button className="primary"
         type="submit" disabled={isLoading}>
         {isLoading ? 'Sending...' : 'Create Telegram'}
       </button>
