@@ -18,7 +18,7 @@ button {
 }
 
 button.primary {
-  @apply btn btn-primary;
+  @apply btn-primary;
 }
 
 
