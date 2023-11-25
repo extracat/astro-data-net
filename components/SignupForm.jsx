@@ -50,7 +50,7 @@ export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) 
         />
       </div>
 
-      <button className="btn-primary" type="submit" disabled={isLoading}>
+      <button className="primary" type="submit" disabled={isLoading}>
         {isLoading ? 'Loading...' : 'Signup'}
       </button>
 
