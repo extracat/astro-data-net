@@ -13,15 +13,6 @@
   }
 }
 
-button {
-  @apply btn;
-}
-
-button.primary {
-  @apply btn-primary;
-}
-
-
 input {
   @apply input input-bordered;
 }
