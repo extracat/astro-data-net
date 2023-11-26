@@ -6,51 +6,36 @@ export function SigninForm ({ formData, handleChange, handleSubmit, isLoading })
   return (
     <form onSubmit={handleSubmit}>
 
-      <label
-        htmlFor="email"
-        className="my-5 relative block rounded-lg border border-gray-300  focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
-      >
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">
+            Email:
+          </span>
+        </label>
         <input
-          className="peer py-3 px-4 border-none bg-transparent w-full placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
-          type="text"
-          id="email"
+          type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="Email"
         />
+      </div> 
 
-        <span
-          className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white px-1 text-sm text-gray-500 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm"
-        >
-          Email
-        </span>
-      </label>
-
-      <label
-        htmlFor="password"
-        className="my-5 relative block rounded-lg border border-gray-300  focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
-      >
+      <div className="form-control my-2">
+        <label className="label">
+          <span className="label-text">
+            Password:
+          </span>
+        </label>
         <input
-          className="peer w-full py-3 px-4 border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
-          id="password"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
           placeholder="Password"
         />
+      </div> 
 
-        <span
-          className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white px-1 text-sm text-gray-500 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm"
-        >
-          Password
-        </span>
-      </label>
-
-
-
-      
       <button className="btn-primary"
         type="submit" disabled={isLoading}>
         {isLoading ? 'Loading...' : 'Signin'}
