@@ -222,15 +222,17 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
         </fieldset>
       ))}
 
-      <button className="btn btn-primary"
+      <button className="btn-primary"
         type="submit" disabled={isLoading}>
         {isLoading ? 'Sending...' : 'Create Telegram'}
       </button>
 
       {/* display error */}
-      {formData.error && <div className="alert alert-error my-4">
-        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <span>{formData.error}</span>
+      {formData.error && <div role="alert" className="rounded border-s-4 border-red-500 bg-red-50 my-5 p-4">
+        <strong className="block font-medium text-red-600"> Something went wrong </strong>
+        <p className="mt-2 text-sm text-red-600">
+          {formData.error}
+        </p>
       </div>} 
     </form>
   );
