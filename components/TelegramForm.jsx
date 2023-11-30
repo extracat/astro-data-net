@@ -14,7 +14,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
             External ID:
           </span>
         </label>
-        <input className="w-full max-w-xs" type="text" name="external_id" value={formData.external_id} onChange={handleChange} />
+        <input className="input w-full max-w-xs" type="text" name="external_id" value={formData.external_id} onChange={handleChange} />
       </div>
         
       <div className="form-control my-2">
@@ -23,7 +23,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
             Title:
           </span>
         </label>
-        <input className="w-full" type="text" name="title" value={formData.title} onChange={handleChange} />
+        <input className="input w-full" type="text" name="title" value={formData.title} onChange={handleChange} />
       </div>        
           
       <div className="form-control my-2">
@@ -32,7 +32,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
           <span className="label-text-alt">Use markdown</span>
         </label>
 
-        <textarea className="w-full" name="body" value={formData.body} onChange={handleChange} placeholder="Describe your observations"/>
+        <textarea className="textarea w-full" name="body" value={formData.body} onChange={handleChange} placeholder="Describe your observations"/>
 
       </div>
           
@@ -42,7 +42,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
             Band:
           </span>
         </label>
-        <select className="w-full max-w-xs" name="band" value={formData.band} onChange={handleChange}>
+        <select className="select w-full max-w-xs" name="band" value={formData.band} onChange={handleChange}>
           <option value="radio">Radio</option>
           <option value="ir">IR</option>
           <option value="visible">Visible</option>
@@ -61,21 +61,21 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
               RA:
             </span>
           </label>
-          <input className="w-full max-w-xs" type="text" name="value" value={formData.coordinates.ra.value} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
+          <input className="input w-full max-w-xs" type="text" name="value" value={formData.coordinates.ra.value} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
         </div>
         <div className="form-control my-2">
           <label className="label">
             <span className="label-text">
                 RA error:</span>
           </label>
-          <input className="w-full max-w-xs" type="text" name="error" value={formData.coordinates.ra.error} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
+          <input className="input w-full max-w-xs" type="text" name="error" value={formData.coordinates.ra.error} onChange={(e) => handleChange(e, 'coordinates', null, 'ra')} />
         </div>
         <div className="form-control my-2">
           <label className="label">
             <span className="label-text">
                 Dec.: </span>
           </label>
-          <input className="w-full max-w-xs" type="text" name="value" value={formData.coordinates.dec.value} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+          <input className="input w-full max-w-xs" type="text" name="value" value={formData.coordinates.dec.value} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
         </div>
         <div className="form-control my-2">         
           <label className="label">
@@ -83,7 +83,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
             Dec. error:
             </span>
           </label>
-          <input className="w-full max-w-xs" type="text" name="error" value={formData.coordinates.dec.error} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
+          <input className="input w-full max-w-xs" type="text" name="error" value={formData.coordinates.dec.error} onChange={(e) => handleChange(e, 'coordinates', null, 'dec')} />
         </div>
       </fieldset>
 
@@ -99,7 +99,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
               </span>
             </label>
 
-            <input className="w-full max-w-xs"
+            <input className="input w-full max-w-xs"
             datepicker="true" type="datetime-local" name="datetime" value={curve.datetime} onChange={(e) => handleChange(e, 'light_curve', idx)} placeholder="Select date and time" />
             
           </div>
@@ -112,7 +112,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Magnitude:          
               </span>
             </label>
-            <input className="w-full max-w-xs" name="magnitude" value={curve.magnitude} onChange={(e) => handleChange(e, 'light_curve', idx)} />
+            <input className="input w-full max-w-xs" name="magnitude" value={curve.magnitude} onChange={(e) => handleChange(e, 'light_curve', idx)} />
           </div>
 
           {/* Add other fields for light_curve... */}
@@ -130,7 +130,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Name:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="name" value={author.name} onChange={(e) => handleChange(e, 'authors', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="name" value={author.name} onChange={(e) => handleChange(e, 'authors', idx)} />
           </div>
           
           <div className="form-control my-2">
@@ -139,7 +139,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Email:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="email" name="email" value={author.email} onChange={(e) => handleChange(e, 'authors', idx)} />
+            <input className="input w-full max-w-xs" type="email" name="email" value={author.email} onChange={(e) => handleChange(e, 'authors', idx)} />
           </div>
           
           
@@ -149,7 +149,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Organization:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="org" value={author.org} onChange={(e) => handleChange(e, 'authors', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="org" value={author.org} onChange={(e) => handleChange(e, 'authors', idx)} />
           </div>
          
         </fieldset>
@@ -166,7 +166,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Name:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="name" value={observatory.name} onChange={(e) => handleChange(e, 'observatories', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="name" value={observatory.name} onChange={(e) => handleChange(e, 'observatories', idx)} />
           </div>
           
          
@@ -176,7 +176,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Instrument:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="instrument" value={observatory.instrument} onChange={(e) => handleChange(e, 'observatories', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="instrument" value={observatory.instrument} onChange={(e) => handleChange(e, 'observatories', idx)} />
           </div>
           
           <div className="form-control my-2">
@@ -185,7 +185,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Observation Mode:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="observation_mode" value={observatory.observation_mode} onChange={(e) => handleChange(e, 'observatories', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="observation_mode" value={observatory.observation_mode} onChange={(e) => handleChange(e, 'observatories', idx)} />
           </div>
           
           
@@ -202,7 +202,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 Category name:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="category" value={category} onChange={(e) => handleChange(e, 'categories', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="category" value={category} onChange={(e) => handleChange(e, 'categories', idx)} />
           </div>
         </fieldset>
       ))}
@@ -217,7 +217,7 @@ export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading 
                 ADN ID:
               </span>
             </label>
-            <input className="w-full max-w-xs" type="text" name="reference" value={reference} onChange={(e) => handleChange(e, 'references', idx)} />
+            <input className="input w-full max-w-xs" type="text" name="reference" value={reference} onChange={(e) => handleChange(e, 'references', idx)} />
           </div>
         </fieldset>
       ))}

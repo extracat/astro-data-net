@@ -12,7 +12,7 @@ export function SigninForm ({ formData, handleChange, handleSubmit, isLoading })
             Email:
           </span>
         </label>
-        <input
+        <input className="input"
           type="email"
           name="email"
           value={formData.email}
@@ -27,7 +27,7 @@ export function SigninForm ({ formData, handleChange, handleSubmit, isLoading })
             Password:
           </span>
         </label>
-        <input
+        <input className="input"
           type="password"
           name="password"
           value={formData.password}

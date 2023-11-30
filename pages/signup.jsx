@@ -12,12 +12,13 @@ export default function SigninFormPage() {
     email: "",
     password: "",
     confirmPassword: "",
-    error: ""
+    error: "",
+    isAgreed: false
   });
 
 
   function getPostData(data) {
-    const { error, confirmPassword, ...postData } = data;
+    const { error, confirmPassword, isAgreed, ...postData } = data;
     return postData;
   }
 

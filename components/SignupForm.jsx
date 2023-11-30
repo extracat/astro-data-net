@@ -2,6 +2,10 @@ import React from 'react';
 
 export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) {
 
+  const handleCheckboxChange = (event) => {
+    handleChange({ target: { name: 'isAgreed', value: event.target.checked } });
+  }
+
   return (
     <form onSubmit={handleSubmit}>
 
@@ -11,7 +15,8 @@ export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) 
             Email:
           </span>
         </label>
-        <input
+        <input 
+          className="input"
           type="email"
           name="email"
           value={formData.email}
@@ -26,7 +31,8 @@ export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) 
             Password:
           </span>
         </label>
-        <input
+        <input 
+          className="input"
           type="password"
           name="password"
           value={formData.password}
@@ -41,7 +47,8 @@ export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) 
             Confirm Password:
           </span>
         </label>
-        <input
+        <input 
+          className="input"
           type="password"
           name="confirmPassword"
           value={formData.confirmPassword}
@@ -50,7 +57,22 @@ export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) 
         />
       </div>
 
-      <button className="btn-primary" type="submit" disabled={isLoading}>
+      <div className="form-control my-2">
+        <label className="cursor-pointer">
+          <input
+            type="checkbox"
+            name="isAgreed"
+            checked={formData.isAgreed || false}
+            onChange={handleCheckboxChange}
+            className="checkbox checkbox-primary mr-2"
+          />
+          <span className="label-text">
+            I agree to the <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+          </span>
+        </label>
+      </div>
+
+      <button className="btn-primary" type="submit" disabled={isLoading || !formData.isAgreed}>
         {isLoading ? 'Loading...' : 'Signup'}
       </button>
 
