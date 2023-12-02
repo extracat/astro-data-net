@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function TelegramForm ({ formData, handleChange, handleSubmit, isLoading }) {
+export default function TelegramForm ({ formData, handleChange, handleSubmit, isLoading }) {
 
 
   //console.log(formData);

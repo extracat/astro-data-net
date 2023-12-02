@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SigninForm ({ formData, handleChange, handleSubmit, isLoading }) {
+export default function SigninForm ({ formData, handleChange, handleSubmit, isLoading }) {
 
 
   return (

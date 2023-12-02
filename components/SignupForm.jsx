@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SignupForm({ formData, handleChange, handleSubmit, isLoading }) {
+export default function SignupForm({ formData, handleChange, handleSubmit, isLoading }) {
 
   const handleCheckboxChange = (event) => {
     handleChange({ target: { name: 'isAgreed', value: event.target.checked } });

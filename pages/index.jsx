@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 const api = new (require('../controllers/api'))();
 import Link from 'next/link'
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Index({ telegrams }) {
   const { data: swrData, error: swrError } = useSWR(`/v1/telegrams`, api.get, {fallbackData: telegrams});

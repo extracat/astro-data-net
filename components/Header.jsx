@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Profile } from '../components/Profile';
+import Profile from '../components/Profile';
 
-export function Header() {
+export default function Header() {
   return (
     <div>
       <Link href="/">Home</Link> |

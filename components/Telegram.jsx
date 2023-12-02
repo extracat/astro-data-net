@@ -1,6 +1,6 @@
 import Markdown from "./Markdown";
 
-export function Telegram({ data }) {
+export default  function Telegram({ data }) {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString();
   };

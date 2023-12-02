@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 const api = new (require('../../controllers/api'))();
-import { Telegram } from '../../components/Telegram';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import Telegram from '../../components/Telegram';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Page({ telegram }) {
   const { data: swrData, error: swrError } = useSWR(`/v1/telegrams/${telegram.adn_id}`, api.get, {fallbackData: telegram});

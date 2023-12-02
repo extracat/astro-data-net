@@ -1,7 +1,7 @@
 const api = new (require('../controllers/api'))();
 import useSWR from 'swr';
 
-export function Profile() {
+export default function Profile() {
   const { data: swrData, error: swrError } = useSWR(`/v1/passport`, api.get, {fallbackData: 'loading...' });
 
   if (swrError) return <span>SWR error: Failed to load data</span>;

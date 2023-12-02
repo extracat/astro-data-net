@@ -7,7 +7,7 @@ export default function Document() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossOrigin="anonymous" />
       </Head>
       <body className="px-8 py-8 antialiased bg-white dark:bg-black">
-        <article className="container prose dark:prose-invert">
+        <article className="container prose prose-zinc dark:prose-invert">
           <Main />
         </article>
         <NextScript />

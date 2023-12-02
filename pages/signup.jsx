@@ -1,9 +1,9 @@
 const api = new (require('../controllers/api'))();
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { SignupForm } from '../components/SignupForm';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import SignupForm from '../components/SignupForm';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function SigninFormPage() {
 
