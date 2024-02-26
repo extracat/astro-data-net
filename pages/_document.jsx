@@ -8,8 +8,20 @@ export default function Document() {
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
-      <body className="px-8 py-8 antialiased bg-white dark:bg-black">
-        <article className="container prose prose-adn dark:prose-invert">
+      <body className="px-8 py-8 antialiased adn-color-fill-bg">
+        <article className="
+                    container 
+                    max-w-[960px]
+                    prose 
+                    dark:prose-invert 
+                    prose-adn-color 
+                    prose-h1:text-center
+                    prose-h1:text-3xl
+                    prose-h1:leading-normal
+                    prose-h2:text-2xl
+                    prose-h2:leading-relaxed
+                    prose-h2:font-semibold
+                    ">
           <Main />
         </article>
         <NextScript />

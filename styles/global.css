@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-size: 18px;
+  }
+}
+
+@layer utilities { 
+
+  /* Semantic Colors */
+
+  .adn-color-fill-bg {
+    @apply bg-adn-light-bg dark:bg-adn-dark-bg;
+  }
+  .adn-color-fill-bg-lighter {
+    @apply bg-adn-light-bg-lighter dark:bg-adn-dark-bg-lighter;
+  }
+  .adn-color-fill-bg-dark {
+    @apply bg-adn-light-bg-dark dark:bg-adn-dark-bg-dark;
+  }
+  .adn-color-text {
+    @apply text-adn-light-text dark:text-adn-dark-text;
+  }
+
+}
+
+
 @layer components {
 
   .form-control {
