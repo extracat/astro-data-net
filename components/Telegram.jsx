@@ -8,11 +8,12 @@ export default  function Telegram({ data }) {
   return (
     <div>
 
-      <center className="text-sm mt-20 mb-4">
+      <center className="text-sm sm:mt-20 mb-4 md:px-16">
         {data.timestamp && <span>{formatDate(data.timestamp)}</span>} — {data.adn_id && <span>{data.adn_id}</span>}
+        {data.title && <h1 className="mb-12">{data.title}</h1>}
       </center>
 
-      {data.title && <h1 className="mb-12">{data.title}</h1>}
+      
       
 
       {data.body && <Markdown>{data.body}</Markdown>}

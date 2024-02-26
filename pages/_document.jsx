@@ -11,8 +11,8 @@ export default function Document() {
       <body className="px-8 py-8 antialiased adn-color-fill-bg">
         <article className="
                     container 
-                    max-w-[960px]
-                    prose 
+                    ___max-w-[960px]
+                    prose
                     dark:prose-invert 
                     prose-adn-color 
                     prose-h1:text-center
