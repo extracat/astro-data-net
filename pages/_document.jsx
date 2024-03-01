@@ -20,7 +20,6 @@ export default function Document() {
                     prose-h1:leading-normal
                     prose-h2:text-2xl
                     prose-h2:leading-relaxed
-                    prose-h2:font-semibold
                     ">
           <Main />
         </article>
