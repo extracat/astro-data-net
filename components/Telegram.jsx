@@ -11,20 +11,41 @@ export default  function Telegram({ data }) {
       <center className="text-sm sm:mt-20 mb-4 md:px-16">
         {data.timestamp && <span>{formatDate(data.timestamp)}</span>} — {data.adn_id && <span>{data.adn_id}</span>}
         {data.title && <h1 className="mb-12">{data.title}</h1>}
+
+        {data.categories && data.categories.length > 0 && (
+          <div>
+              {data.categories.map(category => (
+                <span key={category}>{category} | </span>
+              ))}
+          </div>
+        )}
+
       </center>
 
+
       
-      
+      {data.authors && data.authors.length > 0 && (
+        <div className="text-sm">
+          {(() => {
+            const groupedByOrg = data.authors.reduce((acc, author) => {
+              // Groupping by org
+              if (!acc[author.org]) {
+                acc[author.org] = [];
+              }
+              acc[author.org].push(author.name);
+              return acc;
+            }, {});
 
-      {data.body && <Markdown>{data.body}</Markdown>}
+            const formattedGroups = Object.entries(groupedByOrg).map(([org, names], index, array) => {
+              // Connect the names in one line with the name of the organization
+              return `${names.join(', ')} (${org})`;
+            });
 
-
-      {data.event_datetime && <p>Event Date: {formatDate(data.event_datetime)}</p>}
-      {data.external_id && <p>External ID: {data.external_id}</p>}
-
-      {data.timestamp && <p>Published: {formatDate(data.timestamp)}</p>}
-
-      {data.band && <p>Band: {data.band}</p>}
+            // Connecting groups by separating them with a comma and a space
+            return formattedGroups.join(', ');
+          })()}
+        </div>
+      )}
 
       {data.coordinates && (
         <div>
@@ -34,9 +55,13 @@ export default  function Telegram({ data }) {
         </div>
       )}
 
+      <h2>Light Curve</h2>
+      {data.band && <p>Band: {data.band}</p>}
+
+      {data.event_datetime && <p>T0: {formatDate(data.event_datetime)}</p>}
+
       {data.light_curve && data.light_curve.length > 0 && (
         <div>
-          <h2>Light Curve</h2>
           {data.light_curve.map((item, index) => (
             <ul key={index}>
               <li>Date & Time: {formatDate(item.datetime)}</li>
@@ -51,18 +76,11 @@ export default  function Telegram({ data }) {
         </div>
       )}
 
-      {data.authors && data.authors.length > 0 && (
-        <div>
-          <h2>Authors</h2>
-          {data.authors.map((author, index, array) => (
-            <span key={author.email}>
-              {author.name}
-              {index !== array.length - 1 ? ', ' : ''}
-            </span>
-          ))}
-        </div>
-      )}
+      {data.body && <Markdown>{data.body}</Markdown>}
 
+      <hr />
+      {data.external_id && <p>External ID: {data.external_id}</p>}
+    
       {data.observatories && data.observatories.length > 0 && (
         <div>
           <h2>Observatories</h2>
@@ -75,17 +93,6 @@ export default  function Telegram({ data }) {
               </ul>
             </ul>
           ))}
-        </div>
-      )}
-
-      {data.categories && data.categories.length > 0 && (
-        <div>
-          <h2>Categories</h2>
-          <ul>
-            {data.categories.map(category => (
-              <li key={category}>{category}</li>
-            ))}
-          </ul>
         </div>
       )}
 
