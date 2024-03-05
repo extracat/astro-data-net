@@ -45,7 +45,7 @@ export default function TelegramForm ({ formData, handleChange, handleSubmit, is
         <select className="select w-full max-w-xs" name="band" value={formData.band} onChange={handleChange}>
           <option value="radio">Radio</option>
           <option value="ir">IR</option>
-          <option value="visible">Visible</option>
+          <option value="optical">Optical</option>
           <option value="uv">UV</option>
           <option value="x-ray">X-ray</option>
           <option value="gamma">Gamma</option>

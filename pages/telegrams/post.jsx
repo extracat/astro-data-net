@@ -15,7 +15,6 @@ export default function TelegramFormPage() {
     external_id: "",
     title: "",
     body: "",
-    event_datetime: "",
     band: "visible",
     coordinates: {
       ra: {
