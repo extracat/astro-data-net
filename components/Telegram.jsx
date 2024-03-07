@@ -1,8 +1,21 @@
 import Markdown from "./Markdown";
 
 export default  function Telegram({ data }) {
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleString();
+  const formatDate = (dateString, formatOptions = undefined) => {
+
+    let options = {
+      dateStyle: 'long',
+      timeStyle: 'long',
+      hour12: false,
+      timeZone: 'UTC',
+    }
+
+    if (formatOptions != undefined) {
+      options = formatOptions;
+    }
+
+    //return new Date(dateString).toLocaleString(undefined, { timeZone: 'UTC' });
+    return new Intl.DateTimeFormat(undefined, options).format(new Date(dateString));
   };
 
   return (
@@ -64,7 +77,15 @@ export default  function Telegram({ data }) {
         <div>
           {data.light_curve.map((item, index) => (
             <ul key={index}>
-              <li>Date & Time: {formatDate(item.datetime)}</li>
+              <li>{formatDate(item.datetime, 
+                  { 
+                    hour: 'numeric', 
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: false,
+                    timeZone: 'UTC',
+                  })}
+              </li>
               <ul>
                 <li>Magnitude: {item.magnitude}</li>
                 <li>Upper Limit: {item.upper_limit}</li>
