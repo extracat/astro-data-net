@@ -1,22 +1,8 @@
 import Markdown from "./Markdown";
+import DataBlock from "./DataBlock";
+import { formatDate } from "../utils/formatters";
 
 export default  function Telegram({ data }) {
-  const formatDate = (dateString, formatOptions = undefined) => {
-
-    let options = {
-      dateStyle: 'long',
-      timeStyle: 'long',
-      hour12: false,
-      timeZone: 'UTC',
-    }
-
-    if (formatOptions != undefined) {
-      options = formatOptions;
-    }
-
-    //return new Date(dateString).toLocaleString(undefined, { timeZone: 'UTC' });
-    return new Intl.DateTimeFormat(undefined, options).format(new Date(dateString));
-  };
 
   return (
     <div>
@@ -63,15 +49,17 @@ export default  function Telegram({ data }) {
       {data.coordinates && (
         <div>
           <h2>Coordinates</h2>
-          {data.coordinates.ra && <p>Right ascension: {data.coordinates.ra.value} (±{data.coordinates.ra.error} {data.coordinates.ra.error_units})</p>}
-          {data.coordinates.dec && <p>Declination: {data.coordinates.dec.value} (±{data.coordinates.dec.error} {data.coordinates.dec.error_units})</p>}
+          {data.coordinates.ra && <DataBlock label="RA" bold value={data.coordinates.ra.value} error={data.coordinates.ra.error} />}
+          {data.coordinates.dec && <DataBlock label="Dec" bold value={data.coordinates.dec.value} error={data.coordinates.dec.error} />}
         </div>
       )}
 
-      <h2>Light Curve</h2>
-      {data.band && <p>Band: {data.band}</p>}
 
-      {data.event_datetime && <p>T0: {formatDate(data.event_datetime)}</p>}
+
+      <h2>Light Curve</h2>
+      {data.band && <DataBlock label="Band" value={data.band} />}
+
+      {data.event_datetime && <DataBlock label="T0" type="date" value={data.event_datetime} />}
 
       {data.light_curve && data.light_curve.length > 0 && (
         <div>
