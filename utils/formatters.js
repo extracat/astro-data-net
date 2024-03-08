@@ -1,5 +1,5 @@
 const formatNumber = (number, formatOptions = undefined) => {
-
+  
   let options = {
     style: "decimal",
     notation: "standard",
@@ -9,13 +9,13 @@ const formatNumber = (number, formatOptions = undefined) => {
     options = formatOptions;
   }
 
-  return new Intl.NumberFormat(undefined, options).format(number);
+  return new Intl.NumberFormat('en-US', options).format(number);
 };
 
 const formatDate = (dateString, formatOptions = undefined) => {
 
   let options = {
-    dateStyle: 'long',
+    dateStyle: 'medium',
     timeStyle: 'long',
     hour12: false,
     timeZone: 'UTC',
@@ -26,7 +26,7 @@ const formatDate = (dateString, formatOptions = undefined) => {
   }
 
   //return new Date(dateString).toLocaleString(undefined, { timeZone: 'UTC' });
-  return new Intl.DateTimeFormat(undefined, options).format(new Date(dateString));
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(dateString));
 };
 
 export { formatDate, formatNumber };
