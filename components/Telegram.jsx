@@ -1,3 +1,4 @@
+import "core-js/features/object/has-own";
 import Markdown from "./Markdown";
 import DataBlock from "./DataBlock";
 import { formatDate } from "../utils/formatters";
