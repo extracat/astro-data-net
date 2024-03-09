@@ -2,6 +2,7 @@ import "core-js/features/object/has-own";
 import Markdown from "./Markdown";
 import DataBlock from "./DataBlock";
 import { formatDate } from "../utils/formatters";
+import LightCurve from "./LightCurve";
 
 export default  function Telegram({ data }) {
 
@@ -62,29 +63,7 @@ export default  function Telegram({ data }) {
 
       {data.event_datetime && <DataBlock label="T0" type="date" value={data.event_datetime} />}
 
-      {data.light_curve && data.light_curve.length > 0 && (
-        <div>
-          {data.light_curve.map((item, index) => (
-            <ul key={index}>
-              <li>{formatDate(item.datetime, 
-                  { 
-                    hour: 'numeric', 
-                    minute: 'numeric',
-                    second: 'numeric',
-                    hour12: false,
-                    timeZone: 'UTC',
-                  })}
-              </li>
-              <ul>
-                <li>Magnitude: {item.magnitude}</li>
-                <li>Upper Limit: {item.upper_limit}</li>
-                <li>Exposition: {item.exptime} seconds</li>
-                <li>Filter: {item.filter}</li>
-              </ul>
-            </ul>
-          ))}
-        </div>
-      )}
+      {data.light_curve && data.light_curve.length > 0 && <LightCurve lightCurve={data.light_curve} />}
 
       {data.body && <Markdown>{data.body}</Markdown>}
 

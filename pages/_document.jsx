@@ -20,6 +20,7 @@ export default function Document() {
                     prose-h1:leading-normal
                     prose-h2:text-2xl
                     prose-h2:leading-relaxed
+                    prose-table:text-base
                     ">
           <Main />
         </article>
