@@ -28,6 +28,12 @@
   .adn-color-text {
     @apply text-adn-light-text dark:text-adn-dark-text;
   }
+  .adn-color-text-active {
+    @apply text-adn-light-text-active dark:text-adn-dark-text-active;
+  }
+  .adn-color-primary {
+    @apply text-adn-light-primary dark:text-adn-dark-primary;
+  }
 
 }
 

@@ -3,22 +3,27 @@ import Markdown from "./Markdown";
 import DataBlock from "./DataBlock";
 import { formatDate } from "../utils/formatters";
 import LightCurve from "./LightCurve";
+import Tag from "./Tag";
+import TagList from "./TagList";
 
 export default  function Telegram({ data }) {
 
   return (
     <div>
 
-      <center className="text-sm sm:mt-20 mb-4 md:px-16">
-        {data.timestamp && <span>{formatDate(data.timestamp)}</span>} — {data.adn_id && <span>{data.adn_id}</span>}
-        {data.title && <h1 className="mb-12">{data.title}</h1>}
+      <center className="text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
+
+        {data.timestamp && <span>{formatDate(data.timestamp)} <span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
+        {data.adn_id && <span>{data.adn_id}</span>}
+
+        {data.title && <h1 className="mb-6 mt-4">{data.title}</h1>}
 
         {data.categories && data.categories.length > 0 && (
-          <div>
+          <TagList>
               {data.categories.map(category => (
-                <span key={category}>{category} | </span>
+                <Tag key={category}>{category}</Tag>
               ))}
-          </div>
+          </TagList>
         )}
 
       </center>

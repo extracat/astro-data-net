@@ -42,6 +42,9 @@ module.exports = {
 
         /* Light Mode */
         'adn-light': {
+          'primary': colors.indigo[700],
+          'primary-lighter': colors.indigo[600],
+          
           'bg': colors.zinc[100],
           'bg-lighter': colors.white,
           'bg-dark': colors.zinc[200],
@@ -53,10 +56,20 @@ module.exports = {
           'link': colors.indigo[600],
 
           'border-lighter': colors.zinc[300],
+
+          'tag-sky': colors.sky[300],
+          'tag-purple': colors.purple[300],
+          'tag-amber': colors.amber[300],
+          'tag-emerald': colors.emerald[300],
+          'tag-zinc': colors.zinc[300],
+
         },
         
         /* Dark Mode */
         'adn-dark': {
+          'primary': colors.indigo[700],
+          'primary-lighter': colors.indigo[600],
+
           'bg': colors.zinc[900],
           'bg-lighter': colors.black,
           'bg-dark': colors.zinc[800],
@@ -68,6 +81,12 @@ module.exports = {
           'link': colors.indigo[400],
 
           'border-lighter': colors.zinc[700],
+
+          'tag-sky': colors.sky[900],
+          'tag-purple': colors.purple[900],
+          'tag-amber': colors.amber[900],
+          'tag-emerald': colors.emerald[900],
+          'tag-zinc': colors.zinc[700],
         }
 
       },
