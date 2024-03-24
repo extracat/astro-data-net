@@ -56,8 +56,8 @@ export default  function Telegram({ data }) {
       {data.coordinates && (
         <div>
           <h2>Coordinates</h2>
-          {data.coordinates.ra && <DataBlock label="RA" bold value={data.coordinates.ra.value} error={data.coordinates.ra.error} />}
-          {data.coordinates.dec && <DataBlock label="Dec" bold value={data.coordinates.dec.value} error={data.coordinates.dec.error} />}
+          {data.coordinates.ra && <DataBlock label="RA" type="angle" format="HMS" bold value={data.coordinates.ra.value} error={data.coordinates.ra.error} />}
+          {data.coordinates.dec && <DataBlock label="Dec" type="angle" format="DMS"  bold value={data.coordinates.dec.value} error={data.coordinates.dec.error} />}
         </div>
       )}
 
