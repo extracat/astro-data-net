@@ -16,6 +16,13 @@ export default function DataBlock(props) {
         break;
       case 'angle':
         value = angle2str(props.value, props.format);
+        value = String(value)
+          .replace(/([a-zA-Z]+)/g, "<sup>$1</sup>") // Wrap all letters in <sup>
+          .split(' ') // Split by spaces to process each part separately
+          .map((part, index) => <span key={index} dangerouslySetInnerHTML={{ __html: part }} />)
+          .reduce((prev, curr) => [prev, ' ', curr]); // Putting it back together by adding spaces
+
+
         break;
       default:
         value = props.value;
@@ -32,11 +39,18 @@ export default function DataBlock(props) {
         break;
       case 'angle':
         error = props.error;
+        error = String(error)
+        .replace(/([a-zA-Z]+)/g, "<sup>$1</sup>") // Wrap all letters in <sup>
+        .split(' ') // Split by spaces to process each part separately
+        .map((part, index) => <span key={index} dangerouslySetInnerHTML={{ __html: part }} />)
+        .reduce((prev, curr) => [prev, ' ', curr]); // Putting it back together by adding spaces
+
         break;
       default:
         error = props.error;
     }
   }
+
 
   return (
     <div className="flex flex-row items-baseline gap-1 my-5">
