@@ -18,19 +18,19 @@ module.exports = {
       ]
     },
     fontSize: {
-      'xs': '0.75rem',
-      'sm': '0.888888rem',  /* body-2 */
-      'base': '1rem',       /* body-1 */
-      'lg': '1.125rem',     /* h4 */
-      'xl': '1.25rem',      /* h3 */
-      '2xl': '1.333333rem', /* h2 */
-      '3xl': '1.777777rem', /* h1 */
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '3.75rem',
-      '7xl': '4.5rem',
-      '8xl': '6rem',
-      '9xl': '8rem',
+      'xs':   '0.875rem',
+      'sm':   '1rem',       /* body-2 */
+      'base': '1.125rem',   /* body-1 */
+      'lg':   '1.25rem',    /* h4 */
+      'xl':   '1.5rem',     /* h3 */
+      '2xl':  '1.875rem',   /* h2 */
+      '3xl':  '2.25rem',    /* h1 */
+      '4xl':  '3rem',
+      '5xl':  '3.75rem',
+      '6xl':  '4.5rem',
+      '7xl':  '6rem',
+      '8xl':  '8rem',
+      '9xl':  '12rem',
     },
     container: {
       center: true,

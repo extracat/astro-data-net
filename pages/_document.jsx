@@ -11,16 +11,15 @@ export default function Document() {
       <body className="px-8 py-8 antialiased adn-color-fill-bg">
         <article className="
                     container 
-                    ___max-w-[960px]
-                    prose
-                    dark:prose-invert 
-                    prose-adn-color 
+                    prose dark:prose-invert prose-adn-color 
+                    text-sm sm:text-base
                     prose-h1:text-center
-                    prose-h1:text-3xl
+                    prose-h1:text-2xl sm:prose-h1:text-3xl
                     prose-h1:leading-normal
-                    prose-h2:text-2xl
+                    prose-h2:text-lg sm:prose-h2:text-xl
                     prose-h2:leading-relaxed
-                    prose-table:text-base
+                    prose-h2:font-semibold
+                    prose-table:text-sm sm:prose-table:text-base
                     ">
           <Main />
         </article>

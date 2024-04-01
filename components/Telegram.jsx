@@ -11,7 +11,7 @@ export default  function Telegram({ data }) {
   return (
     <div>
 
-      <center className="text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
+      <center className="text-xs sm:text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
 
         {data.timestamp && <span>{formatDate(data.timestamp)} <span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
         {data.adn_id && <span>{data.adn_id}</span>}
@@ -31,7 +31,7 @@ export default  function Telegram({ data }) {
 
       
       {data.authors && data.authors.length > 0 && (
-        <div className="text-sm">
+        <div className="text-xs sm:text-sm">
           {(() => {
             const groupedByOrg = data.authors.reduce((acc, author) => {
               // Groupping by org
