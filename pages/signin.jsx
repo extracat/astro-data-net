@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import SigninForm from '../components/SigninForm';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 export default function SigninFormPage() {
 
@@ -98,6 +99,7 @@ export default function SigninFormPage() {
     <div>
       <Header />
       <h1>Sign In</h1>
+      <Link href="/signup">Sign up</Link>
       <SigninForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} isLoading={isLoading}/>
       <Footer />
     </div>
