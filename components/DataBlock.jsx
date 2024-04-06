@@ -56,8 +56,8 @@ export default function DataBlock(props) {
     <div className="flex flex-row items-baseline gap-1 my-5">
       <span className="w-12 font-semibold text-xs sm:text-sm">{props.label}</span>
       <div className="adn-color-fill-bg-dark rounded-lg px-3 py-1">
-        <data title={props.value} className={`${props.bold && "font-semibold"}`} value={props.value}>{value}</data>
-        {props.error && <data title={props.error}  value={props.error}> ± {error}</data>}
+        <data title={props.value} className={`${props.bold && "font-semibold"}`} value={props.value} suppressHydrationWarning>{value}</data>
+        {props.error && <data title={props.error} value={props.error} suppressHydrationWarning> ± {error}</data>}
       </div>      
     </div>
   )

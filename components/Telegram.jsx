@@ -13,7 +13,7 @@ export default  function Telegram({ data }) {
 
       <center className="text-xs sm:text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
 
-        {data.timestamp && <span>{formatDate(data.timestamp)} <span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
+        {data.timestamp && <span><time suppressHydrationWarning>{formatDate(data.timestamp)}</time><span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
         {data.adn_id && <span>{data.adn_id}</span>}
 
         {data.title && <h1 className="mb-6 mt-4">{data.title}</h1>}

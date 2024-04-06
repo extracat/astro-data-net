@@ -9,7 +9,7 @@ export default function LightCurve(props) {
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11">T</th>
             {props.lightCurve.map((item, index) => (
-              <td key={index} className="text-right w-28 adn-color-fill-bg-dark rounded-t-lg px-3 py-1">
+              <td key={index} className="text-right w-28 adn-color-fill-bg-dark rounded-t-lg px-3 py-1" suppressHydrationWarning>
                 {formatDate(item.datetime, 
                   { 
                     hour: 'numeric', 

@@ -11,11 +11,10 @@ export default function Document() {
       <body className="px-8 py-8 antialiased adn-color-fill-bg">
         <article className="
                     container 
-                    prose dark:prose-invert prose-adn-color 
-                    text-sm sm:text-base
+                    prose sm:prose-lg dark:prose-invert prose-adn-color 
                     prose-h1:text-center
                     prose-h1:text-2xl sm:prose-h1:text-3xl
-                    prose-h1:leading-normal
+                    prose-h1:leading-snug 
                     prose-h2:text-lg sm:prose-h2:text-xl
                     prose-h2:leading-relaxed
                     prose-h2:font-semibold
