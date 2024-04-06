@@ -69,7 +69,11 @@
 
   .btn,
   .btn-primary {
-    @apply py-2.5 px-6 h-12 block adn-color-fill-primary  hover:adn-color-fill-primary-lighter focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-50 transition ease-in duration-200 text-center text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full cursor-pointer;
+    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
+    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-lighter 
+    focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-indigo-500 focus:ring-offset-indigo-200 
+     cursor-pointer no-underline;
   }
   
   .btn:disabled,

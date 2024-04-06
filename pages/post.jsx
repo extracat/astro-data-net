@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import useSWR, { mutate } from 'swr';
-const api = new (require('../../controllers/api'))();
-import TelegramForm from '../../components/TelegramForm';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+const api = new (require('../controllers/api'))();
+import TelegramForm from '../components/TelegramForm';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function TelegramFormPage() {
   const [formData, setFormData] = useState({
