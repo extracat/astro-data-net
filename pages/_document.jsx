@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
-      <body className="px-8 py-8 antialiased adn-color-fill-bg">
+      <body className="px-8 py-8 adn-color-fill-bg">
         <article className="
                     container 
                     prose sm:prose-lg dark:prose-invert prose-adn-color 
