@@ -4,6 +4,7 @@
 
 @layer base {
   article {
+    text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
     word-wrap: break-word;      /* IE */
   }
