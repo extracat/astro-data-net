@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  html {font-weight: 450}
+  html {
+    font-weight_: 450;
+  }
   article {
     text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
