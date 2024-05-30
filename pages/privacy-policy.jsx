@@ -3,6 +3,7 @@ const api = new (require('../controllers/api'))();
 import Link from 'next/link'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Email from "../components/Email";
 
 export default function TextPage() {
 
@@ -31,7 +32,7 @@ export default function TextPage() {
       <h2 id="7-changes-to-the-privacy-policy">7. Changes to the Privacy Policy</h2>
       <p>7.1. ADN reserves the right to make changes to this Privacy Policy. We recommend that you regularly review this policy.</p>
       <h2 id="8-contact-information">8. Contact Information</h2>
-      <p>8.1. If you have any questions or suggestions regarding our Privacy Policy, please contact us at [email address].</p>
+      <p>8.1. If you have any questions or suggestions regarding our Privacy Policy, please contact us at <Email email="info@astrodatanet.org"/>.</p>
 
       <Footer/>
     </>
