@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-const Email = ({ email, children }) => {
-  const [visibleEmail, setVisibleEmail] = useState('{email}');
+const Email = ({ user, domain, children }) => {
+  const [email, setEmail] = useState('{email}');
 
   useEffect(() => {
-    setVisibleEmail(email);
-  }, [email]);
+    // Генерируем email на клиенте
+    setEmail(`${user}@${domain}`);
+  }, [user, domain]);
 
   return (
-    <a href={`mailto:${visibleEmail}`}>
-      {children || visibleEmail}
+    <a href={`mailto:${email}`}>
+      {children || email}
     </a>
   );
 };
