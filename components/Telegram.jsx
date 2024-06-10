@@ -21,7 +21,7 @@ export default  function Telegram({ data }) {
         {data.categories && data.categories.length > 0 && (
           <TagList>
               {data.categories.map(category => (
-                <Tag key={category}>{category}</Tag>
+                <Tag key={category._id}>{category.text}</Tag>
               ))}
           </TagList>
         )}
@@ -30,10 +30,10 @@ export default  function Telegram({ data }) {
 
 
       
-      {data.authors && data.authors.length > 0 && (
+      {data.authors_list && data.authors_list.length > 0 && (
         <div className="text-xs sm:text-sm">
           {(() => {
-            const groupedByOrg = data.authors.reduce((acc, author) => {
+            const groupedByOrg = data.authors_list.reduce((acc, author) => {
               // Groupping by org
               if (!acc[author.org]) {
                 acc[author.org] = [];
@@ -53,13 +53,7 @@ export default  function Telegram({ data }) {
         </div>
       )}
 
-      {data.coordinates && (
-        <div>
-          <h2>Coordinates</h2>
-          {data.coordinates.ra && <DataBlock label="RA" type="angle" format="HMS" bold value={data.coordinates.ra.value} error={data.coordinates.ra.error} />}
-          {data.coordinates.dec && <DataBlock label="Dec" type="angle" format="DMS"  bold value={data.coordinates.dec.value} error={data.coordinates.dec.error} />}
-        </div>
-      )}
+
 
 
 
@@ -73,22 +67,6 @@ export default  function Telegram({ data }) {
       {data.body && <Markdown>{data.body}</Markdown>}
 
       <hr />
-      {data.external_id && <p>External ID: {data.external_id}</p>}
-    
-      {data.observatories && data.observatories.length > 0 && (
-        <div>
-          <h2>Observatories</h2>
-          {data.observatories.map(observatory => (
-            <ul key={observatory.name}>
-              {observatory.name && <li>{observatory.name}</li>}
-              <ul>
-                {observatory.instrument && <li>Instrument: {observatory.instrument}</li>}
-                {observatory.observation_mode && <li>Observation Mode: {observatory.observation_mode}</li>}
-              </ul>
-            </ul>
-          ))}
-        </div>
-      )}
 
       {data.references && data.references.length > 0 && (
         <div>

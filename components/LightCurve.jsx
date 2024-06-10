@@ -1,4 +1,5 @@
 import { formatDate, formatNumber } from "../utils/formatters";
+import DataBlock from "./DataBlock";
 
 export default function LightCurve(props) {
 
@@ -36,6 +37,20 @@ export default function LightCurve(props) {
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11">fltr.</th>
             {props.lightCurve.map((item, index) => <td key={index} className="text-right w-28 adn-color-fill-bg-dark rounded-b-lg px-3 py-1">{item.filter}</td>)}
+          </tr>
+          <tr>
+            <th className="text-xs sm:text-sm font-semibold text-left w-11">coord.</th>
+            {props.lightCurve.map((item, index) => <td key={index} className="text-right w-28 adn-color-fill-bg-dark rounded-b-lg px-3 py-1">
+              {item.coordinates && (
+                <div>
+                  <DataBlock label="RA" type="angle" format="HMS" bold value={item.coordinates.right_ascension} error={item.coordinates.error} />
+                  <DataBlock label="Dec" type="angle" format="DMS"  bold value={item.coordinates.declination} error={item.coordinates.error} />
+                </div>
+              )}
+            </td>)}
+
+
+
           </tr>
         </tbody>
       </table>
