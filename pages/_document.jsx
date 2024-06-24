@@ -16,10 +16,11 @@ export default function Document() {
                     text-sm sm:text-base
                     prose-h1:text-center
                     prose-h1:text-2xl sm:prose-h1:text-3xl
+                    prose-h1:font-black
                     prose-h1:leading-snug 
                     prose-h2:text-lg sm:prose-h2:text-xl
                     prose-h2:leading-relaxed
-                    prose-h2:font-semibold
+                    prose-h2:font-extrabold
                     prose-table:text-sm sm:prose-table:text-base
                     ">
           <Main />

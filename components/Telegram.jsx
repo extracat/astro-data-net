@@ -58,9 +58,11 @@ export default  function Telegram({ data }) {
 
 
       <h2>Light Curve</h2>
-      {data.band && <DataBlock label="Band" value={data.band} />}
+      <div className="flex gap-8">
+        {data.event_datetime && <DataBlock label="T0" type="date" value={data.event_datetime} />}
+        {data.band && <DataBlock label="Band" value={data.band} />}
+      </div>
 
-      {data.event_datetime && <DataBlock label="T0" type="date" value={data.event_datetime} />}
 
       {data.light_curve && data.light_curve.length > 0 && <LightCurve lightCurve={data.light_curve} />}
 
