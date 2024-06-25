@@ -21,7 +21,18 @@ function htmlSuperscript() {
   };
 }
 
-
+function addClassToElements() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (['code', 'img', 'a', 'p', 'table', 'tr', 'td', 'th'].includes(node.tagName)) {
+        node.properties = {
+          ...node.properties,
+          className: ['markdown', ...(node.properties.className || [])]
+        };
+      }
+    });
+  };
+}
 
 const _mapProps = (props) => ({
   ...props,
@@ -32,6 +43,7 @@ const _mapProps = (props) => ({
   rehypePlugins: [
     rehypeKatex,
     htmlSuperscript,
+    addClassToElements,
     rehypeRaw
   ],
 

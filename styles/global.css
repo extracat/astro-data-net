@@ -11,6 +11,22 @@
     overflow-wrap: break-word;
     word-wrap: break-word;      /* IE */
   }
+  img.markdown {
+    @apply rounded-lg p-8 bg-white
+            brightness-[.90]
+            dark:brightness-[.85]
+            dark:invert 
+            dark:hue-rotate-180
+  }
+
+  .deleteme {
+    @apply outline 
+    outline-[#040c1a1a] 
+    dark:outline-[#1a160427]  
+    outline-[200px] 
+    outline-offset-[-200px];
+  }
+
 }
 
 @layer utilities { 
