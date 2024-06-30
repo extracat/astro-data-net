@@ -94,8 +94,14 @@ module.exports = {
 
       },
       typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: '800px', // max width of the prose acticle
+          }
+        },
         'adn-color': {
           css: {
+
             /* Light Mode */
             '--tw-prose-body': theme('colors.adn-light.text'),
             '--tw-prose-headings': theme('colors.adn-light.text'),
