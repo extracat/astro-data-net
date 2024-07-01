@@ -1,10 +1,10 @@
 import "core-js/features/object/has-own";
 import Markdown from "./Markdown";
-import DataBlock from "./DataBlock";
-import { formatDate } from "../utils/formatters";
+import DataBlock, {DataBlockValue, DataBlockError} from "./DataBlock";
 import LightCurve from "./LightCurve";
 import Tag from "./Tag";
 import TagList from "./TagList";
+import Date from "./Date";
 
 export default  function Telegram({ data }) {
 
@@ -13,7 +13,7 @@ export default  function Telegram({ data }) {
 
       <center className="text-xs sm:text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
 
-        {data.timestamp && <span><time suppressHydrationWarning>{formatDate(data.timestamp)}</time><span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
+        {data.timestamp && <span><Date value={data.timestamp} format="DT"/><span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
         {data.adn_id && <span>{data.adn_id}</span>}
 
         {data.title && <h1 className="mb-6 mt-4">{data.title}</h1>}
@@ -59,8 +59,18 @@ export default  function Telegram({ data }) {
 
       <h2>Light Curve</h2>
       <div className="flex gap-8">
-        {data.event_datetime && <DataBlock label="T0" type="date" value={data.event_datetime} />}
-        {data.band && <DataBlock label="Band" value={data.band} />}
+        {data.event_datetime && 
+          <DataBlock label="T0">
+            <DataBlockValue>
+              <Date value={data.event_datetime} format="DT"/>
+            </DataBlockValue>
+          </DataBlock>}
+        {data.band && 
+          <DataBlock label="Band">
+            <DataBlockValue>
+              {data.band}
+            </DataBlockValue>
+          </DataBlock>}
       </div>
 
 

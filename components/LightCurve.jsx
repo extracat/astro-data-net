@@ -1,6 +1,5 @@
-import { formatDate, formatNumber } from "../utils/formatters";
-import DataBlock from "./DataBlock";
 import Angle from "./Angle";
+import Date from "./Date";
 
 export default function LightCurve(props) {
 
@@ -11,30 +10,16 @@ export default function LightCurve(props) {
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11 pt-1">T</th>
             {props.lightCurve.map((item, index) => (
-              <td key={index} className="text-right min-w-40 adn-color-fill-bg-dark rounded-t-lg px-3 py-1 pt-2" suppressHydrationWarning>
-                {formatDate(item.datetime, 
-                  { 
-                    hour: 'numeric', 
-                    minute: 'numeric',
-                    second: 'numeric',
-                    hour12: false,
-                    timeZone: 'UTC',
-                  })}
+              <td key={index} className="text-right min-w-40 adn-color-fill-bg-dark rounded-t-lg px-3 py-1 pt-2">
+                <Date value={item.datetime} t0={props.lightCurve[0].datetime} format="T" />
               </td>
             ))}
           </tr>
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11">T−T0</th>
             {props.lightCurve.map((item, index) => (
-              <td key={index} className="text-right min-w-40 adn-color-fill-bg-dark px-3 py-1" suppressHydrationWarning>
-                {formatDate(item.datetime, 
-                  { 
-                    hour: 'numeric', 
-                    minute: 'numeric',
-                    second: 'numeric',
-                    hour12: false,
-                    timeZone: 'UTC',
-                  })}
+              <td key={index} className="text-right min-w-40 adn-color-fill-bg-dark px-3 py-1">
+                <Date value={item.datetime} t0={props.lightCurve[0].datetime} diff format="T" />
               </td>
             ))}
           </tr>
@@ -67,7 +52,7 @@ export default function LightCurve(props) {
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11">err.</th>
             {props.lightCurve.map((item, index) => <td key={index} className="text-right min-w-40 adn-color-fill-bg-dark px-3 py-1">
-              {item.coordinates && <Angle format="DMS" value={item.coordinates.error}/>}</td>)}
+              {item.coordinates && <Angle format="DEG" value={item.coordinates.error}/>}</td>)}
           </tr>
           <tr>
             <th className="text-xs sm:text-sm font-semibold text-left w-11">inst.</th>
