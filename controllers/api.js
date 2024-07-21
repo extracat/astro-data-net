@@ -49,20 +49,31 @@ class Api {
   
 
   async post(query, data) {
+    try {
+      // Set up the headers with the Authorization token
+      const token = this.getToken();
+      const headerAuth = token ? `Bearer ${token}` : '';
 
-    // Set up the headers with the Authorization token
-    const token = this.getToken();
-    const headerAuth = token ? `Bearer ${token}` : '';
+      const res = await fetch(this.apiUrl + query, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': headerAuth,
+        },
+        body: JSON.stringify(data),
+      });
+      return res;
+    } catch (error) {
+        // If API server is offline
+        if (error.name === 'TypeError' && error.message === 'fetch failed') {
+          console.error('Fetch error: API server is unavailable.');
+        } else {
+          // Other errors
+          console.error('Fetch error: ', error.message);
+        }
+        return { error: error.message };
+    }
 
-    const res = await fetch(this.apiUrl + query, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': headerAuth,
-      },
-      body: JSON.stringify(data),
-    });
-    return res;
   }
 
 }
