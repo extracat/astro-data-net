@@ -1,37 +1,59 @@
 import React, { useState } from 'react';
+import Input from "./Input";
+import Select from "./Select";
+import FormItem from "./FormItem";
+import Alert from "./Alert";
+
 
 export default function MockObjectForm ({ formData, handleChange, handleSubmit, isLoading, generalErrors, getFieldErrors }) {
 
-  //console.log(formData);
+  console.log(formData);
 
   return (
     <form onSubmit={handleSubmit}>
 
       {generalErrors.length > 0 && (
-        <div className="alert alert-danger">
+        <div>
           {generalErrors.map((error, index) => (
-            <div key={index}>{error}</div>
+            <Alert key={index} type="danger" message={error} />
           ))}
         </div>
       )}
 
-      <div className="form-control my-2">
-        <label htmlFor="name" className="label">
-          <span className="label-text">
-            Name
-          </span>
-        </label>
-        <input className="input w-full max-w-xs" type="text" name="name" id="name" value={formData.name} onChange={handleChange} />
-        {getFieldErrors('name').map((error, index) => (
-          <div key={index} className="error-message">{error}</div>
-        ))}
-      </div>
+      <FormItem 
+        label="Name"
+        error={getFieldErrors('name')} >
+
+        <Input
+          type="text"
+          name="name"
+          placeholder="Enter some text"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </FormItem>
+
+      <FormItem 
+        label="Band"
+        error={getFieldErrors('band')} >
+
+        <Select
+          name="band"
+          options={[
+            { value: 'option1', label: 'Option 1' },
+            { value: 'option2', label: 'Option 2' },
+            { value: 'option3', label: 'Option 3' },
+          ]}
+          placeholder="Select an option"
+          value={formData.band}
+          onChange={handleChange}
+        />
+      </FormItem>
 
       <button className="btn-primary"
         type="submit" disabled={isLoading}>
         {isLoading ? 'Sending...' : 'Save'}
       </button>
-
 
     </form>
   );

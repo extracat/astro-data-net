@@ -9,7 +9,8 @@ import Footer from '../../components/Footer';
 export default function MockObjectFormPage() {
   const [formData, setFormData] = useState({
     _id: "",
-    name: ""
+    name: "",
+    band: ""
   });
 
   function getPostData(data) {
@@ -17,8 +18,8 @@ export default function MockObjectFormPage() {
     return postData;
   }
 
-  const [formErrors, setFormErrors] = useState([]); // состояние для ошибок полей
-  const [generalErrors, setGeneralErrors] = useState(''); // состояние для общего сообщения об ошибке
+  const [formErrors, setFormErrors] = useState([]); // state to handle field errors
+  const [generalErrors, setGeneralErrors] = useState(''); // state to handle general form errors
   const [isLoading, setIsLoading] = useState(false); // state to handle loading indicator
 
   const router = useRouter(); // initialize router
@@ -26,8 +27,8 @@ export default function MockObjectFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // activate loading indicator
-    setFormErrors([]); // очистка ошибок полей
-    setGeneralErrors([]); // очистка общего сообщения об ошибке
+    setFormErrors([]); // clear field errors
+    setGeneralErrors([]); // clear general form errors
 
     const dataToSend = getPostData(formData);
 
@@ -56,11 +57,8 @@ export default function MockObjectFormPage() {
         } else {
           setGeneralErrors([errorData.errors]);
         }
-
-
         throw JSON.stringify(errorData) || 'Failed to submit'; // throw an error to catch it later
       }
-
 
 
       // Assuming here successful response will be JSON
