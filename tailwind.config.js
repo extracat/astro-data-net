@@ -53,12 +53,18 @@ module.exports = {
           'bg-dark': colors.zinc[200],
 
           'text': colors.zinc[700],
+          'text-label': colors.zinc[500],
           'text-active': colors.zinc[900],
-          'text-placeholder': colors.zinc[500],
+          'text-placeholder': colors.zinc[400],
           'text-disabled': colors.zinc[400],
           'link': colors.indigo[600],
 
           'border-lighter': colors.zinc[300],
+          'border-light': colors.zinc[400],
+
+          'control-bg': colors.zinc[100],
+          'control-bg-active': colors.zinc[50],
+          'control-bg-disable': colors.zinc[200],
 
           'tag-sky': colors.sky[300],
           'tag-purple': colors.purple[300],
@@ -78,12 +84,18 @@ module.exports = {
           'bg-dark': colors.zinc[800],
 
           'text': colors.zinc[300],
+          'text-label': colors.zinc[500],
           'text-active': colors.zinc[100],
-          'text-placeholder': colors.zinc[500],
+          'text-placeholder': colors.zinc[600],
           'text-disabled': colors.zinc[600],
           'link': colors.indigo[400],
 
           'border-lighter': colors.zinc[700],
+          'border-light': colors.zinc[600],
+
+          'control-bg': colors.zinc[800],
+          'control-bg-active': colors.zinc[800],
+          'control-bg-disable': colors.zinc[900],
 
           'tag-sky': colors.sky[900],
           'tag-purple': colors.purple[900],

@@ -114,11 +114,11 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
     >
       <input type="hidden" name={name} id={name} value={selectedOption ? selectedOption.value : ''} />
       <div
-        className={`w-full px-4 py-2 border rounded-md bg-white cursor-pointer flex items-center justify-between ${isOpen ? 'border-blue-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-indigo-600 border-transparent ring-2 adn-color-control-bg-active' : 'adn-color-border-light'} focus:outline-none focus:ring-2 focus:ring-indigo-600 adn-color-control-bg focus:adn-color-control-bg-active`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span>{selectedOption ? selectedOption.label : placeholder}</span>
-        <HiChevronDown className={`w-5 h-5 transform ${isOpen ? 'rotate-180' : ''} transition-transform duration-200 ${isOpen ? 'text-blue-500' : 'text-gray-500'}`} />
+        <span className={`${selectedOption ? '' : 'adn-color-text-placeholder'}`}>{selectedOption ? selectedOption.label : placeholder}</span>
+        <HiChevronDown className={`w-5 h-5 transform ${isOpen ? 'rotate-180' : ''} transition-transform duration-200 ${isOpen ? 'text-zinc-500' : 'text-zinc-500'}`} />
       </div>
       {isOpen && (
         <div

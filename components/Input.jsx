@@ -20,7 +20,7 @@ const Input = ({ name, type = 'text', placeholder = '', value: propValue, onChan
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
-      className={`border p-2 rounded-md ${className}`}
+      className={`input ${className}`}
     />
   );
 };

@@ -9,9 +9,9 @@ const FormItem = ({
   const errorMessages = Array.isArray(error) ? error : [error];
 
   return (
-    <div className="w-full mb-4">
+    <div className="w-full mb-4 form-control">
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm mb-2 adn-color-text-label">
           {label}
         </label>
       )}
