@@ -114,7 +114,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
     >
       <input type="hidden" name={name} id={name} value={selectedOption ? selectedOption.value : ''} />
       <div
-        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-indigo-600 border-transparent ring-2 adn-color-control-bg-active' : 'adn-color-border-light'} focus:outline-none focus:ring-2 focus:ring-indigo-600 adn-color-control-bg focus:adn-color-control-bg-active`}
+        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-indigo-600 border-transparent ring-2 adn-color-control-bg-active' : 'adn-color-border-light'} focus:outline-hidden focus:ring-2 focus:ring-indigo-600 adn-color-control-bg focus:adn-color-control-bg-active`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className={`${selectedOption ? '' : 'adn-color-text-placeholder'}`}>{selectedOption ? selectedOption.label : placeholder}</span>

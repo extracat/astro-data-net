@@ -21,7 +21,7 @@ const Alert = ({ type = 'info', message, onClose }) => {
   if (!isVisible) return null;
 
   return (
-    <div className={`flex items-center p-4 mb-4 border rounded-md shadow-sm ${type === 'info' ? 'bg-blue-100 border-blue-300' : ''} ${type === 'danger' ? 'bg-red-100 border-red-300' : ''} ${type === 'warning' ? 'bg-yellow-100 border-yellow-300' : ''} ${type === 'success' ? 'bg-green-100 border-green-300' : ''}`}>
+    <div className={`flex items-center p-4 mb-4 border rounded-md shadow-xs ${type === 'info' ? 'bg-blue-100 border-blue-300' : ''} ${type === 'danger' ? 'bg-red-100 border-red-300' : ''} ${type === 'warning' ? 'bg-yellow-100 border-yellow-300' : ''} ${type === 'success' ? 'bg-green-100 border-green-300' : ''}`}>
       {/* Иконка */}
       <div className="mr-3">
         {iconMap[type]}
@@ -35,7 +35,7 @@ const Alert = ({ type = 'info', message, onClose }) => {
       {/* Кнопка закрытия */}
       <button
         onClick={handleClose}
-        className="text-gray-500 hover:text-gray-700 focus:outline-none"
+        className="text-gray-500 hover:text-gray-700 focus:outline-hidden"
       >
         <IoMdClose className="w-5 h-5" />
       </button>
