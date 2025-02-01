@@ -104,7 +104,7 @@
 @utility input {
   .form-control & {
     @apply rounded-lg flex-1 w-full py-2 px-4 adn-color-control-bg text-base adn-color-text border adn-color-border-light focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-    outline-none;
+    outline-hidden;
   }
 }
 
@@ -112,7 +112,7 @@
 @utility select {
   .form-control & {
     @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-    border adn-color-border-light adn-color-control-bg adn-color-text adn-color-placeholder focus:outline-hidden focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-none;
+    border adn-color-border-light adn-color-control-bg adn-color-text adn-color-placeholder focus:outline-hidden focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
   }
 }
 
@@ -121,7 +121,7 @@
     @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border adn-color-border-light 
     adn-color-control-bg focus:adn-color-control-bg-active adn-color-placeholder
     adn-color-text focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-    outline-none;
+    outline-hidden;
   }
 }
 
