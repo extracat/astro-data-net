@@ -167,11 +167,11 @@
      cursor-pointer no-underline;
 
   &:disabled {
-    @apply border-opacity-0 bg-opacity-20 shadow-none cursor-default;
+    @apply opacity-20 shadow-none cursor-default;
   }
 
   &:disabled:hover {
-    @apply border-opacity-0 bg-opacity-20 shadow-none cursor-default;
+    @apply opacity-20 shadow-none cursor-default;
   }
 }
 
@@ -183,11 +183,11 @@
      cursor-pointer no-underline;
 
   &:disabled {
-    @apply border-opacity-0 bg-opacity-20 shadow-none cursor-default;
+    @apply opacity-20 shadow-none cursor-default;
   }
 
   &:disabled:hover {
-    @apply border-opacity-0 bg-opacity-20 shadow-none cursor-default;
+    @apply opacity-20 shadow-none cursor-default;
   }
 }
 

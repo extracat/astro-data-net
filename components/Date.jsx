@@ -45,6 +45,6 @@ export default function Date(props) {
 
 
   return (
-    <time suppressHydrationWarning title={props.value} className={`${props.className}`} datetime={props.value}>{value}{dateDifference > 0 && <sup>+{dateDifference}</sup>}</time>
+    <time suppressHydrationWarning title={props.value} className={`${props.className}`} dateTime={props.value}>{value}{dateDifference > 0 && <sup>+{dateDifference}</sup>}</time>
   )
 }
