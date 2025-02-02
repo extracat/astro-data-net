@@ -2,24 +2,6 @@
 
 @config '../tailwind.config.js';
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
-
 @utility adn-color-fill-bg {
   @apply bg-adn-light-fill-bg dark:bg-adn-dark-fill-bg;
 }
@@ -164,7 +146,7 @@
 
 @layer base {
   html {
-    font-weight_: 450;
+    font-weight: 450 !important;
   }
   article {
     text-rendering: optimizeLegibility;
@@ -178,7 +160,9 @@
             dark:invert 
             dark:hue-rotate-180
   }
-
+  a {
+    text-decoration: none !important;
+  }
   .deleteme {
     @apply  
     outline-[#040c1a1a] 
@@ -187,4 +171,22 @@
     outline-offset-[-200px];
   }
 
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }

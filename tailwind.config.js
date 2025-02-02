@@ -72,7 +72,7 @@ module.exports = {
           'text-label':       colors.zinc[500],
           'text-disabled':    colors.zinc[400],
 
-          'link-default': colors.indigo[400],
+          'link-default': colors.indigo[600],
 
           'control-bg': colors.zinc[100],
           'control-bg-active': colors.zinc[50],
