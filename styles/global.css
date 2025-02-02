@@ -21,16 +21,15 @@
 }
 
 @utility adn-color-fill-bg {
-  /* Semantic Colors */
-  @apply bg-adn-light-bg dark:bg-adn-dark-bg;
+  @apply bg-adn-light-fill-bg dark:bg-adn-dark-fill-bg;
 }
 
 @utility adn-color-fill-bg-lighter {
-  @apply bg-adn-light-bg-lighter dark:bg-adn-dark-bg-lighter;
+  @apply bg-adn-light-fill-bg-lighter dark:bg-adn-dark-fill-bg-lighter;
 }
 
 @utility adn-color-fill-bg-dark {
-  @apply bg-adn-light-bg-dark dark:bg-adn-dark-bg-dark;
+  @apply bg-adn-light-fill-bg-dark dark:bg-adn-dark-fill-bg-dark;
 }
 
 @utility adn-color-control-bg {
@@ -45,8 +44,8 @@
   @apply bg-adn-light-control-bg-disable dark:bg-adn-dark-control-bg-disable;
 }
 
-@utility adn-color-text {
-  @apply text-adn-light-text dark:text-adn-dark-text;
+@utility adn-color-text-default {
+  @apply text-adn-light-text-default dark:text-adn-dark-text-default;
 }
 
 @utility adn-color-text-active {
@@ -81,8 +80,8 @@
   @apply bg-adn-light-primary dark:bg-adn-dark-primary;
 }
 
-@utility adn-color-fill-primary-lighter {
-  @apply bg-adn-light-primary-lighter dark:bg-adn-dark-primary-lighter;
+@utility adn-color-fill-primary-light {
+  @apply bg-adn-light-primary-light dark:bg-adn-dark-primary-light;
 }
 
 @utility form-control {
@@ -103,7 +102,7 @@
 
 @utility input {
   .form-control & {
-    @apply rounded-lg flex-1 w-full py-2 px-4 adn-color-control-bg text-base adn-color-text border adn-color-border-light focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+    @apply rounded-lg flex-1 w-full py-2 px-4 adn-color-control-bg text-base adn-color-text-default border adn-color-border-light focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
     outline-hidden;
   }
 }
@@ -112,7 +111,7 @@
 @utility select {
   .form-control & {
     @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-    border adn-color-border-light adn-color-control-bg adn-color-text adn-color-placeholder focus:outline-hidden focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
+    border adn-color-border-light adn-color-control-bg adn-color-text-default adn-color-placeholder focus:outline-hidden focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
   }
 }
 
@@ -120,20 +119,20 @@
   .form-control & {
     @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border adn-color-border-light 
     adn-color-control-bg focus:adn-color-control-bg-active adn-color-placeholder
-    adn-color-text focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+    adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
     outline-hidden;
   }
 }
 
 @utility checkbox {
   .form-control & {
-    @apply rounded-lg border-transparent flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent;
+    @apply rounded-lg flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent;
   }
 }
 
 @utility btn {
   @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-lighter 
+    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-light 
     focus:outline-hidden focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500 focus:ring-offset-indigo-200 
      cursor-pointer no-underline;
@@ -149,7 +148,7 @@
 
 @utility btn-primary {
   @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-lighter 
+    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-light 
     focus:outline-hidden focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500 focus:ring-offset-indigo-200 
      cursor-pointer no-underline;
@@ -181,7 +180,7 @@
   }
 
   .deleteme {
-    @apply outline 
+    @apply  
     outline-[#040c1a1a] 
     dark:outline-[#1a160427]  
     outline-[200px] 

@@ -45,22 +45,34 @@ module.exports = {
 
         /* Light Mode */
         'adn-light': {
-          'primary': colors.indigo[700],
-          'primary-lighter': colors.indigo[600],
+          'primary-lighter':  colors.indigo[400],
+          'primary-light':    colors.indigo[600],
+          'primary':          colors.indigo[700],
+          'primary-dark':     colors.indigo[800],
           
-          'bg': colors.zinc[100],
-          'bg-lighter': colors.white,
-          'bg-dark': colors.zinc[200],
+          'error-light':      colors.red[400],
+          'error':            colors.red[500],
+          'error-dark':       colors.red[600],
 
-          'text': colors.zinc[700],
-          'text-label': colors.zinc[500],
-          'text-active': colors.zinc[900],
+          'warning-light':    colors.orange[400],
+          'warning':          colors.orange[500],
+          'warning-dark':     colors.orange[600],
+
+          'fill-bg-lighter':  colors.white,
+          'fill-bg-light':    colors.zinc[50],
+          'fill-bg':          colors.zinc[100],
+          'fill-bg-dark':     colors.zinc[200],
+          
+          'border-lighter':   colors.zinc[300],
+          'border-light':     colors.zinc[400],
+
+          'text-default':     colors.zinc[700],
+          'text-active':      colors.zinc[900],
           'text-placeholder': colors.zinc[400],
-          'text-disabled': colors.zinc[400],
-          'link': colors.indigo[600],
+          'text-label':       colors.zinc[500],
+          'text-disabled':    colors.zinc[400],
 
-          'border-lighter': colors.zinc[300],
-          'border-light': colors.zinc[400],
+          'link-defaut': colors.indigo[400],
 
           'control-bg': colors.zinc[100],
           'control-bg-active': colors.zinc[50],
@@ -76,22 +88,34 @@ module.exports = {
         
         /* Dark Mode */
         'adn-dark': {
-          'primary': colors.indigo[700],
-          'primary-lighter': colors.indigo[600],
+          'primary-lighter':  colors.indigo[400],
+          'primary-light':    colors.indigo[600],
+          'primary':          colors.indigo[700],
+          'primary-dark':     colors.indigo[800],
 
-          'bg': colors.zinc[900],
-          'bg-lighter': colors.black,
-          'bg-dark': colors.zinc[800],
+          'error-light':      colors.red[400],
+          'error':            colors.red[500],
+          'error-dark':       colors.red[600],
 
-          'text': colors.zinc[300],
-          'text-label': colors.zinc[500],
-          'text-active': colors.zinc[100],
+          'warning-light':    colors.orange[400],
+          'warning':          colors.orange[500],
+          'warning-dark':     colors.orange[600],
+
+          'fill-bg-lighter':  colors.black,
+          'fill-bg-light':    colors.zinc[950],
+          'fill-bg':          colors.zinc[900],
+          'fill-bg-dark':     colors.zinc[800],
+          
+          'border-lighter':   colors.zinc[700],
+          'border-light':     colors.zinc[600],
+
+          'text-default':     colors.zinc[300],
+          'text-active':      colors.zinc[100],
           'text-placeholder': colors.zinc[600],
-          'text-disabled': colors.zinc[600],
-          'link': colors.indigo[400],
+          'text-label':       colors.zinc[500],
+          'text-disabled':    colors.zinc[600],
 
-          'border-lighter': colors.zinc[700],
-          'border-light': colors.zinc[600],
+          'link-defaut': colors.indigo[400],
 
           'control-bg': colors.zinc[800],
           'control-bg-active': colors.zinc[800],
