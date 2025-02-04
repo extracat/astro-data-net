@@ -72,11 +72,14 @@ module.exports = {
           'text-label':       colors.zinc[500],
           'text-disabled':    colors.zinc[400],
 
-          'link-default': colors.indigo[600],
+          'link-default': ({ theme }) => theme('colors.adn-light.primary-light'),
 
           'control-bg': colors.zinc[100],
           'control-bg-active': colors.zinc[50],
           'control-bg-disable': colors.zinc[200],
+
+          'control-primary-bg-default': ({ theme }) => theme('colors.adn-light.primary'),
+          'control-primary-bg-hover': ({ theme }) => theme('colors.adn-light.primary-light'),
 
           'tag-sky': colors.sky[300],
           'tag-purple': colors.purple[300],
@@ -115,11 +118,14 @@ module.exports = {
           'text-label':       colors.zinc[500],
           'text-disabled':    colors.zinc[600],
 
-          'link-default': colors.indigo[400],
+          'link-default': ({ theme }) => theme('colors.adn-dark.primary-lighter'),
 
           'control-bg': colors.zinc[800],
           'control-bg-active': colors.zinc[800],
           'control-bg-disable': colors.zinc[900],
+
+          'control-primary-bg-default': ({ theme }) => theme('colors.adn-dark.primary'),
+          'control-primary-bg-hover': ({ theme }) => theme('colors.adn-dark.primary-light'),
 
           'tag-sky': colors.sky[900],
           'tag-purple': colors.purple[900],
