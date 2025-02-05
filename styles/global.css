@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-
 @config '../tailwind.config.js';
 
 @utility adn-color-fill-bg {
@@ -160,9 +159,7 @@
             dark:invert 
             dark:hue-rotate-180
   }
-  a {
-    text-decoration: none !important;
-  }
+
   .deleteme {
     @apply  
     outline-[#040c1a1a] 

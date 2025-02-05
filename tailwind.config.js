@@ -1,6 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
@@ -8,7 +7,9 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
+
     fontFamily: {
       'sans': ['InterVariable, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
         {
@@ -20,6 +21,7 @@ module.exports = {
     supports: {
       variableFonts: 'font-variation-settings: normal',
     },
+
     fontSize: {
       'xs':   '0.875rem',
       'sm':   '1rem',       /* body-2 */
@@ -35,13 +37,15 @@ module.exports = {
       '8xl':  '8rem',
       '9xl':  '12rem',
     },
+
     container: {
       center: true,
     },
+
     extend: {
-      colors: {
-        
-        /* Semantic Colors */
+
+      colors: {   
+      /* Semantic Colors */
 
         /* Light Mode */
         'adn-light': {
@@ -81,12 +85,11 @@ module.exports = {
           'control-primary-bg-default': ({ theme }) => theme('colors.adn-light.primary'),
           'control-primary-bg-hover': ({ theme }) => theme('colors.adn-light.primary-light'),
 
-          'tag-sky': colors.sky[300],
-          'tag-purple': colors.purple[300],
-          'tag-amber': colors.amber[300],
-          'tag-emerald': colors.emerald[300],
-          'tag-zinc': colors.zinc[300],
-
+          'tag-sky':      colors.sky[300],
+          'tag-purple':   colors.purple[300],
+          'tag-amber':    colors.amber[300],
+          'tag-emerald':  colors.emerald[300],
+          'tag-zinc':     colors.zinc[300],
         },
         
         /* Dark Mode */
@@ -127,20 +130,32 @@ module.exports = {
           'control-primary-bg-default': ({ theme }) => theme('colors.adn-dark.primary'),
           'control-primary-bg-hover': ({ theme }) => theme('colors.adn-dark.primary-light'),
 
-          'tag-sky': colors.sky[900],
-          'tag-purple': colors.purple[900],
-          'tag-amber': colors.amber[900],
-          'tag-emerald': colors.emerald[900],
-          'tag-zinc': colors.zinc[700],
+          'tag-sky':      colors.sky[900],
+          'tag-purple':   colors.purple[900],
+          'tag-amber':    colors.amber[900],
+          'tag-emerald':  colors.emerald[900],
+          'tag-zinc':     colors.zinc[700],
         }
 
       },
+
       typography: ({ theme }) => ({
+
         DEFAULT: {
           css: {
             maxWidth: '800px', // max width of the prose acticle
+            a: {
+              // change anchor color and on hover
+              color: '#03989E',
+              cursor: 'resize',
+                '&:hover': { // could be any. It's like extending css selector
+                  color: '#F7941E',
+                  cursor: 'resize',
+                },
+            },
           }
         },
+
         'adn-color': {
           css: {
 
@@ -184,8 +199,23 @@ module.exports = {
       }),
     },
   },
+
   plugins: [
     require('@tailwindcss/typography'),
+
+    plugin(function({ addComponents }) {
+      addComponents({
+
+        //
+        // '.text-h1-example': {
+        // '@apply text-slate-900 dark:text-white text-2xl md:text-3xl lg:text-4xl font-bold': {},
+        // // you can add additional CSS properties directly
+        // lineHeight: '1.2',
+        // },
+        //
+        
+      })
+    })
   ],
 }
 
