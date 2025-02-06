@@ -1,68 +1,23 @@
+@import './colors.css';
 @import 'tailwindcss';
 @config '../tailwind.config.js';
 
-@utility adn-color-fill-bg {
-  @apply bg-adn-light-fill-bg dark:bg-adn-dark-fill-bg;
-}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-@utility adn-color-fill-bg-lighter {
-  @apply bg-adn-light-fill-bg-lighter dark:bg-adn-dark-fill-bg-lighter;
-}
-
-@utility adn-color-fill-bg-dark {
-  @apply bg-adn-light-fill-bg-dark dark:bg-adn-dark-fill-bg-dark;
-}
-
-@utility adn-color-control-bg {
-  @apply bg-adn-light-control-bg dark:bg-adn-dark-control-bg;
-}
-
-@utility adn-color-control-bg-active {
-  @apply bg-adn-light-control-bg-active dark:bg-adn-dark-control-bg-active;
-}
-
-@utility adn-color-control-bg-disable {
-  @apply bg-adn-light-control-bg-disable dark:bg-adn-dark-control-bg-disable;
-}
-
-@utility adn-color-text-default {
-  @apply text-adn-light-text-default dark:text-adn-dark-text-default;
-}
-
-@utility adn-color-text-active {
-  @apply text-adn-light-text-active dark:text-adn-dark-text-active;
-}
-
-@utility adn-color-text-label {
-  @apply text-adn-light-text-label dark:text-adn-dark-text-label;
-}
-
-@utility adn-color-placeholder {
-  @apply placeholder-adn-light-text-placeholder dark:placeholder-adn-dark-text-placeholder;
-}
-
-@utility adn-color-text-placeholder {
-  @apply text-adn-light-text-placeholder dark:text-adn-dark-text-placeholder;
-}
-
-@utility adn-color-text-disabled {
-  @apply text-adn-light-text-disabled dark:text-adn-dark-text-disabled;
-}
-
-@utility adn-color-border-light {
-  @apply border-adn-light-border-light  dark:border-adn-dark-border-light;
-}
-
-@utility adn-color-border-lighter {
-  @apply border-adn-light-border-lighter dark:border-adn-dark-border-lighter;
-}
-
-@utility adn-color-fill-primary {
-  @apply bg-adn-light-primary dark:bg-adn-dark-primary;
-}
-
-@utility adn-color-fill-primary-light {
-  @apply bg-adn-light-primary-light dark:bg-adn-dark-primary-light;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
 @utility form-control {
@@ -83,7 +38,7 @@
 
 @utility input {
   .form-control & {
-    @apply rounded-lg flex-1 w-full py-2 px-4 adn-color-control-bg text-base adn-color-text-default border adn-color-border-light focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+    @apply rounded-lg flex-1 w-full py-2 px-4 bg-adn-color-control-bg text-base text-adn-color-text-default border border-adn-color-border-light focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
     outline-hidden;
   }
 }
@@ -92,15 +47,15 @@
 @utility select {
   .form-control & {
     @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-    border adn-color-border-light adn-color-control-bg adn-color-text-default adn-color-placeholder focus:outline-hidden focus:adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
+    border border-adn-color-border-light bg-adn-color-control-bg text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-hidden focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
   }
 }
 
 @utility textarea {
   .form-control & {
-    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border adn-color-border-light 
-    adn-color-control-bg focus:adn-color-control-bg-active adn-color-placeholder
-    adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border border-adn-color-border-light 
+    bg-adn-color-control-bg focus:bg-adn-color-control-bg-active placeholder-adn-color-text-placeholder
+    text-adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
     outline-hidden;
   }
 }
@@ -113,7 +68,7 @@
 
 @utility btn {
   @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-light 
+    text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
     focus:outline-hidden focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500 focus:ring-offset-indigo-200 
      cursor-pointer no-underline;
@@ -129,7 +84,7 @@
 
 @utility btn-primary {
   @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-light 
+    text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
     focus:outline-hidden focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500 focus:ring-offset-indigo-200 
      cursor-pointer no-underline;
@@ -140,6 +95,15 @@
 
   &:disabled:hover {
     @apply opacity-20 shadow-none cursor-default;
+  }
+}
+
+
+
+@layer base {
+  a {
+    @apply no-underline hover:underline text-adn-color-link-default; 
+
   }
 }
 
@@ -170,20 +134,3 @@
 
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}

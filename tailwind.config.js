@@ -45,98 +45,51 @@ module.exports = {
     extend: {
 
       colors: {   
-      /* Semantic Colors */
 
-        /* Light Mode */
-        'adn-light': {
-          'primary-lighter':  colors.indigo[400],
-          'primary-light':    colors.indigo[600],
-          'primary':          colors.indigo[700],
-          'primary-dark':     colors.indigo[800],
+        /* Semantic Colors */
+        'adn-color': {
+          'primary-lighter': 'var(--adn-color-primary-lighter)',
+          'primary-light': 'var(--adn-color-primary-light)',
+          'primary': 'var(--adn-color-primary)',
+          'primary-dark': 'var(--adn-color-primary-dark)',
           
-          'error-light':      colors.red[400],
-          'error':            colors.red[500],
-          'error-dark':       colors.red[600],
+          'error-light': 'var(--adn-color-error-light)',
+          'error': 'var(--adn-color-error)',
+          'error-dark': 'var(--adn-color-error-dark)',
 
-          'warning-light':    colors.orange[400],
-          'warning':          colors.orange[500],
-          'warning-dark':     colors.orange[600],
+          'warning-light': 'var(--adn-color-warning-light)',
+          'warning': 'var(--adn-color-warning)',
+          'warning-dark': 'var(--adn-color-warning-dark)',
 
           'fill-bg-lighter':  colors.white,
-          'fill-bg-light':    colors.zinc[50],
-          'fill-bg':          colors.zinc[100],
-          'fill-bg-dark':     colors.zinc[200],
+          'fill-bg-light': 'var(--adn-color-fill-bg-light)',
+          'fill-bg': 'var(--adn-color-fill-bg)',
+          'fill-bg-dark': 'var(--adn-color-fill-bg-dark)',
           
-          'border-lighter':   colors.zinc[300],
-          'border-light':     colors.zinc[400],
+          'border-lighter': 'var(--adn-color-border-lighter)',
+          'border-light': 'var(--adn-color-border-light)',
 
-          'text-default':     colors.zinc[700],
-          'text-active':      colors.zinc[900],
-          'text-placeholder': colors.zinc[400],
-          'text-label':       colors.zinc[500],
-          'text-disabled':    colors.zinc[400],
+          'text-default': 'var(--adn-color-text-default)',
+          'text-active': 'var(--adn-color-text-active)',
+          'text-placeholder': 'var(--adn-color-text-placeholder)',
+          'text-label': 'var(--adn-color-text-label)',
+          'text-disabled': 'var(--adn-color-text-disabled)',
 
-          'link-default': ({ theme }) => theme('colors.adn-light.primary-light'),
+          'link-default': 'var(--adn-color-link-default)',
 
-          'control-bg': colors.zinc[100],
-          'control-bg-active': colors.zinc[50],
-          'control-bg-disable': colors.zinc[200],
+          'control-bg': 'var(--adn-color-control-bg)',
+          'control-bg-active': 'var(--adn-color-control-bg-active)',
+          'control-bg-disable': 'var(--adn-color-control-bg-disable)',
 
-          'control-primary-bg-default': ({ theme }) => theme('colors.adn-light.primary'),
-          'control-primary-bg-hover': ({ theme }) => theme('colors.adn-light.primary-light'),
+          'control-primary-bg-default': 'var(--adn-color-control-primary-bg-default)',
+          'control-primary-bg-hover': 'var(--adn-color-control-primary-bg-hover)',
 
-          'tag-sky':      colors.sky[300],
-          'tag-purple':   colors.purple[300],
-          'tag-amber':    colors.amber[300],
-          'tag-emerald':  colors.emerald[300],
-          'tag-zinc':     colors.zinc[300],
+          'tag-sky': 'var(--adn-color-tag-sky)',
+          'tag-purple': 'var(--adn-color-tag-purple)',
+          'tag-amber': 'var(--adn-color-tag-amber)',
+          'tag-emerald': 'var(--adn-color-tag-emerald)',
+          'tag-zinc': 'var(--adn-color-tag-zinc)',
         },
-        
-        /* Dark Mode */
-        'adn-dark': {
-          'primary-lighter':  colors.indigo[400],
-          'primary-light':    colors.indigo[600],
-          'primary':          colors.indigo[700],
-          'primary-dark':     colors.indigo[800],
-
-          'error-light':      colors.red[400],
-          'error':            colors.red[500],
-          'error-dark':       colors.red[600],
-
-          'warning-light':    colors.orange[400],
-          'warning':          colors.orange[500],
-          'warning-dark':     colors.orange[600],
-
-          'fill-bg-lighter':  colors.black,
-          'fill-bg-light':    colors.zinc[950],
-          'fill-bg':          colors.zinc[900],
-          'fill-bg-dark':     colors.zinc[800],
-          
-          'border-lighter':   colors.zinc[700],
-          'border-light':     colors.zinc[600],
-
-          'text-default':     colors.zinc[300],
-          'text-active':      colors.zinc[100],
-          'text-placeholder': colors.zinc[600],
-          'text-label':       colors.zinc[500],
-          'text-disabled':    colors.zinc[600],
-
-          'link-default': ({ theme }) => theme('colors.adn-dark.primary-lighter'),
-
-          'control-bg': colors.zinc[800],
-          'control-bg-active': colors.zinc[800],
-          'control-bg-disable': colors.zinc[900],
-
-          'control-primary-bg-default': ({ theme }) => theme('colors.adn-dark.primary'),
-          'control-primary-bg-hover': ({ theme }) => theme('colors.adn-dark.primary-light'),
-
-          'tag-sky':      colors.sky[900],
-          'tag-purple':   colors.purple[900],
-          'tag-amber':    colors.amber[900],
-          'tag-emerald':  colors.emerald[900],
-          'tag-zinc':     colors.zinc[700],
-        }
-
       },
 
       typography: ({ theme }) => ({
@@ -144,15 +97,7 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '800px', // max width of the prose acticle
-            a: {
-              // change anchor color and on hover
-              color: '#03989E',
-              cursor: 'resize',
-                '&:hover': { // could be any. It's like extending css selector
-                  color: '#F7941E',
-                  cursor: 'resize',
-                },
-            },
+            a: false,
           }
         },
 
@@ -160,24 +105,25 @@ module.exports = {
           css: {
 
             /* Light Mode */
-            '--tw-prose-body': theme('colors.adn-light.text-default'),
-            '--tw-prose-headings': theme('colors.adn-light.text-default'),
-            '--tw-prose-lead': theme('colors.adn-light.text-default'),
-            '--tw-prose-links': theme('colors.adn-light.link-default'),
-            '--tw-prose-bold': theme('colors.adn-light.text-default'),
-            '--tw-prose-counters': theme('colors.adn-light.text-default'),
-            '--tw-prose-bullets': theme('colors.adn-light.text-default'),
-            '--tw-prose-hr': theme('colors.adn-light.border-lighter'),
-            '--tw-prose-quotes': theme('colors.adn-light.text-default'),
-            '--tw-prose-quote-borders': theme('colors.adn-light.border-lighter'),
-            '--tw-prose-captions': theme('colors.adn-light.text-default'),
-            '--tw-prose-code': theme('colors.adn-light.text-default'),
-            '--tw-prose-pre-code': theme('colors.adn-light.text-default'),
-            '--tw-prose-pre-bg': theme('colors.adn-light.fill-bg-dark'),
-            '--tw-prose-th-borders': theme('colors.adn-light.border-lighter'),
-            '--tw-prose-td-borders': theme('colors.adn-light.border-lighter'),
+            '--tw-prose-body': theme('colors.adn-color.text-default'),
+            '--tw-prose-headings': theme('colors.adn-color.text-default'),
+            '--tw-prose-lead': theme('colors.adn-color.text-default'),
+            '--tw-prose-links': theme('colors.adn-color.link-default'),
+            '--tw-prose-bold': theme('colors.adn-color.text-default'),
+            '--tw-prose-counters': theme('colors.adn-color.text-default'),
+            '--tw-prose-bullets': theme('colors.adn-color.text-default'),
+            '--tw-prose-hr': theme('colors.adn-color.border-lighter'),
+            '--tw-prose-quotes': theme('colors.adn-color.text-default'),
+            '--tw-prose-quote-borders': theme('colors.adn-color.border-lighter'),
+            '--tw-prose-captions': theme('colors.adn-color.text-default'),
+            '--tw-prose-code': theme('colors.adn-color.text-default'),
+            '--tw-prose-pre-code': theme('colors.adn-color.text-default'),
+            '--tw-prose-pre-bg': theme('colors.adn-color.fill-bg-dark'),
+            '--tw-prose-th-borders': theme('colors.adn-color.border-lighter'),
+            '--tw-prose-td-borders': theme('colors.adn-color.border-lighter'),
 
             /* Dark Mode */
+            /*
             '--tw-prose-invert-body': theme('colors.adn-dark.text-default'),
             '--tw-prose-invert-headings': theme('colors.adn-dark.text-default'),
             '--tw-prose-invert-lead': theme('colors.adn-dark.text-default'),
@@ -194,6 +140,7 @@ module.exports = {
             '--tw-prose-invert-pre-bg': theme('colors.adn-dark.bg-dark'),
             '--tw-prose-invert-th-borders': theme('colors.adn-dark.border-lighter'),
             '--tw-prose-invert-td-borders': theme('colors.adn-dark.border-lighter'),
+            */
           },
         },
       }),

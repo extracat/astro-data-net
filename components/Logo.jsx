@@ -2,7 +2,7 @@ export default function Logo(props) {
   return (
     <>
       <svg
-        className="w-20 sm:w-28 adn-color-text fill-current"
+        className="w-20 sm:w-28 fill-current"
         alt="ADN"
         xmlns="http://www.w3.org/2000/svg" 
         width="100" height="46" viewBox="0 0 100 46" >

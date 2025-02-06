@@ -29,7 +29,7 @@ export default function DataBlock(props) {
   return (
     <div className="flex flex-row items-baseline gap-4 my-5">
       <span className="w-12 font-semibold text-xs sm:text-sm">{props.label}</span>
-      <div className="adn-color-fill-bg-dark rounded-lg px-3 py-1">
+      <div className="bg-adn-color-fill-bg-dark rounded-lg px-3 py-1">
         {<span className={`${props.bold && "font-semibold"}`}>{value}</span>
         }
         {!!error && <span> ± {error}</span>}
