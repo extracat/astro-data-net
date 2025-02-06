@@ -15,7 +15,7 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
       {generalErrors.length > 0 && (
         <div>
           {generalErrors.map((error, index) => (
-            <Alert key={index} type="danger" message={error} />
+            <Alert key={index} type="danger" message={`${error.code ? error.code + ': ' : '' }${error.message ? error.message : ''}${error.msg ? error.msg : ''}`} />
           ))}
         </div>
       )}

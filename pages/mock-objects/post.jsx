@@ -32,7 +32,6 @@ export default function MockObjectFormPage() {
 
     const dataToSend = getPostData(formData);
 
-
     try {
       const res = await api.post('/v1/mock-objects', dataToSend)
 
@@ -53,9 +52,10 @@ export default function MockObjectFormPage() {
           const generalErrorMessages = errorData.errors.filter(err => err.location === 'body' && !Object.keys(formData).includes(err.path));
           
           setFormErrors(fieldErrors);
-          setGeneralErrors(generalErrorMessages.map(err => err.msg));
+          setGeneralErrors(generalErrorMessages);
+
         } else {
-          setGeneralErrors([errorData.errors]);
+          setGeneralErrors([errorData]);
         }
         throw JSON.stringify(errorData) || 'Failed to submit'; // throw an error to catch it later
       }
