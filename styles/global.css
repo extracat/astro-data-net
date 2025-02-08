@@ -2,122 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './colors.css';
-@config '../tailwind.config.js';
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
-*/
-
-@layer components {
-
-  .form-control {
-    @apply flex flex-col;
-  }
-  
-  .label {
-    @apply px-1 py-2 flex select-none items-center justify-between;
-  }
-  
-  .label-text {
-    @apply text-xs sm:text-sm;
-  }
-  
-  .label-text-alt {
-    @apply text-xs;
-  }
-  
-  .input {
-    .form-control & {
-      @apply rounded-lg flex-1 w-full py-2 px-4 bg-adn-color-control-bg text-base text-adn-color-text-default border border-adn-color-border-light focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-      outline-none;
-    }
-  }
-  
-  
-  .select {
-    .form-control & {
-      @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-      border border-adn-color-border-light bg-adn-color-control-bg text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-none;
-    }
-  }
-  
-  .textarea {
-    .form-control & {
-      @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border border-adn-color-border-light 
-      bg-adn-color-control-bg focus:bg-adn-color-control-bg-active placeholder-adn-color-text-placeholder
-      text-adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-      outline-none;
-    }
-  }
-  
-  .checkbox {
-    .form-control & {
-      @apply rounded-lg flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent;
-    }
-  }
-  
-  .btn {
-    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-      text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
-      focus:outline-none focus:ring-2 focus:ring-offset-2
-      focus:ring-indigo-500 focus:ring-offset-indigo-200 
-       cursor-pointer no-underline;
-  
-    &:disabled {
-      @apply opacity-20 shadow-none cursor-default;
-    }
-  
-    &:disabled:hover {
-      @apply opacity-20 shadow-none cursor-default;
-    }
-  }
-  
-  .btn-primary {
-    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-      text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
-      focus:outline-none focus:ring-2 focus:ring-offset-2
-      focus:ring-indigo-500 focus:ring-offset-indigo-200 
-       cursor-pointer no-underline;
-  
-    &:disabled {
-      @apply opacity-20 shadow-none cursor-default;
-    }
-  
-    &:disabled:hover {
-      @apply opacity-20 shadow-none cursor-default;
-    }
-  }
-  
-}
-
-
-
-@layer base {
-  a {
-    @apply no-underline hover:underline text-adn-color-link-default; 
-
-  }
-}
-
 @layer base {
   html {
-    font-weight: 450 !important;
+    font-weight_: 450;
   }
   article {
     text-rendering: optimizeLegibility;
@@ -133,7 +20,7 @@
   }
 
   .deleteme {
-    @apply  
+    @apply outline 
     outline-[#040c1a1a] 
     dark:outline-[#1a160427]  
     outline-[200px] 
@@ -142,3 +29,118 @@
 
 }
 
+@layer utilities { 
+
+  /* Semantic Colors */
+
+  .adn-color-fill-bg {
+    @apply bg-adn-light-bg dark:bg-adn-dark-bg;
+  }
+  .adn-color-fill-bg-lighter {
+    @apply bg-adn-light-bg-lighter dark:bg-adn-dark-bg-lighter;
+  }
+  .adn-color-fill-bg-dark {
+    @apply bg-adn-light-bg-dark dark:bg-adn-dark-bg-dark;
+  }
+
+
+  .adn-color-control-bg {
+    @apply bg-adn-light-control-bg dark:bg-adn-dark-control-bg;
+  }
+  .adn-color-control-bg-active {
+    @apply bg-adn-light-control-bg-active dark:bg-adn-dark-control-bg-active;
+  }
+  .adn-color-control-bg-disable {
+    @apply bg-adn-light-control-bg-disable dark:bg-adn-dark-control-bg-disable;
+  }
+
+  .adn-color-text {
+    @apply text-adn-light-text dark:text-adn-dark-text;
+  }
+  .adn-color-text-active {
+    @apply text-adn-light-text-active dark:text-adn-dark-text-active;
+  }
+  .adn-color-text-label {
+    @apply text-adn-light-text-label dark:text-adn-dark-text-label;
+  }
+  .adn-color-placeholder {
+    @apply placeholder-adn-light-text-placeholder dark:placeholder-adn-dark-text-placeholder;
+  }
+  .adn-color-text-placeholder {
+    @apply text-adn-light-text-placeholder dark:text-adn-dark-text-placeholder;
+  }
+
+  .adn-color-text-disabled {
+    @apply text-adn-light-text-disabled dark:text-adn-dark-text-disabled;
+  }
+
+
+  .adn-color-border-light {
+    @apply border-adn-light-border-light  dark:border-adn-dark-border-light ;
+  }
+  .adn-color-border-lighter {
+    @apply border-adn-light-border-lighter dark:border-adn-dark-border-lighter;
+  }
+
+  .adn-color-fill-primary {
+    @apply bg-adn-light-primary dark:bg-adn-dark-primary;
+  }
+  .adn-color-fill-primary-lighter {
+    @apply bg-adn-light-primary-lighter dark:bg-adn-dark-primary-lighter;
+  }
+
+}
+
+
+@layer components {
+
+  .form-control {
+    @apply flex flex-col;
+  }
+
+  .label {
+    @apply px-1 py-2 flex select-none items-center justify-between;
+  }
+
+  .label-text {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .label-text-alt {
+    @apply text-xs;
+  }
+
+  .form-control .input, 
+  .form-control .select,
+  .form-control .textarea {
+    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
+    border-transparent border adn-color-border-light 
+    adn-color-control-bg focus:adn-color-control-bg-active
+    adn-color-text adn-color-placeholder focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent;
+  }
+
+  .form-control .checkbox {
+    @apply rounded-lg border-transparent flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent;
+  }
+
+  .btn,
+  .btn-primary {
+    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
+    text-indigo-50 adn-color-fill-primary hover:adn-color-fill-primary-lighter 
+    focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-indigo-500 focus:ring-offset-indigo-200 
+     cursor-pointer no-underline;
+  }
+  
+  .btn:disabled,
+  .btn-primary:disabled,
+  .btn:disabled:hover,
+  .btn-primary:disabled:hover {
+    @apply border-opacity-0 bg-opacity-20 shadow-none cursor-default;
+  }
+
+  
+
+
+
+}

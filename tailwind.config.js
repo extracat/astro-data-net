@@ -1,16 +1,14 @@
+/** @type {import('tailwindcss').Config} */
+
 const colors = require('tailwindcss/colors')
-const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
   theme: {
-
     fontFamily: {
       'sans': ['InterVariable, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
         {
@@ -22,7 +20,6 @@ module.exports = {
     supports: {
       variableFonts: 'font-variation-settings: normal',
     },
-
     fontSize: {
       'xs':   '0.875rem',
       'sm':   '1rem',       /* body-2 */
@@ -38,132 +35,127 @@ module.exports = {
       '8xl':  '8rem',
       '9xl':  '12rem',
     },
-
     container: {
       center: true,
     },
-
     extend: {
-
-      colors: {   
-
+      colors: {
+        
         /* Semantic Colors */
-        'adn-color': {
-          'primary-lighter': 'var(--adn-color-primary-lighter)',
-          'primary-light': 'var(--adn-color-primary-light)',
-          'primary': 'var(--adn-color-primary)',
-          'primary-dark': 'var(--adn-color-primary-dark)',
+
+        /* Light Mode */
+        'adn-light': {
+          'primary': colors.indigo[700],
+          'primary-lighter': colors.indigo[600],
           
-          'error-light': 'var(--adn-color-error-light)',
-          'error': 'var(--adn-color-error)',
-          'error-dark': 'var(--adn-color-error-dark)',
+          'bg': colors.zinc[100],
+          'bg-lighter': colors.white,
+          'bg-dark': colors.zinc[200],
 
-          'warning-light': 'var(--adn-color-warning-light)',
-          'warning': 'var(--adn-color-warning)',
-          'warning-dark': 'var(--adn-color-warning-dark)',
+          'text': colors.zinc[700],
+          'text-label': colors.zinc[500],
+          'text-active': colors.zinc[900],
+          'text-placeholder': colors.zinc[400],
+          'text-disabled': colors.zinc[400],
+          'link': colors.indigo[600],
 
-          'fill-bg-lighter':  colors.white,
-          'fill-bg-light': 'var(--adn-color-fill-bg-light)',
-          'fill-bg': 'var(--adn-color-fill-bg)',
-          'fill-bg-dark': 'var(--adn-color-fill-bg-dark)',
-          
-          'border-lighter': 'var(--adn-color-border-lighter)',
-          'border-light': 'var(--adn-color-border-light)',
+          'border-lighter': colors.zinc[300],
+          'border-light': colors.zinc[400],
 
-          'text-default': 'var(--adn-color-text-default)',
-          'text-active': 'var(--adn-color-text-active)',
-          'text-placeholder': 'var(--adn-color-text-placeholder)',
-          'text-label': 'var(--adn-color-text-label)',
-          'text-disabled': 'var(--adn-color-text-disabled)',
+          'control-bg': colors.zinc[100],
+          'control-bg-active': colors.zinc[50],
+          'control-bg-disable': colors.zinc[200],
 
-          'link-default': 'var(--adn-color-link-default)',
+          'tag-sky': colors.sky[300],
+          'tag-purple': colors.purple[300],
+          'tag-amber': colors.amber[300],
+          'tag-emerald': colors.emerald[300],
+          'tag-zinc': colors.zinc[300],
 
-          'control-bg': 'var(--adn-color-control-bg)',
-          'control-bg-active': 'var(--adn-color-control-bg-active)',
-          'control-bg-disable': 'var(--adn-color-control-bg-disable)',
-
-          'control-primary-bg-default': 'var(--adn-color-control-primary-bg-default)',
-          'control-primary-bg-hover': 'var(--adn-color-control-primary-bg-hover)',
-
-          'tag-sky': 'var(--adn-color-tag-sky)',
-          'tag-purple': 'var(--adn-color-tag-purple)',
-          'tag-amber': 'var(--adn-color-tag-amber)',
-          'tag-emerald': 'var(--adn-color-tag-emerald)',
-          'tag-zinc': 'var(--adn-color-tag-zinc)',
         },
+        
+        /* Dark Mode */
+        'adn-dark': {
+          'primary': colors.indigo[700],
+          'primary-lighter': colors.indigo[600],
+
+          'bg': colors.zinc[900],
+          'bg-lighter': colors.black,
+          'bg-dark': colors.zinc[800],
+
+          'text': colors.zinc[300],
+          'text-label': colors.zinc[500],
+          'text-active': colors.zinc[100],
+          'text-placeholder': colors.zinc[600],
+          'text-disabled': colors.zinc[600],
+          'link': colors.indigo[400],
+
+          'border-lighter': colors.zinc[700],
+          'border-light': colors.zinc[600],
+
+          'control-bg': colors.zinc[800],
+          'control-bg-active': colors.zinc[800],
+          'control-bg-disable': colors.zinc[900],
+
+          'tag-sky': colors.sky[900],
+          'tag-purple': colors.purple[900],
+          'tag-amber': colors.amber[900],
+          'tag-emerald': colors.emerald[900],
+          'tag-zinc': colors.zinc[700],
+        }
+
       },
-
       typography: ({ theme }) => ({
-
         DEFAULT: {
           css: {
             maxWidth: '800px', // max width of the prose acticle
-            a: false,
           }
         },
-
         'adn-color': {
           css: {
 
             /* Light Mode */
-            '--tw-prose-body': theme('colors.adn-color.text-default'),
-            '--tw-prose-headings': theme('colors.adn-color.text-default'),
-            '--tw-prose-lead': theme('colors.adn-color.text-default'),
-            '--tw-prose-links': theme('colors.adn-color.link-default'),
-            '--tw-prose-bold': theme('colors.adn-color.text-default'),
-            '--tw-prose-counters': theme('colors.adn-color.text-default'),
-            '--tw-prose-bullets': theme('colors.adn-color.text-default'),
-            '--tw-prose-hr': theme('colors.adn-color.border-lighter'),
-            '--tw-prose-quotes': theme('colors.adn-color.text-default'),
-            '--tw-prose-quote-borders': theme('colors.adn-color.border-lighter'),
-            '--tw-prose-captions': theme('colors.adn-color.text-default'),
-            '--tw-prose-code': theme('colors.adn-color.text-default'),
-            '--tw-prose-pre-code': theme('colors.adn-color.text-default'),
-            '--tw-prose-pre-bg': theme('colors.adn-color.fill-bg-dark'),
-            '--tw-prose-th-borders': theme('colors.adn-color.border-lighter'),
-            '--tw-prose-td-borders': theme('colors.adn-color.border-lighter'),
+            '--tw-prose-body': theme('colors.adn-light.text'),
+            '--tw-prose-headings': theme('colors.adn-light.text'),
+            '--tw-prose-lead': theme('colors.adn-light.text'),
+            '--tw-prose-links': theme('colors.adn-light.link'),
+            '--tw-prose-bold': theme('colors.adn-light.text'),
+            '--tw-prose-counters': theme('colors.adn-light.text'),
+            '--tw-prose-bullets': theme('colors.adn-light.text'),
+            '--tw-prose-hr': theme('colors.adn-light.border-lighter'),
+            '--tw-prose-quotes': theme('colors.adn-light.text'),
+            '--tw-prose-quote-borders': theme('colors.adn-light.border-lighter'),
+            '--tw-prose-captions': theme('colors.adn-light.text'),
+            '--tw-prose-code': theme('colors.adn-light.text'),
+            '--tw-prose-pre-code': theme('colors.adn-light.text'),
+            '--tw-prose-pre-bg': theme('colors.adn-light.bg-dark'),
+            '--tw-prose-th-borders': theme('colors.adn-light.border-lighter'),
+            '--tw-prose-td-borders': theme('colors.adn-light.border-lighter'),
 
             /* Dark Mode */
-            /*
-            '--tw-prose-invert-body': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-headings': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-lead': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-links': theme('colors.adn-dark.link-default'),
-            '--tw-prose-invert-bold': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-counters': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-bullets': theme('colors.adn-dark.text-default'),
+            '--tw-prose-invert-body': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-headings': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-lead': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-links': theme('colors.adn-dark.link'),
+            '--tw-prose-invert-bold': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-counters': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-bullets': theme('colors.adn-dark.text'),
             '--tw-prose-invert-hr': theme('colors.adn-dark.border-lighter'),
-            '--tw-prose-invert-quotes': theme('colors.adn-dark.text-default'),
+            '--tw-prose-invert-quotes': theme('colors.adn-dark.text'),
             '--tw-prose-invert-quote-borders': theme('colors.adn-dark.border-lighter'),
-            '--tw-prose-invert-captions': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-code': theme('colors.adn-dark.text-default'),
-            '--tw-prose-invert-pre-code': theme('colors.adn-dark.text-default'),
+            '--tw-prose-invert-captions': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-code': theme('colors.adn-dark.text'),
+            '--tw-prose-invert-pre-code': theme('colors.adn-dark.text'),
             '--tw-prose-invert-pre-bg': theme('colors.adn-dark.bg-dark'),
             '--tw-prose-invert-th-borders': theme('colors.adn-dark.border-lighter'),
             '--tw-prose-invert-td-borders': theme('colors.adn-dark.border-lighter'),
-            */
           },
         },
       }),
     },
   },
-
   plugins: [
     require('@tailwindcss/typography'),
-
-    plugin(function({ addComponents }) {
-      addComponents({
-
-        //
-        // '.text-h1-example': {
-        // '@apply text-slate-900 dark:text-white text-2xl md:text-3xl lg:text-4xl font-bold': {},
-        // // you can add additional CSS properties directly
-        // lineHeight: '1.2',
-        // },
-        //
-        
-      })
-    })
   ],
 }
 
