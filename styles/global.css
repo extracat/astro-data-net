@@ -1,5 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import './colors.css';
-@import 'tailwindcss';
 @config '../tailwind.config.js';
 
 /*
@@ -9,7 +12,7 @@
 
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
-*/
+
 @layer base {
   *,
   ::after,
@@ -19,83 +22,88 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+*/
 
-@utility form-control {
-  @apply flex flex-col;
-}
+@layer components {
 
-@utility label {
-  @apply px-1 py-2 flex select-none items-center justify-between;
-}
-
-@utility label-text {
-  @apply text-xs sm:text-sm;
-}
-
-@utility label-text-alt {
-  @apply text-xs;
-}
-
-@utility input {
-  .form-control & {
-    @apply rounded-lg flex-1 w-full py-2 px-4 bg-adn-color-control-bg text-base text-adn-color-text-default border border-adn-color-border-light focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-    outline-hidden;
+  .form-control {
+    @apply flex flex-col;
   }
-}
-
-
-@utility select {
-  .form-control & {
-    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-    border border-adn-color-border-light bg-adn-color-control-bg text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-hidden focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-hidden;
+  
+  .label {
+    @apply px-1 py-2 flex select-none items-center justify-between;
   }
-}
-
-@utility textarea {
-  .form-control & {
-    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border border-adn-color-border-light 
-    bg-adn-color-control-bg focus:bg-adn-color-control-bg-active placeholder-adn-color-text-placeholder
-    text-adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
-    outline-hidden;
+  
+  .label-text {
+    @apply text-xs sm:text-sm;
   }
-}
-
-@utility checkbox {
-  .form-control & {
-    @apply rounded-lg flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent;
+  
+  .label-text-alt {
+    @apply text-xs;
   }
-}
-
-@utility btn {
-  @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
-    focus:outline-hidden focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500 focus:ring-offset-indigo-200 
-     cursor-pointer no-underline;
-
-  &:disabled {
-    @apply opacity-20 shadow-none cursor-default;
+  
+  .input {
+    .form-control & {
+      @apply rounded-lg flex-1 w-full py-2 px-4 bg-adn-color-control-bg text-base text-adn-color-text-default border border-adn-color-border-light focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+      outline-none;
+    }
   }
-
-  &:disabled:hover {
-    @apply opacity-20 shadow-none cursor-default;
+  
+  
+  .select {
+    .form-control & {
+      @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
+      border border-adn-color-border-light bg-adn-color-control-bg text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:bg-adn-color-control-bg-active focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600 outline-none;
+    }
   }
-}
-
-@utility btn-primary {
-  @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
-    text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
-    focus:outline-hidden focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500 focus:ring-offset-indigo-200 
-     cursor-pointer no-underline;
-
-  &:disabled {
-    @apply opacity-20 shadow-none cursor-default;
+  
+  .textarea {
+    .form-control & {
+      @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border border-adn-color-border-light 
+      bg-adn-color-control-bg focus:bg-adn-color-control-bg-active placeholder-adn-color-text-placeholder
+      text-adn-color-text-default focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600 active:ring-1 active:ring-indigo-600 active:border-indigo-600
+      outline-none;
+    }
   }
-
-  &:disabled:hover {
-    @apply opacity-20 shadow-none cursor-default;
+  
+  .checkbox {
+    .form-control & {
+      @apply rounded-lg flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent;
+    }
   }
+  
+  .btn {
+    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
+      text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
+      focus:outline-none focus:ring-2 focus:ring-offset-2
+      focus:ring-indigo-500 focus:ring-offset-indigo-200 
+       cursor-pointer no-underline;
+  
+    &:disabled {
+      @apply opacity-20 shadow-none cursor-default;
+    }
+  
+    &:disabled:hover {
+      @apply opacity-20 shadow-none cursor-default;
+    }
+  }
+  
+  .btn-primary {
+    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
+      text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
+      focus:outline-none focus:ring-2 focus:ring-offset-2
+      focus:ring-indigo-500 focus:ring-offset-indigo-200 
+       cursor-pointer no-underline;
+  
+    &:disabled {
+      @apply opacity-20 shadow-none cursor-default;
+    }
+  
+    &:disabled:hover {
+      @apply opacity-20 shadow-none cursor-default;
+    }
+  }
+  
 }
 
 
