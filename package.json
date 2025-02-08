@@ -5,7 +5,7 @@
   "author": "Anton Basistov",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "build-and-start": "next build && next start",
