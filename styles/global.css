@@ -65,7 +65,7 @@
 
   .btn,
   .btn-primary {
-    @apply px-6 h-12 max-w-fit flex items-center justify-center rounded-full text-center text-sm font-semibold 
+    @apply px-6 h-12 w-fit text-nowrap flex items-center justify-center rounded-full text-center text-sm font-semibold 
     text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-lighter 
     focus:outline-none focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500 focus:ring-offset-indigo-200 
