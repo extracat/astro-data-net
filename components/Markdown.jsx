@@ -37,7 +37,7 @@ function addClassToElements() {
 const _mapProps = (props) => ({
   ...props,
   remarkPlugins: [
-    gfm, 
+    //gfm,  // !! This doesn't work with old browsers
     remarkMath
   ],
   rehypePlugins: [
