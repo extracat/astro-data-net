@@ -21,7 +21,7 @@ const CookieConsent = () => {
   return (
     <div className="fixed bottom-0 flex gap-x-8 gap-y-6 justify-center items-center
               md:rounded-2xl md:my-4 sm:flex-row flex-col
-              bg-adn-light-bg-lighter dark:bg-adn-dark-bg-dark
+              bg-adn-color-fill-bg-lighter
               max-w-[54rem] -ml-8 px-12 sm:px-16 py-8  
               shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
       <p className="flex-col p-0 m-0 text-xs sm:text-sm">
