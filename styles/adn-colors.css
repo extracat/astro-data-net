@@ -1,3 +1,5 @@
+@import './tailwind-colors.css';
+
 /* Light theme variables */
 :root {
   --adn-color-primary-lighter: var(--color-indigo-400);
