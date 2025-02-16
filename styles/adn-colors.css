@@ -2,47 +2,47 @@
 
 /* Light theme variables */
 :root {
-  --adn-color-primary-lighter: var(--color-indigo-400);
-  --adn-color-primary-light: var(--color-indigo-600);
-  --adn-color-primary: var(--color-indigo-700);
-  --adn-color-primary-dark: var(--color-indigo-800);
+  --adn-color-primary-lighter:    var(--color-indigo-400);
+  --adn-color-primary-light:      var(--color-indigo-600);
+  --adn-color-primary:            var(--color-indigo-700);
+  --adn-color-primary-dark:       var(--color-indigo-800);
             
-  --adn-color-error-light: var(--color-red-400);
-  --adn-color-error: var(--color-red-500);
-  --adn-color-error-dark: var(--color-red-600);
+  --adn-color-error-light:        var(--color-red-400);
+  --adn-color-error:              var(--color-red-500);
+  --adn-color-error-dark:         var(--color-red-600);
 
-  --adn-color-warning-light: var(--color-orange-400);
-  --adn-color-warning: var(--color-orange-500);
-  --adn-color-warning-dark: var(--color-orange-600);
+  --adn-color-warning-light:      var(--color-orange-400);
+  --adn-color-warning:            var(--color-orange-500);
+  --adn-color-warning-dark:       var(--color-orange-600);
 
-  --adn-color-fill-bg-lighter: var(--color-white);
-  --adn-color-fill-bg-light: var(--color-zinc-50);
-  --adn-color-fill-bg: var(--color-zinc-100);
-  --adn-color-fill-bg-dark: var(--color-zinc-200);
+  --adn-color-fill-bg-lighter:    var(--color-white);
+  --adn-color-fill-bg-light:      var(--color-zinc-50);
+  --adn-color-fill-bg:            var(--color-zinc-100);
+  --adn-color-fill-bg-dark:       var(--color-zinc-200);
             
-  --adn-color-border-lighter: var(--color-zinc-300);
-  --adn-color-border-light: var(--color-zinc-400);
+  --adn-color-border-lighter:     var(--color-zinc-300);
+  --adn-color-border-light:       var(--color-zinc-400);
 
-  --adn-color-text-default: var(--color-zinc-700);
-  --adn-color-text-active: var(--color-zinc-900);
-  --adn-color-text-placeholder: var(--color-zinc-400);
-  --adn-color-text-label: var(--color-zinc-500);
-  --adn-color-text-disabled: var(--color-zinc-400);
+  --adn-color-text-default:       var(--color-zinc-700);
+  --adn-color-text-active:        var(--color-zinc-900);
+  --adn-color-text-placeholder:   var(--color-zinc-400);
+  --adn-color-text-label:         var(--color-zinc-500);
+  --adn-color-text-disabled:      var(--color-zinc-400);
 
-  --adn-color-link-default: var(--color-indigo-600);
+  --adn-color-link-default:       var(--color-indigo-600);
 
-  --adn-color-control-bg: var(--color-zinc-100);
-  --adn-color-control-bg-active: var(--color-zinc-50);
+  --adn-color-control-bg:         var(--color-zinc-100);
+  --adn-color-control-bg-active:  var(--color-zinc-50);
   --adn-color-control-bg-disable: var(--color-zinc-200);
 
   --adn-color-control-primary-bg-default: var(--color-indigo-700);
-  --adn-color-control-primary-bg-hover: var(--color-indigo-600);
+  --adn-color-control-primary-bg-hover:   var(--color-indigo-600);
 
-  --adn-color-tag-sky: var(--color-sky-300);
-  --adn-color-tag-purple: var(--color-purple-300);
-  --adn-color-tag-amber: var(--color-amber-300);
-  --adn-color-tag-emerald: var(--color-emerald-300);
-  --adn-color-tag-zinc: var(--color-zinc-300);
+  --adn-color-tag-sky:            var(--color-sky-300);
+  --adn-color-tag-purple:         var(--color-purple-300);
+  --adn-color-tag-amber:          var(--color-amber-300);
+  --adn-color-tag-emerald:        var(--color-emerald-300);
+  --adn-color-tag-zinc:           var(--color-zinc-300);
     
 
 }
@@ -50,46 +50,46 @@
 /* Dark theme variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --adn-color-primary-lighter: var(--color-indigo-400);
-    --adn-color-primary-light: var(--color-indigo-600);
-    --adn-color-primary: var(--color-indigo-700);
-    --adn-color-primary-dark: var(--color-indigo-800);
+    --adn-color-primary-lighter:    var(--color-indigo-400);
+    --adn-color-primary-light:      var(--color-indigo-600);
+    --adn-color-primary:            var(--color-indigo-700);
+    --adn-color-primary-dark:       var(--color-indigo-800);
 
-    --adn-color-error-light: var(--color-red-400);
-    --adn-color-error: var(--color-red-500);
-    --adn-color-error-dark: var(--color-red-600);
+    --adn-color-error-light:        var(--color-red-400);
+    --adn-color-error:              var(--color-red-500);
+    --adn-color-error-dark:         var(--color-red-600);
 
-    --adn-color-warning-light: var(--color-orange-400);
-    --adn-color-warning: var(--color-orange-500);
-    --adn-color-warning-dark: var(--color-orange-600);
+    --adn-color-warning-light:      var(--color-orange-400);
+    --adn-color-warning:            var(--color-orange-500);
+    --adn-color-warning-dark:       var(--color-orange-600);
 
-    --adn-color-fill-bg-lighter: var(--color-black);
-    --adn-color-fill-bg-light: var(--color-zinc-950);
-    --adn-color-fill-bg: var(--color-zinc-900);
-    --adn-color-fill-bg-dark: var(--color-zinc-800);
+    --adn-color-fill-bg-lighter:    var(--color-black);
+    --adn-color-fill-bg-light:      var(--color-zinc-950);
+    --adn-color-fill-bg:            var(--color-zinc-900);
+    --adn-color-fill-bg-dark:       var(--color-zinc-800);
               
-    --adn-color-border-lighter: var(--color-zinc-700);
-    --adn-color-border-light: var(--color-zinc-600);
+    --adn-color-border-lighter:     var(--color-zinc-700);
+    --adn-color-border-light:       var(--color-zinc-600);
 
-    --adn-color-text-default: var(--color-zinc-300);
-    --adn-color-text-active: var(--color-zinc-100);
-    --adn-color-text-placeholder: var(--color-zinc-600);
-    --adn-color-text-label: var(--color-zinc-500);
-    --adn-color-text-disabled: var(--color-zinc-600);
+    --adn-color-text-default:       var(--color-zinc-300);
+    --adn-color-text-active:        var(--color-zinc-100);
+    --adn-color-text-placeholder:   var(--color-zinc-600);
+    --adn-color-text-label:         var(--color-zinc-500);
+    --adn-color-text-disabled:      var(--color-zinc-600);
 
-    --adn-color-link-default: var(--color-indigo-400);
+    --adn-color-link-default:       var(--color-indigo-400);
 
-    --adn-color-control-bg: var(--color-zinc-800);
-    --adn-color-control-bg-active: var(--color-zinc-800);
+    --adn-color-control-bg:         var(--color-zinc-800);
+    --adn-color-control-bg-active:  var(--color-zinc-800);
     --adn-color-control-bg-disable: var(--color-zinc-900);
 
     --adn-color-control-primary-bg-default: var(--color-indigo-700);
-    --adn-color-control-primary-bg-hover: var(--color-indigo-600);
+    --adn-color-control-primary-bg-hover:   var(--color-indigo-600);
 
-    --adn-color-tag-sky: var(--color-sky-900);
-    --adn-color-tag-purple: var(--color-purple-900);
-    --adn-color-tag-amber: var(--color-amber-900);
-    --adn-color-tag-emerald: var(--color-emerald-900);
-    --adn-color-tag-zinc: var(--color-zinc-700);
+    --adn-color-tag-sky:            var(--color-sky-900);
+    --adn-color-tag-purple:         var(--color-purple-900);
+    --adn-color-tag-amber:          var(--color-amber-900);
+    --adn-color-tag-emerald:        var(--color-emerald-900);
+    --adn-color-tag-zinc:           var(--color-zinc-700);
   }
 }
