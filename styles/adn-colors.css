@@ -1,5 +1,7 @@
 @import './tailwind-colors.css';
 
+/* ADN semantic color palette */
+
 /* Light theme variables */
 :root {
   --adn-color-primary-lighter:    var(--color-indigo-400);
