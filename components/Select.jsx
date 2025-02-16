@@ -109,12 +109,13 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
     <div
       className="relative inline-block w-full"
       ref={selectRef}
-      tabIndex={0} // Enable tab navigation
       onKeyDown={handleKeyDown}
     >
       <input type="hidden" name={name} id={name} value={selectedOption ? selectedOption.value : ''} />
       <div
-        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-indigo-600 border-transparent ring-2 bg-adn-color-control-bg-active' : 'border-adn-color-border-light'} focus:outline-hidden focus:ring-2 focus:ring-indigo-600 bg-adn-color-control-bg focus:adn-color-control-bg-active`}
+        tabIndex={0} // Enable tab navigation
+        role="select"
+        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-adn-color-primary-light border-adn-color-primary-light ring-1 bg-adn-color-control-bg-active' : 'border-adn-color-border-light'} focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className={`${selectedOption ? '' : 'placeholder-adn-color-text-placeholder'}`}>{selectedOption ? selectedOption.label : placeholder}</span>
@@ -122,7 +123,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
       </div>
       {isOpen && (
         <div
-          className={`absolute z-10 w-full mt-2 bg-white border rounded-md shadow-lg ${dropdownPosition === 'bottom' ? 'top-full mt-2' : 'bottom-full mb-2'}`}
+          className={`absolute z-10 w-full mt-2 bg-white border rounded-lg shadow-lg ${dropdownPosition === 'bottom' ? 'top-full mt-2' : 'bottom-full mb-2'}`}
         >
           {customDropdown ? (
             customDropdown({ handleOptionClick, filter, setFilter: handleFilterChange })
@@ -131,6 +132,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
               <div className="p-2 border-b">
                 <Input
                   type="text"
+                  className="!bg-adn-color-fill-bg-lighter"
                   placeholder="Filter options..."
                   value={filter}
                   onChange={handleFilterChange}
@@ -139,7 +141,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
               {filteredOptions.map((option, index) => (
                 <div
                   key={option.value}
-                  className={`px-4 py-2 cursor-pointer ${index === highlightedIndex ? 'bg-blue-100 text-blue-900' : 'hover:bg-gray-200'}`}
+                  className={`px-4 py-2 cursor-pointer ${index === highlightedIndex ? 'bg-adn-color-fill-bg' : 'hover:bg-adn-color-fill-bg-dark'}`}
                   onClick={() => handleOptionClick(option)}
                   onMouseEnter={() => setHighlightedIndex(index)}
                 >
@@ -148,7 +150,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
               ))}
               <div className="p-2 border-t">
                 <button
-                  className="w-full px-4 py-2 bg-blue-500 text-white rounded-md"
+                  className="w-full btn"
                   onClick={() => alert('Custom button clicked')}
                 >
                   Custom Button
