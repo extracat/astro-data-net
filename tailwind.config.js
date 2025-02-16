@@ -43,14 +43,14 @@ module.exports = {
 
         /* Semantic Colors */
         'adn-color': {
-          'primary-lighter': 'var(--adn-color-primary-lighter)',
-          'primary-light': 'var(--adn-color-primary-light)',
-          'primary': 'var(--adn-color-primary)',
-          'primary-dark': 'var(--adn-color-primary-dark)',
+          'primary-lighter':  'var(--adn-color-primary-lighter)',
+          'primary-light':    'var(--adn-color-primary-light)',
+          'primary':          'var(--adn-color-primary)',
+          'primary-dark':     'var(--adn-color-primary-dark)',
           
-          'error-light': 'var(--adn-color-error-light)',
-          'error': 'var(--adn-color-error)',
-          'error-dark': 'var(--adn-color-error-dark)',
+          'error-light':      'var(--adn-color-error-light)',
+          'error':            'var(--adn-color-error)',
+          'error-dark':       'var(--adn-color-error-dark)',
 
           'warning-light': 'var(--adn-color-warning-light)',
           'warning': 'var(--adn-color-warning)',
