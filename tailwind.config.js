@@ -91,6 +91,7 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '800px', // max width of the prose acticle
+            a: false,
           }
         },
         'adn-color': {

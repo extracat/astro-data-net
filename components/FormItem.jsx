@@ -11,7 +11,7 @@ const FormItem = ({
   return (
     <div className="w-full mb-4 form-control">
       {label && (
-        <label className="block text-sm mb-2 text-adn-color-text-label">
+        <label className="label" htmlFor={props.id}>
           {label}
         </label>
       )}

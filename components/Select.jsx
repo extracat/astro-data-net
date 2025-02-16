@@ -115,7 +115,7 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
       <div
         tabIndex={0} // Enable tab navigation
         role="select"
-        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-adn-color-primary-light border-adn-color-primary-light ring-1 bg-adn-color-control-bg-active' : 'border-adn-color-border-light'} focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active`}
+        className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 border cursor-pointer flex items-center justify-between ${isOpen ? 'ring-adn-color-primary-light border-adn-color-primary-light ring-1 bg-adn-color-control-bg-active' : 'border-adn-color-border-light'} focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className={`${selectedOption ? '' : 'placeholder-adn-color-text-placeholder'}`}>{selectedOption ? selectedOption.label : placeholder}</span>

@@ -9,6 +9,9 @@
   html {
     font-weight_: 450;
   }
+  a {
+    @apply no-underline hover:no-underline text-adn-color-link-default; 
+  }
   article {
     text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
@@ -39,24 +42,13 @@
   }
 
   .label {
-    @apply px-1 py-2 flex select-none items-center justify-between;
-  }
-
-  .label-text {
-    @apply text-xs sm:text-sm;
-  }
-  
-  .label-text-alt {
-    @apply text-xs;
+    @apply select-none block sm:text-sm text-xs mb-2 text-adn-color-text-label;
   }
 
   .form-control .input, 
   .form-control .select,
   .form-control .textarea {
-    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 text-base
-    border border-adn-color-border-light 
-    bg-adn-color-control-bg focus:bg-adn-color-control-bg-active
-    text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light;
+    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 border border-adn-color-border-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light;
   }
 
   .form-control .checkbox {
