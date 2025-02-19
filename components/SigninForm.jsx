@@ -1,10 +1,18 @@
 import React from 'react';
 
-export default function SigninForm ({ formData, handleChange, handleSubmit, isLoading }) {
+export default function SigninForm ({ formData, handleChange, handleSubmit, isLoading, generalErrors, getFieldErrors }) {
 
 
   return (
     <form onSubmit={handleSubmit}>
+
+      {generalErrors?.length > 0 && (
+        <div>
+          {generalErrors.map((error, index) => (
+            <Alert key={index} type="danger" message={`${error.code ? error.code + ': ' : '' }${error.message ? error.message : ''}${error.msg ? error.msg : ''}`} />
+          ))}
+        </div>
+      )}
 
       <div className="form-control my-2">
         <label className="label">
