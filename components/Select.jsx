@@ -123,16 +123,15 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
       </div>
       {isOpen && (
         <div
-          className={`absolute z-10 w-full mt-2 bg-white border rounded-lg shadow-lg ${dropdownPosition === 'bottom' ? 'top-full mt-2' : 'bottom-full mb-2'}`}
+          className={`absolute z-10 w-full mt-2 p-2 bg-adn-color-control-bg border border-adn-color-border-lighter rounded-2xl shadow-lg ${dropdownPosition === 'bottom' ? 'top-full mt-2' : 'bottom-full mb-2'}`}
         >
           {customDropdown ? (
             customDropdown({ handleOptionClick, filter, setFilter: handleFilterChange })
           ) : (
             <div>
-              <div className="p-2 border-b">
+              <div className="p-4">
                 <Input
                   type="text"
-                  className="!bg-adn-color-fill-bg-lighter"
                   placeholder="Filter options..."
                   value={filter}
                   onChange={handleFilterChange}
@@ -141,14 +140,14 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
               {filteredOptions.map((option, index) => (
                 <div
                   key={option.value}
-                  className={`px-4 py-2 cursor-pointer ${index === highlightedIndex ? 'bg-adn-color-fill-bg' : 'hover:bg-adn-color-fill-bg-dark'}`}
+                  className={`px-4 py-3 rounded-lg cursor-pointer ${index === highlightedIndex ? 'bg-adn-color-control-bg-disable' : 'hover:bg-adn-color-control-bg-disable'}`}
                   onClick={() => handleOptionClick(option)}
                   onMouseEnter={() => setHighlightedIndex(index)}
                 >
                   {option.label}
                 </div>
               ))}
-              <div className="p-2 border-t">
+              <div className="p-4 border-adn-color-border-lighter">
                 <button
                   className="w-full btn"
                   onClick={() => alert('Custom button clicked')}
