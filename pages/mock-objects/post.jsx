@@ -5,9 +5,9 @@ import MockObjectForm from '../../components/MockObjectForm';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-
+// Modifying form data before sending it to the API
 function getPostData(data) {
-  const { _id, adn_id, user_id, timestamp, ...postData } = data;
+  const { _id, ...postData } = data;
   return postData;
 }
 

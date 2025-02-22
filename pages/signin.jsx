@@ -7,8 +7,9 @@ import Footer from '../components/Footer';
 import Link from 'next/link';
 
 
-function getPostData(data) {
-  const { _id, adn_id, user_id, timestamp, ...postData } = data;
+// Modifying form data before sending it to the API
+function getPostData(data) { 
+  const { ...postData } = data;
   return postData;
 }
 
