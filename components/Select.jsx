@@ -3,7 +3,18 @@ import Input from './Input';
 import { HiChevronDown } from "react-icons/hi";
 
 
-const Select = ({ name, options = [], placeholder = 'Select an option', value: propValue, onChange, customDropdown = null }) => {
+const Select = ({ 
+  name, 
+  options = [], 
+  placeholder = 'Select an option', 
+  value: propValue, 
+  onChange, 
+  customDropdown = null,
+  showFilter = false,
+  showCustomButton = false,
+  customButtonText = 'Custom Button',
+  onCustomButtonClick = () => alert('Custom button clicked')
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [filter, setFilter] = useState('');
@@ -129,14 +140,16 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
             customDropdown({ handleOptionClick, filter, setFilter: handleFilterChange })
           ) : (
             <div>
-              <div className="p-4">
-                <Input
-                  type="text"
-                  placeholder="Filter options..."
-                  value={filter}
-                  onChange={handleFilterChange}
-                />
-              </div>
+              {showFilter && (
+                <div className="p-4">
+                  <Input
+                    type="text"
+                    placeholder="Filter options..."
+                    value={filter}
+                    onChange={handleFilterChange}
+                  />
+                </div>
+              )}
               {filteredOptions.map((option, index) => (
                 <div
                   key={option.value}
@@ -147,14 +160,16 @@ const Select = ({ name, options = [], placeholder = 'Select an option', value: p
                   {option.label}
                 </div>
               ))}
-              <div className="p-4 border-adn-color-border-lighter">
-                <button
-                  className="w-full btn"
-                  onClick={() => alert('Custom button clicked')}
-                >
-                  Custom Button
-                </button>
-              </div>
+              {showCustomButton && (
+                <div className="p-4 border-t border-adn-color-border-lighter">
+                  <button
+                    className="w-full btn"
+                    onClick={onCustomButtonClick}
+                  >
+                    {customButtonText}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

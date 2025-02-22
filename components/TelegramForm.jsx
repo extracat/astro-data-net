@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from "./Input";
+import Textarea from "./Textarea";
 import Select from "./Select";
 import FormItem from "./FormItem";
 import Alert from "./Alert";
@@ -27,12 +28,12 @@ export default function TelegramForm({
         label="Title"
         error={getFieldErrors('title')} >
 
-        <Input
-          type="text"
+        <Textarea
           name="title"
           placeholder="Name your telegram"
           value={formData.title}
           onChange={handleChange}
+          rows={2}
         />
       </FormItem>
 
@@ -41,12 +42,12 @@ export default function TelegramForm({
         label="Telegram post text"
         error={getFieldErrors('body')} >
 
-        <Input
-          type="text"
+        <Textarea
           name="body"
           placeholder="Describe your observations"
           value={formData.body}
           onChange={handleChange}
+          rows={12}
         />
       </FormItem>
 
@@ -58,18 +59,45 @@ export default function TelegramForm({
         <Select
           name="band"
           options={[
-            { value: 'option1', label: 'Option 1' },
-            { value: 'option2', label: 'Option 2' },
-            { value: 'option3', label: 'Option 3' },
+            { value: 'optical', label: 'Optical' },
+            { value: 'gamma', label: 'Gamma' },
+            { value: 'x-ray', label: 'X-Ray' },
+            { value: 'uv', label: 'UV' },
+            { value: 'ir', label: 'IR' },
+            { value: 'radio', label: 'Radio' },
           ]}
-          placeholder="Select an option"
+          placeholder="Select the band"
           value={formData.band}
           onChange={handleChange}
         />
       </FormItem>
-        
-          
-     
+
+      <FormItem  
+        label="Tags"
+        error={getFieldErrors('categories')} >
+
+        <div/>
+      </FormItem>
+
+      <FormItem  
+        label="List of authors"
+        error={getFieldErrors('authors')} >
+
+        <Textarea
+          name="authors"
+          placeholder="Use the pattern — John A. Doe, Jane B. Doe (Institution)"
+          value={formData.authors}
+          onChange={handleChange}
+          rows={4}
+        />
+      </FormItem>
+      
+      <FormItem  
+        label="References"
+        error={getFieldErrors('references')} >
+
+        <div/>
+      </FormItem>
 
 
       <button className="btn-primary" type="submit" disabled={isLoading}>
