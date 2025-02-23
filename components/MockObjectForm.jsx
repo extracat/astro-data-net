@@ -3,6 +3,15 @@ import Input from "./Input";
 import Select from "./Select";
 import FormItem from "./FormItem";
 import Alert from "./Alert";
+import DragNDrop from "./DragNDrop";
+
+
+// Initial items for the DragNDrop component
+const initialItems = [
+  { id: '1', text: 'First Item' },
+  { id: '2', text: 'Second Item' },
+  { id: '3', text: 'Third Item' },
+];
 
 
 export default function MockObjectForm ({ formData, handleChange, handleSubmit, isLoading, generalErrors, getFieldErrors }) {
@@ -19,6 +28,9 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
           ))}
         </div>
       )}
+
+
+      <DragNDrop initialItems={initialItems} />
 
       <FormItem 
         label="Name"
@@ -51,6 +63,8 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
           onChange={handleChange}
         />
       </FormItem>
+
+
 
       <button className="btn-primary"
         type="submit" disabled={isLoading}>
