@@ -4,6 +4,7 @@ import Textarea from "./Textarea";
 import Select from "./Select";
 import FormItem from "./FormItem";
 import Alert from "./Alert";
+import ArrayContainer from "./ArrayContainer";
 
 export default function TelegramForm({ 
   formData, 
@@ -96,7 +97,21 @@ export default function TelegramForm({
         label="References"
         error={getFieldErrors('references')} >
 
-        <div/>
+        <ArrayContainer
+          name="references"
+          value={formData.references}
+          onChange={handleChange}
+          defaultItem=""
+          addButtonText="Add Reference"
+          renderItem={(reference, index, onChange) => (
+            <Input
+              name={`reference-${index}`}
+              placeholder="DOI, ADN, GCN, ATel, TNS, etc."
+              value={reference}
+              onChange={(e) => onChange(index, e.target.value)}
+            />
+          )}
+        />
       </FormItem>
 
 

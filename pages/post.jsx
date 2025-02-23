@@ -90,10 +90,7 @@ const initialData = {
     }
   ],
   references: [
-    "10.1109/5.771073",
-    "ADN220903A",
-    "GCN 36060",
-    "string"
+    ""
   ]
 };
 
