@@ -7,6 +7,10 @@ import Footer from '../components/Footer';
 const api = new (require('../controllers/api'))();
 
 const initialData = {
+  title: "",
+  body: "",
+  band: "",
+  authors: "",
   authors_list: [
     {}
   ],
@@ -16,7 +20,6 @@ const initialData = {
   upper_limits: [
     {}
   ],
-  band: "optical",
   references: [
     ""
   ]
