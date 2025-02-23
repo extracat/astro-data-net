@@ -108,6 +108,7 @@ export default function TelegramForm({
           value={formData.references}
           onChange={handleChange}
           defaultItem=""
+          draggable={true}
           addButtonText="Add Reference"
           renderItem={(reference, index, onChange) => (
             <Input
