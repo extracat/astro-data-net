@@ -22,6 +22,7 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
 
       <FormItem 
         label="Name"
+        id="name"
         error={getFieldErrors('name')} >
 
         <Input
@@ -35,6 +36,7 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
 
       <FormItem 
         label="Band"
+        id="band"
         error={getFieldErrors('band')} >
 
         <Select

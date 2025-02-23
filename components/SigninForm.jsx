@@ -20,6 +20,7 @@ export default function SigninForm ({ formData, handleChange, handleSubmit, isLo
 
       <FormItem 
         label="Email"
+        id="email"
         error={getFieldErrors('email')} >
 
         <Input
@@ -33,6 +34,7 @@ export default function SigninForm ({ formData, handleChange, handleSubmit, isLo
 
       <FormItem 
         label="Password"
+        id="password"
         error={getFieldErrors('password')} >
 
         <Input

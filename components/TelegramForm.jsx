@@ -27,6 +27,7 @@ export default function TelegramForm({
 
       <FormItem  
         label="Title"
+        id="title"
         error={getFieldErrors('title')} >
 
         <Textarea
@@ -41,6 +42,7 @@ export default function TelegramForm({
 
       <FormItem  
         label="Telegram post text"
+        id="body"
         error={getFieldErrors('body')} >
 
         <Textarea
@@ -55,6 +57,7 @@ export default function TelegramForm({
 
       <FormItem 
         label="Band"
+        id="band"
         error={getFieldErrors('band')} >
 
         <Select
@@ -75,6 +78,7 @@ export default function TelegramForm({
 
       <FormItem  
         label="Tags"
+        id="tags"
         error={getFieldErrors('categories')} >
 
         <div/>
@@ -82,6 +86,7 @@ export default function TelegramForm({
 
       <FormItem  
         label="List of authors"
+        id="authors"
         error={getFieldErrors('authors')} >
 
         <Textarea
@@ -95,6 +100,7 @@ export default function TelegramForm({
       
       <FormItem  
         label="References"
+        id="references"
         error={getFieldErrors('references')} >
 
         <ArrayContainer
