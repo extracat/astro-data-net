@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { handleGenericSubmit, handleGenericChange, getFieldErrors } from '../utils/formHandlers';
 
-export default function BaseForm({
+const BaseForm = ({
   api,
   endpoint,
   initialData,
   redirectPath,
   mutateEndpoint,
   getPostData = (data) => data,
-  onSuccess = null, // Add this prop
+  onSuccess = null,
+  validateForm = null,
   children
-}) {
+}) => {
   const [formData, setFormData] = useState(initialData);
   const [formErrors, setFormErrors] = useState([]);
   const [generalErrors, setGeneralErrors] = useState('');
@@ -20,6 +21,21 @@ export default function BaseForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Clear previous errors
+    setGeneralErrors([]);
+    setFormErrors([]);
+
+    // Run custom validation if provided
+    if (validateForm) {
+      const { fieldErrors, generalErrors } = validateForm(formData);
+      if (fieldErrors || generalErrors) {
+        if (fieldErrors) setFormErrors(fieldErrors);
+        if (generalErrors) setGeneralErrors(generalErrors);
+        return;
+      }
+    }
+
     const dataToSend = getPostData(formData);
     
     const result = await handleGenericSubmit({
@@ -50,4 +66,6 @@ export default function BaseForm({
     generalErrors,
     getFieldErrors: getErrors
   });
-}
+};
+
+export default BaseForm;
