@@ -9,17 +9,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      'sans': ['InterVariable, Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-        {
-          fontFeatureSettings: '"liga", "liga", "case", "cv10", "dlig", "cv01"',
-          fontVariationSettings: 'normal'
-        }
-      ]
-    },
-    supports: {
-      variableFonts: 'font-variation-settings: normal',
-    },
     fontSize: {
       'xs':   '0.875rem',
       'sm':   '1rem',       /* body-2 */

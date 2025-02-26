@@ -6,6 +6,39 @@
 @config '../tailwind.config.js';
 
 @layer base {
+  :root {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: 
+    'liga' 1, 'calt' 1, /* fix for Chrome */
+
+    'calt' on,		/* Contextual alternates */
+    'dlig' off,		/* Discretionary Ligatures */
+    'tnum' on,		/* Tabular numbers */
+    'case' off,		/* Case alternates */
+    'ccmp' on,		/* Compositions */
+    'zero' on,		/* Slashed zero */
+    'sinf' off,
+    'ss01' off,		/* Alternate digits */
+    'ss02' off,		/* Disambiguation */
+    'ss07' off,		/* Square punctuation */
+    'ss08' off,		/* Square quotes */
+    'ss03' off,		/* Round quotes & comma */
+    'cv01' on,		/* Alternate one */
+    'cv02' on,		/* Open four */
+    'cv03' on,		/* Open six */
+    'cv04' on,		/* Open nine */
+    'cv09' off,		/* Flat-top three */
+    'cv10' off,		/* Capital G with spur */
+    'cv06' off,		/* Simplified u */
+    'cv11' off,		/* Single-story a */
+    'cv12' off,		/* Compact f */
+    'cv13' off,		/* Compact t */
+    'cv08' on,		/* Upper-case i with serif */
+    'cv05' on;		/* Lower-case l with tail */
+  }
+  @supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+  }
   html {
     font-weight_: 450;
   }
