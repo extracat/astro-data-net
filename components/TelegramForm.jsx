@@ -123,7 +123,7 @@ export default function TelegramForm({
 
 
       <button className="btn-primary" type="submit" disabled={isLoading}>
-        {isLoading ? 'Sending...' : 'Create'}
+        {isLoading ? 'Sending...' : 'Publish'}
       </button>
       
     </form>

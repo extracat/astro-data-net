@@ -19,7 +19,6 @@ export default function Document() {
                     container 
                     prose dark:prose-invert prose-adn-color
                     text-sm sm:text-base
-                    prose-h1:text-center
                     prose-h1:text-2xl sm:prose-h1:text-3xl
                     prose-h1:font-black
                     prose-h1:leading-snug 

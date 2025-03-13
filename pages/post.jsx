@@ -35,7 +35,7 @@ export default function TelegramFormPage() {
   return (
     <>
       <Header />
-      <h1>Post new telegram</h1>
+      <h1 className="mt-16 sm:mt-32">New telegram</h1>
       <BaseForm
         api={api}
         endpoint="/v1/telegrams"
