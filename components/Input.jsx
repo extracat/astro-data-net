@@ -20,7 +20,7 @@ const Input = ({ name, type = 'text', placeholder = '', value: propValue, onChan
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
-      className={`input ${className}`}
+      className={`rounded-lg flex-1 appearance-none w-full py-2 px-4 border border-adn-color-border-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light ${className}`}
     />
   );
 };

@@ -19,12 +19,21 @@ export default function Document() {
                     container 
                     prose dark:prose-invert prose-adn-color
                     text-sm sm:text-base
+
                     prose-h1:text-2xl sm:prose-h1:text-3xl
+                    prose-h2:text-xl sm:prose-h2:text-2xl
+                    prose-h3:text-lg sm:prose-h3:text-xl
+                    prose-h4:text-base sm:prose-h4:text-lg
+
                     prose-h1:font-black
-                    prose-h1:leading-snug 
-                    prose-h2:text-lg sm:prose-h2:text-xl
-                    prose-h2:leading-relaxed
                     prose-h2:font-extrabold
+                    prose-h3:font-extrabold
+                    prose-h4:font-extrabold
+
+                    prose-h1:leading-snug 
+                    prose-h2:leading-relaxed
+
+
                     prose-table:text-sm sm:prose-table:text-base
                     ">
           <Main />

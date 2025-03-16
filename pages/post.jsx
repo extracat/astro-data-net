@@ -15,7 +15,29 @@ const initialData = {
     {}
   ],
   light_curve: [
-    {}
+    {
+      coordinates: {
+        right_ascension: null,
+        declination: null,
+        error: null
+      },
+      datetime: null,
+      magnitude: null,
+      upper_limit: null,
+      exptime: null,
+      instrument: {
+        _id: null,
+        name: "",
+        observation_mode: "",
+        observatory: {
+          _id: null,
+          name: "",
+          org: "",
+          country: ""
+        }
+      },
+      filter: ""
+    }
   ],
   upper_limits: [
     {}

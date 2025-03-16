@@ -6,6 +6,8 @@ import FormItem from "./FormItem";
 import Alert from "./Alert";
 import ArrayContainer from "./ArrayContainer";
 import Button from "./Button";
+import Collapse from "./Collapse";
+import LightCurveSubform from './LightCurveSubform';
 
 export default function TelegramForm({ 
   formData, 
@@ -15,6 +17,9 @@ export default function TelegramForm({
   generalErrors,
   getFieldErrors 
 }) {
+
+  console.log(formData);
+
   return (
     <form onSubmit={handleSubmit}>
 
@@ -42,7 +47,7 @@ export default function TelegramForm({
 
 
       <FormItem  
-        label="Telegram post text"
+        label="Telegram text"
         id="body"
         error={getFieldErrors('body')} >
 
@@ -57,7 +62,7 @@ export default function TelegramForm({
 
 
       <FormItem 
-        label="Band"
+        label="Wavelength band"
         id="band"
         error={getFieldErrors('band')} >
 
@@ -77,6 +82,64 @@ export default function TelegramForm({
         />
       </FormItem>
 
+      <div>
+        <h3>Light Curve</h3>
+        <ArrayContainer
+          name="light_curve"
+          value={formData.light_curve}
+          onChange={handleChange}
+          defaultItem={{
+            coordinates: {
+              right_ascension: null,
+              declination: null,
+              error: null
+            },
+            datetime: null,
+            magnitude: null,
+            upper_limit: null,
+            exptime: null,
+            instrument: {
+              _id: null,
+              name: "",
+              observation_mode: "",
+              observatory: {
+                _id: null,
+                name: "",
+                org: "",
+                country: ""
+              }
+            },
+            filter: ""
+          }}
+          draggable={true}
+          addButtonText="Add reference"
+          renderItem={(item, index, onChange) => (
+            <Collapse 
+              header={
+                <div className="">
+                  {item.datetime || item.magnitude ? (
+                    <div className="flex justify-between gap-4">
+                      <span>{item.datetime}</span>
+                      <span>{item.magnitude || 'N/A'}</span>
+                    </div>
+                  ) : (
+                    <span className="text-adn-color-text-placeholder">New observation</span>
+                  )}
+                </div>
+              }
+              defaultOpen={true}
+            >
+              <LightCurveSubform 
+                item={item}
+                index={index}
+                onChange={onChange}
+              />
+            </Collapse>
+          )}
+        />
+      </div>
+
+
       <FormItem  
         label="Tags"
         id="tags"
@@ -92,7 +155,7 @@ export default function TelegramForm({
 
         <Textarea
           name="authors"
-          placeholder="Use the pattern — John A. Doe, Jane B. Doe (Institution)"
+          placeholder="Use the pattern: John A. Doe, Jane B. Doe (Institution), etc."
           value={formData.authors}
           onChange={handleChange}
           rows={4}

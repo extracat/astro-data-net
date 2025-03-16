@@ -5,9 +5,6 @@ import FormItem from "./FormItem";
 import Alert from "./Alert";
 import DragNDrop from "./DragNDrop";
 import Button from "./Button";
-import { HiPlus, HiArrowRight, HiTrash } from 'react-icons/hi';
-
-
 
 
 // Initial items for the DragNDrop component
