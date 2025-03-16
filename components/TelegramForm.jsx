@@ -5,6 +5,7 @@ import Select from "./Select";
 import FormItem from "./FormItem";
 import Alert from "./Alert";
 import ArrayContainer from "./ArrayContainer";
+import Button from "./Button";
 
 export default function TelegramForm({ 
   formData, 
@@ -109,7 +110,7 @@ export default function TelegramForm({
           onChange={handleChange}
           defaultItem=""
           draggable={true}
-          addButtonText="Add Reference"
+          addButtonText="Add reference"
           renderItem={(reference, index, onChange) => (
             <Input
               name={`reference-${index}`}
@@ -122,10 +123,35 @@ export default function TelegramForm({
       </FormItem>
 
 
-      <button className="btn-primary" type="submit" disabled={isLoading}>
-        {isLoading ? 'Sending...' : 'Publish'}
-      </button>
-      
+      <div className="flex justify-between mt-8">
+        
+        <Button
+          variant="blank"
+          disabled={isLoading}
+          loading={isLoading}
+        >
+          Preview
+        </Button>
+
+        <div className="flex gap-5">
+          <Button
+            disabled={isLoading}
+            loading={isLoading}
+          >
+            Save draft
+          </Button>
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={isLoading}
+            loading={isLoading}
+          >
+            Publish
+          </Button>
+        </div>
+          
+      </div>
+            
     </form>
   );
 }

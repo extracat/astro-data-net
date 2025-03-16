@@ -4,6 +4,10 @@ import Select from "./Select";
 import FormItem from "./FormItem";
 import Alert from "./Alert";
 import DragNDrop from "./DragNDrop";
+import Button from "./Button";
+import { HiPlus, HiArrowRight, HiTrash } from 'react-icons/hi';
+
+
 
 
 // Initial items for the DragNDrop component
@@ -65,11 +69,34 @@ export default function MockObjectForm ({ formData, handleChange, handleSubmit, 
       </FormItem>
 
 
+      <div className="flex justify-between mt-8">
+    
+        <Button
+          variant="blank"
+          disabled={isLoading}
+          loading={isLoading}
+        >
+          Preview
+        </Button>
 
-      <button className="btn-primary"
-        type="submit" disabled={isLoading}>
-        {isLoading ? 'Sending...' : 'Save'}
-      </button>
+        <div className="flex gap-5">
+          <Button
+            disabled={isLoading}
+            loading={isLoading}
+          >
+            Save draft
+          </Button>
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={isLoading}
+            loading={isLoading}
+          >
+            Save
+          </Button>
+        </div>
+          
+      </div>
 
     </form>
   );

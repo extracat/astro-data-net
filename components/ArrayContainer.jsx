@@ -1,5 +1,6 @@
 import React from 'react';
-import { HiPlus, HiTrash } from 'react-icons/hi';
+import { LuPlus, LuX } from 'react-icons/lu';
+import Button from "./Button";
 
 const ArrayContainer = ({ 
   name,
@@ -45,29 +46,25 @@ const ArrayContainer = ({
   return (
     <div className={`space-y-4 ${className}`}>
       {value.map((item, index) => (
-        <div key={index} className="flex gap-4 items-start">
+        <div key={index} className="flex gap-2 items-start">
           <div className="flex-1">
             {renderItem(item, index, handleItemChange)}
           </div>
-          <button
-            type="button"
+          <Button
             onClick={() => handleRemove(index)}
-            className="p-2 text-red-500 hover:text-red-700 rounded-lg hover:bg-red-50"
-            aria-label="Remove item"
-          >
-            <HiTrash className="w-5 h-5" />
-          </button>
+            variant="blank"
+            icon={<LuX />}
+          ></Button>
         </div>
       ))}
       
-      <button
-        type="button"
+      <Button
+        variant="blank"
         onClick={handleAdd}
-        className="btn flex items-center gap-2"
+        icon={<LuPlus />}
       >
-        <HiPlus className="w-5 h-5" />
         {addButtonText}
-      </button>
+      </Button>
     </div>
   );
 };
