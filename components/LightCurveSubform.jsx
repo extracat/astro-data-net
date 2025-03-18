@@ -1,61 +1,35 @@
 import React from 'react';
 import Input from './Input';
+import FormItem from './FormItem';
 
 const LightCurveSubform = ({ item, index, onChange }) => {
   return (
-    <div className="space-y-4">
-      {/* Coordinates */}
-      <div className="grid grid-cols-3 gap-4">
-        <Input
-          name={`coordinates.right_ascension`}
-          placeholder="Right Ascension"
-          value={item.coordinates?.right_ascension || ''}
-          onChange={(e) => onChange(index, {
-            ...item,
-            coordinates: {
-              ...item.coordinates,
-              right_ascension: e.target.value
-            }
-          })}
-        />
-        <Input
-          name={`coordinates.declination`}
-          placeholder="Declination"
-          value={item.coordinates?.declination || ''}
-          onChange={(e) => onChange(index, {
-            ...item,
-            coordinates: {
-              ...item.coordinates,
-              declination: e.target.value
-            }
-          })}
-        />
-        <Input
-          name={`coordinates.error`}
-          placeholder="Error"
-          value={item.coordinates?.error || ''}
-          onChange={(e) => onChange(index, {
-            ...item,
-            coordinates: {
-              ...item.coordinates,
-              error: e.target.value
-            }
-          })}
-        />
-      </div>
-
-      {/* Observation details */}
-      <div className="grid grid-cols-3 gap-4">
+    <div className="flex gap-4 flex-wrap space-y-4">
+      {/* Date & time */}
+      <FormItem 
+        label="Date & time"
+        id="datetime"
+        error={null}
+      >
         <Input
           name={`datetime`}
           type="datetime-local"
-          placeholder="Date and Time"
+          placeholder="Date & time"
           value={item.datetime || ''}
           onChange={(e) => onChange(index, {
             ...item,
             datetime: e.target.value
           })}
         />
+      </FormItem>
+
+      <div className="font-semibold">Photometry</div>
+      
+      <FormItem 
+        label="Magnitude"
+        id="magnitude"
+        error={null}
+      >
         <Input
           name={`magnitude`}
           type="number"
@@ -66,20 +40,64 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             magnitude: e.target.value
           })}
         />
+      </FormItem>
+
+      <FormItem 
+        label="Upper limit"
+        id="upper_limit"
+        error={null}
+      >
         <Input
           name={`upper_limit`}
           type="number"
-          placeholder="Upper Limit"
+          placeholder="Upper limit"
           value={item.upper_limit || ''}
           onChange={(e) => onChange(index, {
             ...item,
             upper_limit: e.target.value
           })}
         />
-      </div>
+      </FormItem>
+
+      <FormItem 
+        label="Exposure time"
+        id="exptime"
+        error={null}
+      >
+        <Input
+          name={`exptime`}
+          type="number"
+          placeholder="Exposure time"
+          value={item.exptime || ''}
+          onChange={(e) => onChange(index, {
+            ...item,
+            exptime: e.target.value
+          })}
+        />
+      </FormItem>
+
+      <FormItem 
+        label="Filter"
+        id="filter"
+        error={null}
+      >
+        <Input
+          name={`filter`}
+          placeholder="Filter"
+          value={item.filter || ''}
+          onChange={(e) => onChange(index, {
+            ...item,
+            filter: e.target.value
+          })}
+        />
+      </FormItem>
 
       {/* Instrument details */}
-      <div className="grid grid-cols-3 gap-4">
+      <FormItem 
+        label="Instrument Name"
+        id="instrument.name"
+        error={null}
+      >
         <Input
           name={`instrument.name`}
           placeholder="Instrument Name"
@@ -92,6 +110,14 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             }
           })}
         />
+      </FormItem>
+
+      {/*  
+      <FormItem 
+        label="Observation Mode"
+        id="instrument.observation_mode"
+        error={null}
+      >
         <Input
           name={`instrument.observation_mode`}
           placeholder="Observation Mode"
@@ -104,19 +130,14 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             }
           })}
         />
-        <Input
-          name={`filter`}
-          placeholder="Filter"
-          value={item.filter || ''}
-          onChange={(e) => onChange(index, {
-            ...item,
-            filter: e.target.value
-          })}
-        />
-      </div>
+      </FormItem>
 
-      {/* Observatory details */}
-      <div className="grid grid-cols-3 gap-4">
+            
+      <FormItem 
+        label="Observatory Name"
+        id="instrument.observatory.name"
+        error={null}
+      >
         <Input
           name={`instrument.observatory.name`}
           placeholder="Observatory Name"
@@ -132,6 +153,13 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             }
           })}
         />
+      </FormItem>
+
+      <FormItem 
+        label="Organization"
+        id="instrument.observatory.org"
+        error={null}
+      >
         <Input
           name={`instrument.observatory.org`}
           placeholder="Organization"
@@ -147,6 +175,13 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             }
           })}
         />
+      </FormItem>
+
+      <FormItem 
+        label="Country"
+        id="instrument.observatory.country"
+        error={null}
+      >
         <Input
           name={`instrument.observatory.country`}
           placeholder="Country"
@@ -162,7 +197,71 @@ const LightCurveSubform = ({ item, index, onChange }) => {
             }
           })}
         />
-      </div>
+      </FormItem>
+
+      */}
+
+
+
+      <div className="font-semibold">Coordinates</div>
+
+      {/* Coordinates */}
+      <FormItem 
+        label="RA"
+        id="coordinates.right_ascension"
+        error={null}
+      >
+        <Input
+          name={`coordinates.right_ascension`}
+          placeholder="RA"
+          value={item.coordinates?.right_ascension || ''}
+          onChange={(e) => onChange(index, {
+            ...item,
+            coordinates: {
+              ...item.coordinates,
+              right_ascension: e.target.value
+            }
+          })}
+        />
+      </FormItem>
+
+      <FormItem 
+        label="Dec."
+        id="coordinates.declination"
+        error={null}
+      >
+        <Input
+          name={`coordinates.declination`}
+          placeholder="Dec."
+          value={item.coordinates?.declination || ''}
+          onChange={(e) => onChange(index, {
+            ...item,
+            coordinates: {
+              ...item.coordinates,
+              declination: e.target.value
+            }
+          })}
+        />
+      </FormItem>
+
+      <FormItem 
+        label="Error box"
+        id="coordinates.error"
+        error={null}
+      >
+        <Input
+          name={`coordinates.error`}
+          placeholder="Error box"
+          value={item.coordinates?.error || ''}
+          onChange={(e) => onChange(index, {
+            ...item,
+            coordinates: {
+              ...item.coordinates,
+              error: e.target.value
+            }
+          })}
+        />
+      </FormItem>
     </div>
   );
 };

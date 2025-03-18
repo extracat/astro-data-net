@@ -8,6 +8,7 @@ import ArrayContainer from "./ArrayContainer";
 import Button from "./Button";
 import Collapse from "./Collapse";
 import LightCurveSubform from './LightCurveSubform';
+import Date from './Date';
 
 export default function TelegramForm({ 
   formData, 
@@ -118,9 +119,9 @@ export default function TelegramForm({
               header={
                 <div className="">
                   {item.datetime || item.magnitude ? (
-                    <div className="flex justify-between gap-4">
-                      <span>{item.datetime}</span>
-                      <span>{item.magnitude || 'N/A'}</span>
+                    <div className="flex justify-between gap-4 font-semibold">
+                      <span><Date value={item.datetime} t0={formData.light_curve[0].datetime}  format={`${index == 0 ? 'DT' : 'T'}`} /></span>
+                      <span>{item.magnitude ? (<>{item.magnitude}<sup>m</sup></>) : 'N/A'}</span>
                     </div>
                   ) : (
                     <span className="text-adn-color-text-placeholder">New observation</span>

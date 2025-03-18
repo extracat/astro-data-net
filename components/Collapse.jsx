@@ -10,10 +10,10 @@ const Collapse = ({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className={`border border-adn-color-border-light rounded-lg ${className}`}>
+    <div className={`border-2 border-adn-color-border-lighter rounded-2xl ${className}`}>
       {/* Header section - always visible */}
       <div 
-        className="flex items-center justify-between p-4 cursor-pointer"
+        className="flex gap-4 items-center justify-between px-6 py-4 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         {/* Header slot */}
@@ -35,7 +35,7 @@ const Collapse = ({
           isOpen ? 'opacity-100' : 'opacity-0 h-0'
         }`}
       >
-        <div className="p-4 border-t border-adn-color-border-light">
+        <div className="p-6 pt-2">
           {children}
         </div>
       </div>
