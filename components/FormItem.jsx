@@ -9,7 +9,7 @@ const FormItem = ({
   const errorMessages = Array.isArray(error) ? error : [error];
 
   return (
-    <div className="w-full mb-4 form-control">
+    <div className="mb-4 form-control">
       {label && (
         <label className="label" htmlFor={props.id}>
           {label}
