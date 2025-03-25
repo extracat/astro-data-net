@@ -113,7 +113,7 @@ export default function TelegramForm({
             filter: ""
           }}
           draggable={true}
-          addButtonText="Add reference"
+          addButtonText="Add observation"
           renderItem={(item, index, onChange) => (
             <Collapse 
               header={
@@ -134,6 +134,7 @@ export default function TelegramForm({
                 item={item}
                 index={index}
                 onChange={onChange}
+                getFieldErrors={getFieldErrors}
               />
             </Collapse>
           )}

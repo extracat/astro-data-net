@@ -1,5 +1,26 @@
 import { mutate } from 'swr';
 
+const isFieldInData = (path, data) => {
+  // Handle array notation like 'light_curve[0].coordinates.right_ascension'
+  const parts = path.split(/\.|\[|\]/).filter(Boolean);
+  let current = data;
+
+  for (const part of parts) {
+    if (!current) return false;
+    if (Array.isArray(current)) {
+      const index = parseInt(part);
+      if (isNaN(index) || !current[index]) return false;
+      current = current[index];
+    } else if (typeof current === 'object') {
+      if (!(part in current)) return false;
+      current = current[part];
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+
 export const handleGenericSubmit = async ({
   api,
   endpoint,
@@ -40,11 +61,12 @@ export const handleGenericSubmit = async ({
       }
 
       if (Array.isArray(errorData.errors)) {
+        
         const fieldErrors = errorData.errors.filter(err => 
-          err.location === 'body' && Object.keys(data).includes(err.path)
+          err.location === 'body' && isFieldInData(err.path, data)
         );
         const generalErrorMessages = errorData.errors.filter(err => 
-          err.location === 'body' && !Object.keys(data).includes(err.path)
+          err.location === 'body' && !isFieldInData(err.path, data)
         );
         
         setFormErrors(fieldErrors);

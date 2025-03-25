@@ -2,15 +2,19 @@ import React from 'react';
 import Input from './Input';
 import FormItem from './FormItem';
 
-const LightCurveSubform = ({ item, index, onChange }) => {
+const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
+  const getError = (fieldPath) => {
+    return getFieldErrors(`light_curve[${index}].${fieldPath}`);
+  };
+
   return (
     <>
       {/* Date & time */}
       <FormItem 
         className="w-64 sm:w-72"
         label="Date & time"
-        id="datetime"
-        error={null}
+        id={`light_curve[${index}].datetime`}
+        error={getError('datetime')}
       >
         <Input
           name={`datetime`}
@@ -30,8 +34,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Magnitude"
-          id="magnitude"
-          error={null}
+          id={`light_curve[${index}].magnitude`}
+          error={getError('magnitude')}
         >
           <Input
             name={`magnitude`}
@@ -47,8 +51,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Upper limit"
-          id="upper_limit"
-          error={null}
+          id={`light_curve[${index}].upper_limit`}
+          error={getError('upper_limit')}
         >
           <Input
             name={`upper_limit`}
@@ -64,8 +68,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Exposure time"
-          id="exptime"
-          error={null}
+          id={`light_curve[${index}].exptime`}
+          error={getError('exptime')}
         >
           <Input
             name={`exptime`}
@@ -85,8 +89,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Filter"
-          id="filter"
-          error={null}
+          id={`light_curve[${index}].filter`}
+          error={getError('filter')}
         >
           <Input
             name={`filter`}
@@ -100,11 +104,10 @@ const LightCurveSubform = ({ item, index, onChange }) => {
         </FormItem>
 
 
-        {/* Instrument details */}
         <FormItem 
           label="Instrument Name"
-          id="instrument.name"
-          error={null}
+          id={`light_curve[${index}].instrument.name`}
+          error={getError('instrument.name')}
         >
           <Input
             name={`instrument.name`}
@@ -120,105 +123,17 @@ const LightCurveSubform = ({ item, index, onChange }) => {
           />
         </FormItem>
 
-          
-{/*     <FormItem 
-          label="Observation Mode"
-          id="instrument.observation_mode"
-          error={null}
-        >
-          <Input
-            name={`instrument.observation_mode`}
-            placeholder="Observation Mode"
-            value={item.instrument?.observation_mode || ''}
-            onChange={(e) => onChange(index, {
-              ...item,
-              instrument: {
-                ...item.instrument,
-                observation_mode: e.target.value
-              }
-            })}
-          />
-        </FormItem>
-
-              
-        <FormItem 
-          label="Observatory Name"
-          id="instrument.observatory.name"
-          error={null}
-        >
-          <Input
-            name={`instrument.observatory.name`}
-            placeholder="Observatory Name"
-            value={item.instrument?.observatory?.name || ''}
-            onChange={(e) => onChange(index, {
-              ...item,
-              instrument: {
-                ...item.instrument,
-                observatory: {
-                  ...item.instrument?.observatory,
-                  name: e.target.value
-                }
-              }
-            })}
-          />
-        </FormItem>
-
-        <FormItem 
-          label="Organization"
-          id="instrument.observatory.org"
-          error={null}
-        >
-          <Input
-            name={`instrument.observatory.org`}
-            placeholder="Organization"
-            value={item.instrument?.observatory?.org || ''}
-            onChange={(e) => onChange(index, {
-              ...item,
-              instrument: {
-                ...item.instrument,
-                observatory: {
-                  ...item.instrument?.observatory,
-                  org: e.target.value
-                }
-              }
-            })}
-          />
-        </FormItem>
-
-        <FormItem 
-          label="Country"
-          id="instrument.observatory.country"
-          error={null}
-        >
-          <Input
-            name={`instrument.observatory.country`}
-            placeholder="Country"
-            value={item.instrument?.observatory?.country || ''}
-            onChange={(e) => onChange(index, {
-              ...item,
-              instrument: {
-                ...item.instrument,
-                observatory: {
-                  ...item.instrument?.observatory,
-                  country: e.target.value
-                }
-              }
-            })}
-          />
-        </FormItem>         
-*/}
-
       </div>
       
 
       <div className="font-semibold">Coordinates</div>
 
       <div className="sm:grid sm:grid-cols-3 gap-8">
-        {/* Coordinates */}
+
         <FormItem 
           label="RA"
-          id="coordinates.right_ascension"
-          error={null}
+          id={`light_curve[${index}].coordinates.right_ascension`}
+          error={getError('coordinates.right_ascension')}
         >
           <Input
             name={`coordinates.right_ascension`}
@@ -236,8 +151,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Dec."
-          id="coordinates.declination"
-          error={null}
+          id={`light_curve[${index}].coordinates.declination`}
+          error={getError('coordinates.declination')}
         >
           <Input
             name={`coordinates.declination`}
@@ -255,8 +170,8 @@ const LightCurveSubform = ({ item, index, onChange }) => {
 
         <FormItem 
           label="Error box"
-          id="coordinates.error"
-          error={null}
+          id={`light_curve[${index}].coordinates.error`}
+          error={getError('coordinates.error')}
         >
           <Input
             name={`coordinates.error`}
