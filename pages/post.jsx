@@ -11,9 +11,6 @@ const initialData = {
   body: "",
   band: "",
   authors: "",
-  authors_list: [
-    {}
-  ],
   light_curve: [
     {
       coordinates: {

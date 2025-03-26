@@ -53,6 +53,12 @@ export default  function Telegram({ data }) {
         </div>
       )}
 
+      {data.authors && (
+        <div className="text-xs sm:text-sm">
+          {data.authors}
+        </div>
+      )}
+
 
 
 
