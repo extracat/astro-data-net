@@ -114,33 +114,57 @@ export default function TelegramForm({
           }}
           draggable={true}
           addButtonText="Add observation"
-          renderItem={(item, index, onChange) => (
-            <Collapse 
-              header={
-                <div className="">
-                  {item.datetime || item.magnitude ? (
-                    <div className="flex justify-between gap-4 font-semibold">
-                      <span><Date value={item.datetime} t0={formData.light_curve[0].datetime}  format={`${index == 0 ? 'DT' : 'T'}`} /></span>
-                      <span>{item.magnitude ? (<>{item.magnitude}<sup>m</sup></>) : 'N/A'}</span>
-                    </div>
-                  ) : (
-                    <span className="text-adn-color-text-placeholder">New observation</span>
-                  )}
-                </div>
+          renderItem={(item, index, onChange) => {
+            const fieldsToCheck = [
+              'datetime',
+              'magnitude',
+              'upper_limit',
+              'exptime',
+              'filter',
+              'coordinates.right_ascension',
+              'coordinates.declination',
+              'coordinates.error',
+              'instrument.name'
+            ];
+
+            const hasAnyErrors = fieldsToCheck.some(field => {
+
+                const errArr = getFieldErrors(`light_curve[${index}].${field}`);
+                return Array.isArray(errArr) ? errArr.length > 0 : Boolean(errArr)
               }
-              defaultOpen={true}
-            >
-              <LightCurveSubform 
-                item={item}
-                index={index}
-                onChange={onChange}
-                getFieldErrors={getFieldErrors}
-              />
-            </Collapse>
-          )}
+              
+            );
+
+            console.log("hasAnyErrors: ", hasAnyErrors);
+
+            return (
+              <Collapse 
+                header={
+                  <div className="">
+                    {item.datetime || item.magnitude ? (
+                      <div className="flex justify-between gap-4 font-semibold">
+                        <span><Date value={item.datetime} t0={formData.light_curve[0].datetime}  format={`${index == 0 ? 'DT' : 'T'}`} /></span>
+                        <span>{item.magnitude ? (<>{item.magnitude}<sup>m</sup></>) : 'N/A'}</span>
+                      </div>
+                    ) : (
+                      <span className="text-adn-color-text-placeholder">New observation</span>
+                    )}
+                  </div>
+                }
+                hasError={hasAnyErrors}
+                defaultOpen={true}
+              >
+                <LightCurveSubform 
+                  item={item}
+                  index={index}
+                  onChange={onChange}
+                  getFieldErrors={getFieldErrors}
+                />
+              </Collapse>
+            );
+          }}
         />
       </div>
-
 
       <FormItem  
         label="Tags"

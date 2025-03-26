@@ -1,11 +1,21 @@
 import React from 'react';
 import Input from './Input';
+import Select from './Select';
 import FormItem from './FormItem';
 
 const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
   const getError = (fieldPath) => {
     return getFieldErrors(`light_curve[${index}].${fieldPath}`);
   };
+
+  const filterOptions = [
+    { value: 'I', label: 'I' },
+    { value: 'R', label: 'R' },
+    { value: 'V', label: 'V' },
+    { value: 'B', label: 'B' },
+    { value: 'W', label: 'W' },
+    { value: 'C', label: 'C' },
+  ];
 
   return (
     <>
@@ -92,9 +102,10 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
           id={`light_curve[${index}].filter`}
           error={getError('filter')}
         >
-          <Input
+          <Select
             name={`filter`}
-            placeholder="Filter"
+            placeholder="Select filter"
+            options={filterOptions}
             value={item.filter || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -102,7 +113,6 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
             })}
           />
         </FormItem>
-
 
         <FormItem 
           label="Instrument Name"

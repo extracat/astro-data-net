@@ -5,23 +5,25 @@ const Collapse = ({
   header,
   children,
   defaultOpen = false,
+  hasError = false,
   className = ''
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  
+  // Convert hasError to boolean and treat empty arrays as false
+  const hasErrorValue = Array.isArray(hasError) ? hasError.length > 0 : Boolean(hasError);
 
   return (
-    <div className={`border-2 border-adn-color-border-lighter rounded-2xl ${className}`}>
-      {/* Header section - always visible */}
+    <div className={`border rounded-lg ${hasErrorValue ? 'border-red-500' : 'border-adn-color-border-light'} ${className}`}>
+      {/* Header section */}
       <div 
-        className="flex gap-4 items-center justify-between px-6 py-4 cursor-pointer"
+        className="flex items-center justify-between p-4 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {/* Header slot */}
         <div className="flex-1">
           {header}
         </div>
         
-        {/* Chevron icon */}
         <LuChevronDown 
           className={`w-5 h-5 text-adn-color-text-default transition-transform duration-200 ${
             isOpen ? 'transform rotate-180' : ''
@@ -29,13 +31,15 @@ const Collapse = ({
         />
       </div>
 
-      {/* Content section - collapsible */}
+      {/* Content section */}
       <div 
-        className={`overflow-hidden transition-all duration-200 ${
-          isOpen ? 'opacity-100' : 'opacity-0 h-0'
+        className={`transition-all duration-200 ${
+          isOpen 
+            ? 'opacity-100 pointer-events-auto' 
+            : 'opacity-0 h-0 pointer-events-none overflow-hidden'
         }`}
       >
-        <div className="p-6 pt-2">
+        <div className="p-4 border-t border-adn-color-border-light overflow-visible">
           {children}
         </div>
       </div>
