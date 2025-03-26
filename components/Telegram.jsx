@@ -53,7 +53,7 @@ export default  function Telegram({ data }) {
         </div>
       )}
 
-      {data.authors && (
+      {data.authors && (Array.isArray(data.authors) ? '' : data.authors) && (
         <div className="text-xs sm:text-sm">
           {data.authors}
         </div>
