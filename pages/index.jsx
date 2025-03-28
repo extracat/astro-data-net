@@ -19,9 +19,9 @@ export default function Index({ telegrams }) {
   return (
     <>
       <Header />
-      <h1 className="text-center text-xl! sm:text-2xl! my-2">Astro Data Network</h1>
+      <h2 className="text-center my-2">Astro Data Network</h2>
 
-      <div className="text-4xl sm:text-5xl md:text-6xl font-black leading-none p-0 mt-7 mb-12 sm:mb-24 md:mb-32 text-center">Automate and share space observations</div>
+      <div className="text-4xl sm:text-5xl md:text-6xl font-black leading-[3.2rem] sm:leading-[4rem] md:leading-[5rem] p-0 mt-7 mb-12 sm:mb-24 md:mb-32 text-center">Automate and share space observations</div>
 
       <center><Link className="btn-primary" href="/post">Post new telegram</Link></center>
       <h2>Telegrams List</h2>

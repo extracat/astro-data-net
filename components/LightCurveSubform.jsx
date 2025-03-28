@@ -50,7 +50,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
           <Input
             name={`magnitude`}
             type="number"
-            placeholder="Magnitude"
+            placeholder=""
             value={item.magnitude || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -67,7 +67,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
           <Input
             name={`upper_limit`}
             type="number"
-            placeholder="Upper limit"
+            placeholder=""
             value={item.upper_limit || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -84,7 +84,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
           <Input
             name={`exptime`}
             type="number"
-            placeholder="Exposure time"
+            placeholder=""
             value={item.exptime || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -104,7 +104,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
         >
           <Select
             name={`filter`}
-            placeholder="Select filter"
+            placeholder="Select from the list"
             options={filterOptions}
             value={item.filter || ''}
             onChange={(e) => onChange(index, {
@@ -115,13 +115,13 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
         </FormItem>
 
         <FormItem 
-          label="Instrument Name"
+          label="Instrument name"
           id={`light_curve[${index}].instrument.name`}
           error={getError('instrument.name')}
         >
           <Input
             name={`instrument.name`}
-            placeholder="Instrument Name"
+            placeholder=""
             value={item.instrument?.name || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -147,7 +147,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
         >
           <Input
             name={`coordinates.right_ascension`}
-            placeholder="RA"
+            placeholder=""
             value={item.coordinates?.right_ascension || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -166,7 +166,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
         >
           <Input
             name={`coordinates.declination`}
-            placeholder="Dec."
+            placeholder=""
             value={item.coordinates?.declination || ''}
             onChange={(e) => onChange(index, {
               ...item,
@@ -185,7 +185,7 @@ const LightCurveSubform = ({ item, index, onChange, getFieldErrors }) => {
         >
           <Input
             name={`coordinates.error`}
-            placeholder="Error box"
+            placeholder=""
             value={item.coordinates?.error || ''}
             onChange={(e) => onChange(index, {
               ...item,

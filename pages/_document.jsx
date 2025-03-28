@@ -18,23 +18,25 @@ export default function Document() {
         <article className="
                     container 
                     prose dark:prose-invert prose-adn-color
-                    text-sm sm:text-base
+                    text-body-1
 
-                    prose-h1:text-2xl sm:prose-h1:text-3xl
-                    prose-h2:text-xl sm:prose-h2:text-2xl
-                    prose-h3:text-lg sm:prose-h3:text-xl
-                    prose-h4:text-base sm:prose-h4:text-lg
+                    prose-h1:text-h1
+                    prose-h2:text-h2
+                    prose-h3:text-h3
+                    prose-h4:text-h4
 
                     prose-h1:font-black
                     prose-h2:font-extrabold
                     prose-h3:font-extrabold
                     prose-h4:font-extrabold
 
-                    prose-h1:leading-snug 
-                    prose-h2:leading-relaxed
+                    sm:prose-h1:leading-snug prose-h1:leading-tight 
+                    prose-h2:leading-snug 
+                    prose-h3:leading-snug 
 
+                    prose-table:text-table
+                    prose-code:text-code
 
-                    prose-table:text-sm sm:prose-table:text-base
                     ">
           <Main />
         </article>

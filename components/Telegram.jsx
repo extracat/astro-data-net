@@ -11,9 +11,9 @@ export default  function Telegram({ data }) {
   return (
     <div>
 
-      <center className="text-xs sm:text-sm sm:mt-20 mb-10 sm:mb-14 md:px-16">
+      <center className="text-body-2 sm:mt-20 mb-10 sm:mb-14 md:px-16">
 
-        {data.timestamp && <span><Date value={data.timestamp} format="DT"/><span className="text-red-400 text-lg px-1 align-middle uppercase">•</span> </span>}  
+        {data.timestamp && <span><Date value={data.timestamp} format="DT"/><span className="text-red-400 text-body-1 pl-2 pr-1 pb-1.5 align-middle uppercase">•</span> </span>}  
         {data.adn_id && <span>{data.adn_id}</span>}
 
         {data.title && <h1 className="mb-6 mt-4">{data.title}</h1>}
@@ -31,7 +31,7 @@ export default  function Telegram({ data }) {
 
       
       {data.authors_list && data.authors_list.length > 0 && (
-        <div className="text-xs sm:text-sm">
+        <div className="text-body-2">
           {(() => {
             const groupedByOrg = data.authors_list.reduce((acc, author) => {
               // Groupping by org
@@ -54,7 +54,7 @@ export default  function Telegram({ data }) {
       )}
 
       {data.authors && (Array.isArray(data.authors) ? '' : data.authors) && (
-        <div className="text-xs sm:text-sm">
+        <div className="text-body-2">
           {data.authors}
         </div>
       )}
@@ -63,7 +63,7 @@ export default  function Telegram({ data }) {
 
 
 
-      <h2>Light Curve</h2>
+      <h3>Light curve</h3>
       <div className="flex gap-8">
         {data.event_datetime && 
           <DataBlock label="T0">

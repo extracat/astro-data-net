@@ -77,14 +77,14 @@ export default function TelegramForm({
             { value: 'ir', label: 'IR' },
             { value: 'radio', label: 'Radio' },
           ]}
-          placeholder="Select the band"
+          placeholder="Select from the list"
           value={formData.band}
           onChange={handleChange}
         />
       </FormItem>
 
       <div>
-        <h3>Light Curve</h3>
+        <h3>Light curve</h3>
         <ArrayContainer
           name="light_curve"
           value={formData.light_curve}

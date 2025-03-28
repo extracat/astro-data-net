@@ -42,6 +42,7 @@
   html {
     font-weight: 450;
   }
+
   a {
     @apply no-underline hover:no-underline text-adn-color-link-default; 
   }
@@ -77,6 +78,35 @@
 
 }
 
+@layer utilities {
+  .text-body-1 {
+    @apply text-base sm:text-lg; 
+  }
+  .text-body-2 {
+    @apply text-sm sm:text-base; 
+  }
+  .text-code {
+    @apply text-sm sm:text-base; 
+  }
+  .text-table {
+    @apply text-base sm:text-lg; 
+  }
+  .text-h1 {
+    @apply text-3xl sm:text-4xl; 
+  }
+  .text-h2 {
+    @apply text-xl sm:text-2xl; 
+  }
+  .text-h3 {
+    @apply text-lg sm:text-xl; 
+  }
+  .text-h4 {
+    @apply text-base sm:text-lg; 
+  }
+
+}
+
+
 @layer components {
 
   .form-control {
@@ -84,7 +114,7 @@
   }
 
   .label {
-    @apply select-none block sm:text-sm text-xs mb-2 text-adn-color-text-label;
+    @apply select-none block text-body-2 mb-2 text-adn-color-text-label;
   }
 
   .form-control .input, 
@@ -118,3 +148,4 @@
 
 
 }
+
