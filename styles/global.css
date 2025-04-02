@@ -117,17 +117,6 @@
     @apply select-none block text-body-2 mb-2 text-adn-color-text-label;
   }
 
-  .form-control .input, 
-  .form-control .select,
-  .form-control .textarea {
-    @apply rounded-lg flex-1 appearance-none w-full py-2 px-4 border border-adn-color-border-light bg-adn-color-control-bg focus:bg-adn-color-control-bg-active text-adn-color-text-default placeholder-adn-color-text-placeholder focus:outline-none focus:ring-1 focus:ring-adn-color-primary-light focus:border-adn-color-primary-light;
-  }
-
-  .form-control .checkbox {
-    @apply rounded-lg border-transparent flex-1 border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent;
-  }
-
-  .btn,
   .btn-primary {
     @apply px-6 h-12 w-fit text-nowrap flex items-center justify-center rounded-full text-center font-semibold text-adn-color-text-default
     text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
@@ -136,16 +125,9 @@
     cursor-pointer no-underline;
   }
   
-  .btn:disabled,
   .btn-primary:disabled,
-  .btn:disabled:hover,
   .btn-primary:disabled:hover {
     @apply bg-adn-color-primary-lighter border-opacity-0 bg-opacity-20 shadow-none cursor-default;
   }
 
-  
-
-
-
 }
-

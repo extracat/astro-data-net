@@ -6,9 +6,9 @@ export default function Footer() {
     <div>
       <div>
         <hr />
-        <Link href="/privacy-policy">Privacy Policy</Link>
+        <Link href="/privacy-policy">Privacy policy</Link>
          | 
-        <Link href="/mock-objects">Mock Objects</Link>
+        <Link href="/mock-objects">Mock objects</Link>
       </div>
       <CookieConsent />
     </div>

@@ -56,7 +56,7 @@ export default function SignupFormPage() {
     <div>
       <Header />
 
-      <h1>Sign Up</h1>
+      <h1>Sign up</h1>
       <Link href="/signin">Sign in</Link>
       
       <BaseForm

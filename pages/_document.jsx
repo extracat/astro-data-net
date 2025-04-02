@@ -30,10 +30,6 @@ export default function Document() {
                     prose-h3:font-extrabold
                     prose-h4:font-extrabold
 
-                    sm:prose-h1:leading-snug prose-h1:leading-tight 
-                    prose-h2:leading-snug 
-                    prose-h3:leading-snug 
-
                     prose-table:text-table
                     prose-code:text-code
 

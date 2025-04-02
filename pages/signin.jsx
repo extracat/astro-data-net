@@ -29,7 +29,7 @@ export default function SigninFormPage() {
   return (
     <div>
       <Header />
-      <h1>Sign In</h1>
+      <h1>Sign in</h1>
       <Link href="/signup">Sign up</Link>
 
       <BaseForm
