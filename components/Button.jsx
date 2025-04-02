@@ -16,7 +16,7 @@ const Button = ({
   const isIconOnly = (icon || rightIcon) && !children && !loading;
   const hasIconAndText = (icon || rightIcon) && children && !loading;
 
-  const baseStyles = 'inline-flex items-center justify-center text-sm text-center font-semibold cursor-pointer no-underline disabled:bg-adn-color-primary-lighter disabled:border-opacity-0 disabled:bg-opacity-20 disabled:shadow-none disabled:cursor-default';
+  const baseStyles = 'inline-flex items-center justify-center text-base text-center font-semibold cursor-pointer no-underline disabled:bg-adn-color-primary-lighter disabled:border-opacity-0 disabled:bg-opacity-20 disabled:shadow-none disabled:cursor-default';
   
   const variants = {
     primary: 'bg-adn-color-primary text-white hover:bg-adn-color-primary-light active:bg-adn-color-primary-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-adn-color-primary-light focus:ring-offset-adn-color-fill-bg',
@@ -27,13 +27,13 @@ const Button = ({
   const sizes = {
     sm: `${isIconOnly ? 'w-10 h-10' : hasIconAndText ? 
       (iconPosition === 'left' ? 'pl-4 pr-5' : 'pl-5 pr-4') : 
-      'px-3'} py-1.5 text-sm rounded-full gap-1.5 min-h-10`,
+      'px-3'} py-1.5 !text-base rounded-full gap-1.5 min-h-10`,
     md: `${isIconOnly ? 'w-12 h-12' : hasIconAndText ? 
       (iconPosition === 'left' ? 'pl-5 pr-6' : 'pl-6 pr-5') : 
-      'px-6'} py-2 text-base rounded-full gap-2 min-h-12`,
+      'px-6'} py-2 !text-base rounded-full gap-2 min-h-12`,
     lg: `${isIconOnly ? 'w-16 h-16' : hasIconAndText ? 
       (iconPosition === 'left' ? 'pl-6 pr-8' : 'pl-8 pr-6') : 
-      'px-6'} py-3 text-lg rounded-full gap-2.5 min-h-16`
+      'px-6'} py-3 !text-lg rounded-full gap-2.5 min-h-16`
   };
 
   const iconSizes = {

@@ -23,7 +23,7 @@ const FormItem = ({
       {errorMessages.length > 0 && (
         <div className="mt-1 ml-4">
           {errorMessages.map((msg, index) => (
-            msg ? <div key={index} className="text-sm text-adn-color-error-dark">{msg}</div> : null
+            msg ? <div key={index} className="text-body-2 text-adn-color-error-dark">{msg}</div> : null
           ))}
         </div>
       )}

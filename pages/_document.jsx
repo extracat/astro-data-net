@@ -18,18 +18,13 @@ export default function Document() {
         <article className="
                     container 
                     prose dark:prose-invert prose-adn-color
-                    text-body-1
-
+                    prose-lg sm:prose-xl
+                     
+                    prose-p:text-body-1
                     prose-h1:text-h1
                     prose-h2:text-h2
                     prose-h3:text-h3
                     prose-h4:text-h4
-
-                    prose-h1:font-black
-                    prose-h2:font-extrabold
-                    prose-h3:font-extrabold
-                    prose-h4:font-extrabold
-
                     prose-table:text-table
                     prose-code:text-code
 

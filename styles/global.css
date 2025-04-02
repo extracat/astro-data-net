@@ -80,28 +80,28 @@
 
 @layer utilities {
   .text-body-1 {
-    @apply text-base sm:text-lg; 
+    @apply text-lg sm:text-xl leading-7 sm:leading-8; 
   }
   .text-body-2 {
-    @apply text-sm sm:text-base; 
+    @apply text-base sm:text-lg leading-6 sm:leading-7; 
   }
   .text-code {
-    @apply text-sm sm:text-base; 
+    @apply text-base sm:text-lg leading-7 sm:leading-8; 
   }
   .text-table {
-    @apply text-base sm:text-lg; 
-  }
-  .text-h1 {
-    @apply text-3xl sm:text-4xl; 
-  }
-  .text-h2 {
-    @apply text-xl sm:text-2xl; 
-  }
-  .text-h3 {
     @apply text-lg sm:text-xl; 
   }
+  .text-h1 {
+    @apply text-4xl sm:text-5xl font-black leading-[1.2] sm:leading-[1.2]; 
+  }
+  .text-h2 {
+    @apply text-2xl sm:text-3xl font-extrabold leading-8 sm:leading-9; 
+  }
+  .text-h3 {
+    @apply text-xl sm:text-2xl font-extrabold leading-7 sm:leading-8; 
+  }
   .text-h4 {
-    @apply text-base sm:text-lg; 
+    @apply text-lg sm:text-xl font-extrabold leading-7 sm:leading-8; 
   }
 
 }
@@ -118,7 +118,7 @@
   }
 
   .btn-primary {
-    @apply px-6 h-12 w-fit text-nowrap flex items-center justify-center rounded-full text-center font-semibold text-adn-color-text-default
+    @apply text-base px-6 h-12 w-fit text-nowrap flex items-center justify-center rounded-full text-center font-semibold text-adn-color-text-default
     text-indigo-50 bg-adn-color-primary hover:bg-adn-color-primary-light 
     focus:outline-none focus:ring-2 focus:ring-offset-2
     focus:ring-adn-color-primary-light focus:ring-offset-adn-color-fill-bg 

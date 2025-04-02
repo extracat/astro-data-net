@@ -56,7 +56,7 @@ export default function LightCurve(props) {
           </tr>
           <tr>
             <th className="text-body-2 font-semibold text-left w-11">inst.</th>
-            {props.lightCurve.map((item, index) => <td key={index} className="font-medium text-right text-xs w-28 bg-adn-color-fill-bg-dark rounded-b-lg px-3 py-1 pb-2">
+            {props.lightCurve.map((item, index) => <td key={index} className="font-medium text-right text-body-2 w-28 bg-adn-color-fill-bg-dark rounded-b-lg px-3 py-1 pb-2">
               {item.instrument && item.instrument.name}</td>)}
           </tr>
         </tbody>
