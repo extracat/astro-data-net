@@ -7,7 +7,7 @@ export default function Footer() {
       <div>
         <hr />
         <Link href="/privacy-policy">Privacy policy</Link>
-        {process.env.NODE_ENV === 'development' && (
+        {process.env.NEXT_PUBLIC_DEPLOYMENT === 'development' && (
           <>
             {' | '}
             <Link href="/mock-objects">Mock objects</Link>
